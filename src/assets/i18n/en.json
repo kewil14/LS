@@ -13,7 +13,14 @@
       "ALLERGIES": "allergies",
       "TYPES": "categories",
       "VALUES": "values"
+    },
+    "ANTECEDENTS":{
+      "ANTECEDENTS": "Antecedent",
+      "TYPES": "Types",
+      "VALUES": "values"
     }
+
+
   },
   "FORMS": {
     "FIRSTNAME": "firstname",
@@ -33,10 +40,10 @@
     "BIRTH": "birth date",
     "DESCRIPTION": "description",
     "GROUP_AUTHORITY": "authorites group",
-    "LABEL-FR": "",
-    "LABEL-EN": "",
-    "NAME-FR": "",
-    "NAME-EN": "",
+    "LABEL-FR": "Libellé",
+    "LABEL-EN": "Label",
+    "NAME-FR": "Nom",
+    "NAME-EN": "Name",
     "DESCRIPTION-FR": "",
     "DESCRIPTION-EN": "",
     "HEADER":{

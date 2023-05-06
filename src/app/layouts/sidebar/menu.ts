@@ -64,6 +64,25 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 11,
+        label: 'MENUITEMS.ANTECEDENTS.ANTECEDENTS',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 12,
+                label: 'MENUITEMS.ANTECEDENTS.TYPES',
+                link: '/antecedents/types',
+                parentId: 11
+            },
+            {
+                id: 13,
+                label: 'MENUITEMS.ANTECEDENTS.VALUES',
+                link: '/antecedents/values',
+                parentId: 11
+            }
+        ]
+    },
+    {
+        id: 11,
         label: 'MENUITEMS.CHAT.TEXT',
         icon: 'bx-chat',
         link: '/chat',

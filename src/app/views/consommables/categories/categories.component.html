@@ -1,0 +1,58 @@
+
+<div class="row">
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h6 class="card-title mb-0">{{'messages.radios.list-type-radio' | translate | titlecase}}</h6>
+            <!-- <div class="mb-2">
+              <button class="btn btn-xs btn-primary d-none d-md-block" (click)="onCreateCategorie()" type="button">
+                {{'forms.add' | translate | titlecase}}
+              </button>
+              <button
+                ngbTooltip="{{'messages.radios.add-radio'|translate | titlecase}}"
+                (click)="addNewGs(addGs)"
+                class="btn btn-info btn-xs d-md-none ">{{'forms.add' | translate | titlecase}}
+              </button>
+            </div> -->
+          </div>
+          <div class="table-responsive" *ngIf="categories.length > 0" >
+            <table class="table table-hover mb-0 table-100 table-sm">
+              <thead>
+                <tr>
+                  <th>{{'LABELS.ID' | translate | titlecase }}</th>
+                  <th>{{'FORMS.LABEL' | translate | titlecase }}</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr *ngFor="let item of categories" class="table-light">
+                  <td>{{item?.id}}</td>
+                  <td>{{item?.libelle}}</td>
+                  <td class="d-flex">
+                      <a (click)="onEditCategorie(item)" class="btn btn-sm btn-warning">
+                        edit
+                      </a>
+                      <a (click)="delleteCategorie(item?.id)" class="btn btn-sm btn-danger">
+                        delete
+                      </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5 d-none d-md-block">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">{{ (operationCategorie$|async)?.operation == operationEnum.CREATE ? ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase) }}</h6>
+          <health-add-category
+            [loading$]="loadingOperation$"
+            [categorie$]="operationCategorie$"
+            ></health-add-category>
+        </div>
+      </div>
+    </div>
+  </div>

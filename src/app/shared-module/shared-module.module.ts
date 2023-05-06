@@ -22,7 +22,7 @@ import { AddCategoryComponent } from './components/categories/forms/add-category
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent
   ],
   imports: [
     CommonModule,

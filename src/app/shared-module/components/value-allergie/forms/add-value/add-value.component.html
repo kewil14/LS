@@ -1,5 +1,20 @@
-<!-- <form (ngSubvalueAllergievalueAllergiemit)="createValueAllergie()" [formGroup]="valueAllergieForm">
-    <div class="mb-3 row">
+<form (ngSubmit)="createvalueAllergie()" [formGroup]="valueAllergieForm">
+  <div class="mb-3 row">
+    <label for="idType">{{'forms.intrantValue' | translate | titlecase }}</label>
+    <ng-select
+      #idType
+      placeholder="{{'messages.intrantValue.select' | translate | titlecase }}"
+      formControlName="idType"
+      [ngClass]="{'is-invalid': isIntrantValueSubmitted && intrantValue['idType'].errors}"
+      >
+      <ng-option *ngFor="let typeIntrant of typeIntrants$|async" [value]="typeIntrant.id">{{lang == appEnums.PREFIX_FR ? typeIntrant.libelleFr : typeIntrant.libelleEn }}</ng-option>
+    </ng-select>
+    <div *ngIf="isIntrantValueSubmitted && intrantValue['idType']?.errors" class="invalid-feedback">
+      <div *ngIf="intrantValue['idType']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+      <div *ngIf="intrantValue['idType']?.errors!['min']"> {{'MESSAGES.ERRORS.MIN' | translate | titlecase }} </div>
+    </div>
+  </div>  
+  <div class="mb-3 row">
       <label for="libelleEn">{{'FORMS.LABEL' | translate | titlecase }}</label>
       <input type="text" class="form-control" id="libelleEn" formControlName="libelleEn"
       [ngClass]="{'is-invalid': isvalueAllergieSubmitted && valueAllergie['libelle'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
@@ -8,6 +23,8 @@
         <div *ngIf="valueAllergie['libelleEn'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
         <div *ngIf="valueAllergie['libelleEn'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
       </div>
+    </div>
+    <div class="mb-3 row">
       <label for="libelleFr">{{'FORMS.LABEL' | translate | titlecase }}</label>
       <input type="text" class="form-control" id="libelleFr" formControlName="libelleFr"
       [ngClass]="{'is-invalid': isvalueAllergieSubmitted && valueAllergie['libelle'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
@@ -26,4 +43,4 @@
       </button>
     </div>
   </form>
-   -->
+  

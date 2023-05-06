@@ -26,6 +26,8 @@ import { typeLaboratoiresReducer } from './ngrx/type-laboratoire/type-laboratoir
 import { laboratoireValuesReducer } from './ngrx/laboratoire-value/laboratoire-value.reducer';
 import { typeTraitmentsReducer } from './ngrx/type-traitment/type-traitment.reducer';
 import { traitmentValuesReducer } from './ngrx/traitment-value/traitment-value.reducer';
+import { TypeAllergieState } from './ngrx/type-allergie/type-allergie.state';
+import { AllergieValueState } from './ngrx/allergie-value/allergie-value.state';
 
 export interface AppState {
     authentificationState: AuthentificationState,
@@ -67,11 +69,6 @@ export const reducers: ActionReducerMap<AppState> = {
     categorieState:categoriesReducer,
     familleState:famillesReducer,
     dciState: DcisReducer,
-<<<<<<< HEAD
-    typeAllergieState: typeAllergiesReducer,
-    allergieValueState: allergieValuesReducer
-
-=======
     typeIntrantState: typeIntrantsReducer,
     intrantValueState: intrantValuesReducer,
     typeRadioState: typeRadiosReducer,
@@ -80,5 +77,4 @@ export const reducers: ActionReducerMap<AppState> = {
     laboratoireValueState: laboratoireValuesReducer,
     typeTraitmentState: typeTraitmentsReducer,
     traitmentValueState: traitmentValuesReducer
->>>>>>> 5c6d004cc19fd8971385696288827c52bf19a32b
 }

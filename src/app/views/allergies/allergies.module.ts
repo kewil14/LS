@@ -5,6 +5,8 @@ import { AllergiesRoutingModule } from './allergies-routing.module';
 import { AllergiesComponent } from './allergies.component';
 import { AllergieValueComponent } from './allergie-value/allergie-value.component';
 import { TypeAllergieComponent } from './type-allergie/type-allergie.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { TypeAllergieComponent } from './type-allergie/type-allergie.component';
   ],
   imports: [
     CommonModule,
-    AllergiesRoutingModule
+    AllergiesRoutingModule,
+    TranslateModule,
+    SharedModuleModule
   ]
 })
 export class AllergiesModule { }

@@ -16,17 +16,20 @@ import { AddFormeComponent } from './components/formes/forms/add-forme/add-forme
 import { AddCategoryComponent } from './components/categories/forms/add-category/add-category.component';
 import { AddFamilleComponent } from './components/familles/forms/add-famille/add-famille/add-famille.component';
 import { AddDciComponent } from './components/dci/forms/add-dci/add-dci.component';
+import { AddAntecedentValueComponent } from './components/antecedents-values/forms/add-antecedent-value/add-antecedent-value.component';
+import { AddTypeAntecedentComponent } from './components/types-antecedents/forms/add-type-antecedent/add-type-antecedent.component';
 
 
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent
+    AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent
     
   ],
   exports: [
     LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddFamilleComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
+    AddAntecedentValueComponent, AddTypeAntecedentComponent
     
   ],
   imports: [

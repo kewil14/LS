@@ -15,6 +15,8 @@ import {reducers} from './core.state';
 import { CategoriesEffects } from './ngrx/categorie/categorie.effects';
 import { FamillesEffects } from './ngrx/famille/famille.effects';
 import { DcisEffects } from './ngrx/dci/dci.effects';
+import { TypeAntecedentsEffects } from './ngrx/type-antecedent/type-antecedent.effects';
+import { AntecedentValuesEffects } from './ngrx/antecedent-value/antecedent-value.effects';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -37,7 +39,9 @@ export function createTranslateLoader(http: HttpClient): any {
       FormesEffects,
       CategoriesEffects,
       FamillesEffects,
-      DcisEffects
+      DcisEffects,
+      TypeAntecedentsEffects,
+      AntecedentValuesEffects
     ]),
     StoreDevtoolsModule.instrument(),
   ],

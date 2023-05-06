@@ -3,10 +3,11 @@
     "DASHBOARD": "dashboard",
     "CONSOMMABLES": {
       "CONSOMMABLES": "Consommables",
-      "MEDICAMENTS": "Fedicaments",
+      "MEDICAMENTS": "medicaments",
       "FORMES": "Formes",
       "FAMILLES": "Familles",
-      "DCI": "Dci"
+      "DCI": "Dci",
+      "CATEGORIES": "categories"
     }
   },
   "FORMS": {

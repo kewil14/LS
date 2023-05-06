@@ -13,11 +13,12 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { StatComponent } from './widget/stat/stat.component';
 import { AddFormeComponent } from './components/formes/forms/add-forme/add-forme.component';
+import { AddCategoryComponent } from './components/categories/forms/add-category/add-category.component';
 
 
 @NgModule({
   declarations: [
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent
     
   ],
   exports: [

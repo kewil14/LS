@@ -82,119 +82,78 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
-        id: 11,
-        label: 'MENUITEMS.CHAT.TEXT',
-        icon: 'bx-chat',
-        link: '/chat',
-        
-    },
-    {
         id: 12,
-        label: 'MENUITEMS.FILEMANAGER.TEXT',
-        icon: 'bx-file',
-        link: '/filemanager',
-    },
-    {
-        id: 13,
-        label: 'MENUITEMS.ECOMMERCE.TEXT',
-        icon: 'bx-store',
+        label: 'MENUITEMS.INTRANTS.INTRANTS',
+        icon: 'bx-home-circle',
         subItems: [
             {
+                id: 13,
+                label: 'MENUITEMS.INTRANTS.TYPES',
+                link: '/intrants/types',
+                parentId: 12
+            },
+            {
                 id: 14,
-                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTS',
-                link: '/ecommerce/products',
-                parentId: 13
-            },
-            {
-                id: 15,
-                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTDETAIL',
-                link: '/ecommerce/product-detail/1',
-                parentId: 13
-            },
-            {
-                id: 16,
-                label: 'MENUITEMS.ECOMMERCE.LIST.ORDERS',
-                link: '/ecommerce/orders',
-                parentId: 13
-            },
-            {
-                id: 17,
-                label: 'MENUITEMS.ECOMMERCE.LIST.CUSTOMERS',
-                link: '/ecommerce/customers',
-                parentId: 13
-            },
-            {
-                id: 18,
-                label: 'MENUITEMS.ECOMMERCE.LIST.CART',
-                link: '/ecommerce/cart',
-                parentId: 13
-            },
-            {
-                id: 19,
-                label: 'MENUITEMS.ECOMMERCE.LIST.CHECKOUT',
-                link: '/ecommerce/checkout',
-                parentId: 13
-            },
-            {
-                id: 20,
-                label: 'MENUITEMS.ECOMMERCE.LIST.SHOPS',
-                link: '/ecommerce/shops',
-                parentId: 13
-            },
-            {
-                id: 21,
-                label: 'MENUITEMS.ECOMMERCE.LIST.ADDPRODUCT',
-                link: '/ecommerce/add-product',
-                parentId: 13
-            },
+                label: 'MENUITEMS.INTRANTS.VALUES',
+                link: '/intrants/values',
+                parentId: 12
+            }
         ]
     },
     {
-        id: 22,
-        label: 'MENUITEMS.CRYPTO.TEXT',
-        icon: 'bx-bitcoin',
+        id: 15,
+        label: 'MENUITEMS.LABORATOIRES.LABORATOIRES',
+        icon: 'bx-home-circle',
         subItems: [
             {
+                id: 16,
+                label: 'MENUITEMS.LABORATOIRES.TYPES',
+                link: '/laboratoires/types',
+                parentId: 15
+            },
+            {
+                id: 17,
+                label: 'MENUITEMS.LABORATOIRES.VALUES',
+                link: '/laboratoires/values',
+                parentId: 15
+            }
+        ]
+    },
+    {
+        id: 18,
+        label: 'MENUITEMS.RADIOS.RADIOS',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 19,
+                label: 'MENUITEMS.RADIOS.TYPES',
+                link: '/radios/types',
+                parentId: 18
+            },
+            {
+                id: 20,
+                label: 'MENUITEMS.RADIOS.VALUES',
+                link: '/radios/values',
+                parentId: 18
+            }
+        ]
+    },
+    {
+        id: 21,
+        label: 'MENUITEMS.TRAITMENTS.TRAITMENTS',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 22,
+                label: 'MENUITEMS.TRAITMENTS.TYPES',
+                link: '/traitments/types',
+                parentId: 21
+            },
+            {
                 id: 23,
-                label: 'MENUITEMS.CRYPTO.LIST.WALLET',
-                link: '/crypto/wallet',
-                parentId: 22
-            },
-            {
-                id: 24,
-                label: 'MENUITEMS.CRYPTO.LIST.BUY/SELL',
-                link: '/crypto/buy-sell',
-                parentId: 22
-            },
-            {
-                id: 25,
-                label: 'MENUITEMS.CRYPTO.LIST.EXCHANGE',
-                link: '/crypto/exchange',
-                parentId: 22
-            },
-            {
-                id: 26,
-                label: 'MENUITEMS.CRYPTO.LIST.LENDING',
-                link: '/crypto/lending',
-                parentId: 22
-            },
-            {
-                id: 27,
-                label: 'MENUITEMS.CRYPTO.LIST.ORDERS',
-                link: '/crypto/orders',
-                parentId: 22
-            },
-            {
-                id: 28,
-                label: 'MENUITEMS.CRYPTO.LIST.KYCAPPLICATION',
-                link: '/crypto/kyc-application',
-                parentId: 22
-            },
-            {
-                id: 29,
-                label: 'MENUITEMS.CRYPTO.LIST.ICOLANDING',
-                link: '/crypto-ico-landing',
-                parentId: 22
+                label: 'MENUITEMS.TRAITMENTS.VALUES',
+                link: '/traitments/values',
+                parentId: 21
             }
         ]
     },

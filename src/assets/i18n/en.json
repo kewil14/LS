@@ -18,9 +18,27 @@
       "ANTECEDENTS": "Antecedent",
       "TYPES": "Types",
       "VALUES": "values"
+    },
+    "INTRANTS":{
+      "INTRANTS": "intrants",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "LABORATOIRES":{
+      "LABORATOIRES": "laboratoires",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "RADIOS":{
+      "RADIOS": "radios",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "TRAITMENTS":{
+      "TRAITMENTS": "traitments",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
     }
-
-
   },
   "FORMS": {
     "FIRSTNAME": "firstname",
@@ -46,6 +64,7 @@
     "NAME-EN": "Name",
     "DESCRIPTION-FR": "",
     "DESCRIPTION-EN": "",
+    "CODE": "code",
     "HEADER":{
       "EDIT": "Edition Form"
     }

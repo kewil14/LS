@@ -5,6 +5,9 @@ import { MedicamentsComponent } from './medicaments/medicaments.component';
 import { FormesComponent } from './formes/formes.component';
 import { LoadFormesGuard } from 'src/app/core/shared/guards/load-formes.guard';
 import { FamillesComponent } from './familles/familles.component';
+import { LoadCategoriesGuard } from 'src/app/core/shared/guards/load-categories.guard';
+import { CategoriesComponent } from './categories/categories.component';
+import { LoadFamillesGuard } from 'src/app/core/shared/guards/load-familles.guards';
 
 const routes: Routes = [
   {
@@ -12,8 +15,9 @@ const routes: Routes = [
     component: ConsommablesComponent,
     children: [
       { path: 'medicaments', component: MedicamentsComponent },
-      { path: 'familles', component: FamillesComponent },
+      { path: 'familles', component: FamillesComponent, canActivate: [LoadFamillesGuard] },
       { path: 'formes', component: FormesComponent, canActivate: [ LoadFormesGuard ] },
+      { path: 'categories', component: CategoriesComponent, canActivate: [ LoadCategoriesGuard ] },
       { path: '**', redirectTo: 'medicaments', pathMatch: 'full' }
     ]
   }

@@ -1,0 +1,21 @@
+<form (ngSubmit)="createCategorie()" [formGroup]="categorieForm">
+    <div class="mb-3 row">
+      <label for="libelle">{{'FORMS.LABEL' | translate | titlecase }}</label>
+      <input type="text" class="form-control" id="libelle" formControlName="libelle"
+      [ngClass]="{'is-invalid': isCategorieSubmitted && categorie['libelle'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
+      <div *ngIf="isCategorieSubmitted && categorie['libelle'].errors" class="invalid-feedback">
+        <div *ngIf="categorie['libelle'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="categorie['libelle'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+        <div *ngIf="categorie['libelle'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+    </div>
+    </div>
+  
+    <div class="d-flex justify-content-end mt-2">
+      <button class="btn btn-xs btn-icon-text " [ngClass]="operation == operationEnum.CREATE ? 'btn-outline-success': 'btn-outline-warning'" type="submit" [disabled]="loading$|async">
+        <span *ngIf="loading$|async"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{ operation == operationEnum.CREATE ?  ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase)}}
+        <i data-feather="save" appFeatherIcon></i>
+      </button>
+    </div>
+  </form>
+  

@@ -1,0 +1,29 @@
+<form (ngSubmit)="createTypeAllergie()" [formGroup]="typeAllergieForm">
+    <div class="mb-3 row">
+      <label for="libelleEn">{{'FORMS.LABEL' | translate | titlecase }}</label>
+      <input type="text" class="form-control" id="libelleEn" formControlName="libelleEn"
+      [ngClass]="{'is-invalid': istypeAllergieSubmitted && typeAllergie['libelleEn'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
+      <div *ngIf="istypeAllergieSubmitted && typeAllergie['libelleEn'].errors" class="invalid-feedback">
+        <div *ngIf="typeAllergie['libelleEn'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="typeAllergie['libelleEn'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+        <div *ngIf="typeAllergie['libelleEn'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+      </div>
+      <label for="libelleFr">{{'FORMS.LABEL' | translate | titlecase }}</label>
+      <input type="text" class="form-control" id="libelleFr" formControlName="libelleFr"
+      [ngClass]="{'is-invalid': istypeAllergieSubmitted && typeAllergie['libelleFr'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
+      <div *ngIf="istypeAllergieSubmitted && typeAllergie['libelleFr'].errors" class="invalid-feedback">
+        <div *ngIf="typeAllergie['libelleFr'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="typeAllergie['libelleFr'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+        <div *ngIf="typeAllergie['libelleFr'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+      </div>
+    </div>
+  
+    <div class="d-flex justify-content-end mt-2">
+      <button class="btn btn-xs btn-icon-text " [ngClass]="operation == operationEnum.CREATE ? 'btn-outline-success': 'btn-outline-warning'" type="submit" [disabled]="loading$|async">
+        <span *ngIf="loading$|async"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{ operation == operationEnum.CREATE ?  ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase)}}
+        <i data-feather="save" appFeatherIcon></i>
+      </button>
+    </div>
+  </form>
+  

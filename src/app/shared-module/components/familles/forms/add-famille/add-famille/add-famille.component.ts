@@ -59,7 +59,7 @@ export class AddFamilleComponent implements OnInit {
       return;
     } else {
       this.loading$.next(true);
-      if(this.operation == 'add') {
+      if(this.operation == OperationEnum.CREATE) {
         this.store.dispatch(createFamille({famille: this.familleForm.value}));
       } else {
         this.store.dispatch(updateFamille({famille: this.familleForm.value}));

@@ -4,7 +4,7 @@ import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { DataStateEnum } from 'src/app/core/config/data.state.enum';
+import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectFamilleState } from 'src/app/core/core.state';
 import { addFamille, deleteFamille, dellFamille, erreurFamilles, setFamille } from 'src/app/core/ngrx/famille/famille.actions';
 import { FamilleState } from 'src/app/core/ngrx/famille/famille.state';
@@ -20,7 +20,7 @@ export class FamillesComponent implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   dtOptions: any = {};
   familles$!: Observable<FamilleState>;
-  operationFamille$ = new BehaviorSubject<{operation: string, famille: Famille}>({operation: 'add', famille: {}});
+  operationFamille$ = new BehaviorSubject<{operation: string, famille: Famille}>({operation: OperationEnum.CREATE, famille: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);
   familles: Array<Famille> = [];
   currentFamille!: Famille;
@@ -75,12 +75,12 @@ export class FamillesComponent implements OnInit, OnDestroy {
 
   onCreateFamille(): void {
     this.loadingOperation$.next(false);
-    this.operationFamille$.next({operation: 'add', famille: {}});
+    this.operationFamille$.next({operation: OperationEnum.CREATE, famille: {}});
   }
 
   onEditFamille(famille: Famille): void {
     this.loadingOperation$.next(false);
-    this.operationFamille$.next({operation: 'edit', famille: famille});
+    this.operationFamille$.next({operation: OperationEnum.UPDATE, famille: famille});
   }
 
   loadFamilles(): void {

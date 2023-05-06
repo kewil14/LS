@@ -6,6 +6,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { LangInterceptor } from './shared/helpers/lang.interceptor';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './shared/helpers/error.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthenticationEffects } from './ngrx/authentification/authentification.effects';
+import { FormesEffects } from './ngrx/forme/forme.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {reducers} from './core.state';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -22,6 +28,12 @@ export function createTranslateLoader(http: HttpClient): any {
         deps: [HttpClient]
       }
     }),
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([
+      AuthenticationEffects,
+      FormesEffects
+    ]),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LangInterceptor, multi: true },

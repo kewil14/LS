@@ -1,9 +1,9 @@
 import {environment} from '../../../environments/environment';
 
-const API_CUSTOMER = 'environment.baseUrlCustomers';
+const API_HEALTH_CORE = environment.BaseUrlHealthHospiCore;
 
 export const API_URLS = {
-  CUSTOMERS_URL: API_CUSTOMER,
+  HEALTH_CORE_URL: API_HEALTH_CORE,
 };
 
 

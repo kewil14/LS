@@ -21,7 +21,7 @@ export class AuthentificationService {
    * @returns Observable<AuthentificationDto>
    */
   login(loginDto: LoginDto): Observable<AuthentificationDto> {
-    return this.http?.post(API_URLS.CUSTOMERS_URL + `/authentification`, loginDto).pipe(share());
+    return this.http?.post(API_URLS.HEALTH_CORE_URL + `/authentification`, loginDto).pipe(share());
   }
   
   /**
@@ -30,7 +30,7 @@ export class AuthentificationService {
    * @returns Observable<ResponseDto<LoginDto>>
    */
   resetPassword(loginDto: LoginDto): Observable<ResponseDto<LoginDto>> {
-    return this.http.post(API_URLS.CUSTOMERS_URL + `/reset-password`, loginDto).pipe(share());
+    return this.http.post(API_URLS.HEALTH_CORE_URL + `/reset-password`, loginDto).pipe(share());
   }
 
   /**
@@ -39,7 +39,7 @@ export class AuthentificationService {
    * @returns Observable<ResponseDto<ResetPasswordDto>>
    */
   confirmUser(passwordDto:ResetPasswordDto):Observable<ResponseDto<User>>{
-    return this.http.post(API_URLS.CUSTOMERS_URL + `/new-password`, passwordDto).pipe(share());
+    return this.http.post(API_URLS.HEALTH_CORE_URL + `/new-password`, passwordDto).pipe(share());
   }
   
   /**
@@ -48,7 +48,7 @@ export class AuthentificationService {
    * @returns Observable<ResponseDto<ResetPasswordDto>>
    */
   activateAccount(passwordDto:ResetPasswordDto):Observable<ResponseDto<User>>{
-    return this.http.post(API_URLS.CUSTOMERS_URL + `/activate-account`, passwordDto).pipe(share());
+    return this.http.post(API_URLS.HEALTH_CORE_URL + `/activate-account`, passwordDto).pipe(share());
   }
 }
 

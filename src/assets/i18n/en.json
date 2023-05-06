@@ -2,9 +2,11 @@
   "MENUITEMS": {
     "DASHBOARD": "dashboard",
     "CONSOMMABLES": {
-      "CONSOMMABLES": "consommables",
-      "MEDICAMENTS": "medicaments",
-      "FORMES": "formes"
+      "CONSOMMABLES": "Consommables",
+      "MEDICAMENTS": "Medications",
+      "FORMES": "Formes",
+      "FAMILLES": "Famillies",
+      "DCI": "Dci"
     }
   },
   "FORMS": {

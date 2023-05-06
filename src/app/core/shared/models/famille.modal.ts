@@ -2,8 +2,6 @@
 export class Famille {
   constructor(
     public id?: number,
-    public name?: string,
-    public code?: string,
-    public description?: string
+    public libelle?: string
   ) { }
 }

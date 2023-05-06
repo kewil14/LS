@@ -18,9 +18,15 @@ export const MENU: MenuItem[] = [
                 parentId: 2
             },
             {
-                id: 3,
+                id: 4,
                 label: 'MENUITEMS.CONSOMMABLES.FORMES',
                 link: '/consomables/formes',
+                parentId: 2
+            },
+            {
+                id: 5,
+                label: 'MENUITEMS.CONSOMMABLES.FAMILLES',
+                link: '/consomables/familles',
                 parentId: 2
             },
         ]

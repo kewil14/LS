@@ -7,13 +7,15 @@ import { MedicamentsComponent } from './medicaments/medicaments.component';
 import { FormesComponent } from './formes/formes.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { FamillesComponent } from './familles/familles.component';
 
 
 @NgModule({
   declarations: [
     ConsommablesComponent,
     MedicamentsComponent,
-    FormesComponent
+    FormesComponent,
+    FamillesComponent
   ],
   imports: [
     CommonModule,

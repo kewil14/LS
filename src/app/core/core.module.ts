@@ -13,6 +13,7 @@ import { FormesEffects } from './ngrx/forme/forme.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {reducers} from './core.state';
 import { CategoriesEffects } from './ngrx/categorie/categorie.effects';
+import { DcisEffects } from './ngrx/dci/dci.effects';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -34,6 +35,7 @@ export function createTranslateLoader(http: HttpClient): any {
       AuthenticationEffects,
       FormesEffects,
       CategoriesEffects,
+      DcisEffects
     ]),
     StoreDevtoolsModule.instrument(),
   ],

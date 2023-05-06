@@ -23,6 +23,12 @@ export const MENU: MenuItem[] = [
                 link: '/consomables/formes',
                 parentId: 2
             },
+            {
+                id: 3,
+                label: 'MENUITEMS.CONSOMMABLES.DCI',
+                link: '/consomables/dci',
+                parentId: 2
+            },
         ]
     },
     {

@@ -18,7 +18,7 @@ export interface AppState {
 export const selectCategorieState = createFeatureSelector<CategorieState>('categorieState');
 export const selectFormeState = createFeatureSelector<FormeState>('formeState');
 export const selectAuthentificationState = createFeatureSelector<AuthentificationState>('authentificationState');
-export const selectDciState = createFeatureSelector<DciState>('formeState');
+export const selectDciState = createFeatureSelector<DciState>('dciState');
 
 export const reducers: ActionReducerMap<AppState> = {
     authentificationState: AuthentificationReducer,

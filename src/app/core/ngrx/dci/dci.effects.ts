@@ -16,12 +16,12 @@ export class DcisEffects {
 
   updateDci = createEffect(() => this.actions$.pipe(
     ofType(updateDci),
-    mergeMap(({Dci}) => this.parseSetDci(this.DciService.updateDci(Dci)))
+    mergeMap(({dci}) => this.parseSetDci(this.DciService.updateDci(dci)))
   ));
 
   addNewDci = createEffect(() => this.actions$.pipe(
     ofType(createDci),
-    mergeMap(({Dci}) => this.parseAddDci(this.DciService.addDci(Dci)))
+    mergeMap(({dci}) => this.parseAddDci(this.DciService.addDci(dci)))
   ));
 
   deleteDci = createEffect(() => this.actions$.pipe(
@@ -50,7 +50,7 @@ export class DcisEffects {
       map(
         (data: ResponseDto<Array<Dci>>) => {
           if(data.status === 'OK'){
-            return loadDci({Dcis: data.body || []})
+            return loadDci({dcis: data.body || []})
           } else {
             return erreurDcis({messages: data.messages || []})
           }
@@ -64,7 +64,7 @@ export class DcisEffects {
       map(
         (data: ResponseDto<Dci>) => {
           if(data.status === 'OK'){
-            return setDci({Dci: data.body || {}})
+            return setDci({dci: data.body || {}})
           } else {
             return erreurDcis({messages: data.messages || []})
           }
@@ -78,7 +78,7 @@ export class DcisEffects {
       map(
         (data: ResponseDto<Dci>) => {
           if(data.status === 'OK'){
-            return addDci({Dci: data.body || {}})
+            return addDci({dci: data.body || {}})
           } else {
             return erreurDcis({messages: data.messages || []})
           }
@@ -92,7 +92,7 @@ export class DcisEffects {
       map(
         (data: ResponseDto<Dci>) => {
           if(data.status === 'OK'){
-            return dellDci({Dci: data.body || {}})
+            return dellDci({dci: data.body || {}})
           } else {
             return erreurDcis({messages: data.messages || []})
           }

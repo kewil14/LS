@@ -17,7 +17,7 @@ export class DciService {
    * @returns
    */
   findAllDci(): Observable<ResponseDto<Array<Dci>>> {
-    return this.http.get(API_URLS.HEALTH_CORE_URL + `/api/Dci`).pipe(share());
+    return this.http.get(API_URLS.HEALTH_CORE_URL + `/api/dci`).pipe(share());
   }
 
   /**
@@ -26,7 +26,7 @@ export class DciService {
    * @returns
    */
   findDciById(idDci: any): Observable<ResponseDto<Dci>> {
-    return this.http.get(API_URLS.HEALTH_CORE_URL + `/api/Dci/${idDci}`).pipe(share());
+    return this.http.get(API_URLS.HEALTH_CORE_URL + `/api/dci/${idDci}`).pipe(share());
   }
   
   /**
@@ -35,7 +35,7 @@ export class DciService {
    * @returns Observable<ResponseDto<Dci>>
    */
   updateDci(entity: any): Observable<ResponseDto<Dci>> {
-    return this.http.put(API_URLS.HEALTH_CORE_URL + `/api/Dci`, entity).pipe(share());
+    return this.http.put(API_URLS.HEALTH_CORE_URL + `/api/dci`, entity).pipe(share());
   }
 
   /**
@@ -44,7 +44,7 @@ export class DciService {
    * @returns
    */
   addDci(entity: any): Observable<ResponseDto<Dci>> {
-    return this.http.post(API_URLS.HEALTH_CORE_URL + `/api/Dci`, entity).pipe(share());
+    return this.http.post(API_URLS.HEALTH_CORE_URL + `/api/dci`, entity).pipe(share());
   }
 
   /**
@@ -53,7 +53,7 @@ export class DciService {
    * @returns
    */
   deleteDci(id: any): Observable<ResponseDto<Dci>> {
-    return this.http.delete(API_URLS.HEALTH_CORE_URL + `/api/Dci/${id}`).pipe(share());
+    return this.http.delete(API_URLS.HEALTH_CORE_URL + `/api/dci/${id}`).pipe(share());
   }
 
 }

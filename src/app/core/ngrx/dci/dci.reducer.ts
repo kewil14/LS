@@ -7,30 +7,30 @@ import { DciState } from './dci.state';
 import { DataStateEnum } from '../../config/data.state.enum';
 
 const initState: DciState = {
-  Dcis: [],
-  Dci: {},
+  dcis: [],
+  dci: {},
   dataState: DataStateEnum.INITIAL,
   messages: []
 }
 
 const reducer = createReducer(initState,
-  on(setDci, (state, {Dci}) => {
-    let Dcis = [...state.Dcis];
-    let list: Array<Dci> = Dcis.filter((item) => item.id != Dci.id);
-    list.push(Dci)
-    return {...state, Dcis: list, Dci: Dci, dataState: DataStateEnum.LOADED, messages: []}
+  on(setDci, (state, {dci}) => {
+    let dcis = [...state.dcis];
+    let list: Array<Dci> = dcis.filter((item) => item.id != dci.id);
+    list.push(dci)
+    return {...state, dcis: list, dci: dci, dataState: DataStateEnum.LOADED, messages: []}
   }),
-  on(dellDci, (state, {Dci}) => {
-    let Dcis = [...state.Dcis];
-    let list: Array<Dci> = Dcis.filter((item) => item.id != Dci.id);
-    return {...state, Dcis: list, Dci: Dci, dataState: DataStateEnum.LOADED, messages: []}
+  on(dellDci, (state, {dci}) => {
+    let dcis = [...state.dcis];
+    let list: Array<Dci> = dcis.filter((item) => item.id != dci.id);
+    return {...state, dcis: list, dci: dci, dataState: DataStateEnum.LOADED, messages: []}
   }),
-  on(addDci, (state, {Dci}) => {
-    let Dcis = [...state.Dcis];
-    Dcis.push(Dci);
-    return {...state, Dcis: Dcis, Dci: Dci, messages: []};
+  on(addDci, (state, {dci}) => {
+    let dcis = [...state.dcis];
+    dcis.push(dci);
+    return {...state, dcis: dcis, dci: dci, messages: []};
   }),
-  on(loadDci, (state, {Dcis}) => ({...state, Dcis: Dcis, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadDci, (state, {dcis}) => ({...state, dcis: dcis, dataState: DataStateEnum.LOADED, messages: []})),
   on(erreurDcis, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllDci, findDciById, updateDci,
     createDci, deleteDci, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

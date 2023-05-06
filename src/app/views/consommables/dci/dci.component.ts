@@ -5,6 +5,9 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum } from 'src/app/core/config/data.state.enum';
+import { selectDciState } from 'src/app/core/core.state';
+import { addDci, deleteDci, dellDci, erreurDcis, setDci } from 'src/app/core/ngrx/dci/dci.actions';
+import { DciState } from 'src/app/core/ngrx/dci/dci.state';
 import { Dci } from 'src/app/core/shared/models/dci.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 
@@ -37,17 +40,16 @@ export class DciComponent  implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dtOptions = this.localStorageService.dbOptions();
-    this.dcis$ = this.store.select(selectdcistate).pipe();
+    this.dcis$ = this.store.select(selectDciState).pipe();
     this.loaddcis();
     this.onCreateDci();
-
     this.onActiondcis();
   }
 
   private onActiondcis(): void {
     this.subscriptions.push(
       this.actionService.pipe(
-        ofType(erreurdcis)
+        ofType(erreurDcis)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
@@ -84,7 +86,7 @@ export class DciComponent  implements OnInit, OnDestroy {
   loaddcis(): void {
     this.dcis = [];
     setTimeout(() => {
-      this.store.select(selectdcistate).pipe().subscribe( (data) => {
+      this.store.select(selectDciState).pipe().subscribe( (data) => {
         this.dcis = data.dcis;
       }
     )

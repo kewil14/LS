@@ -6,6 +6,8 @@ import { FormesComponent } from './formes/formes.component';
 import { LoadFormesGuard } from 'src/app/core/shared/guards/load-formes.guard';
 import { LoadCategoriesGuard } from 'src/app/core/shared/guards/load-categories.guard';
 import { CategoriesComponent } from './categories/categories.component';
+import { DciComponent } from './dci/dci.component';
+import { LoadDciGuard } from 'src/app/core/shared/guards/load-dci.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +17,7 @@ const routes: Routes = [
       { path: 'medicaments', component: MedicamentsComponent },
       { path: 'formes', component: FormesComponent, canActivate: [ LoadFormesGuard ] },
       { path: 'categories', component: CategoriesComponent, canActivate: [ LoadCategoriesGuard ] },
+      { path: 'dci', component: DciComponent, canActivate: [ LoadDciGuard ] },
       { path: '**', redirectTo: 'medicaments', pathMatch: 'full' }
     ]
   }

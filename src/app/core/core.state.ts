@@ -14,6 +14,22 @@ import { AntecedentValueState } from './ngrx/antecedent-value/antecedent-value.s
 import { antecedentValuesReducer } from './ngrx/antecedent-value/antecedent-value.reducer';
 import { TypeAntecedentState } from './ngrx/type-antecedent/type-antecedent.state';
 import { typeAntecedentsReducer } from './ngrx/type-antecedent/type-antecedent.reducer';
+import { TypeIntrantState } from './ngrx/type-intrant/type-intrant.state';
+import { IntrantValueState } from './ngrx/intrant-value/intrant-value.state';
+import { RadioValueState } from './ngrx/radio-value/radio-value.state';
+import { TypeRadioState } from './ngrx/type-radio/type-radio.state';
+import { TypeLaboratoireState } from './ngrx/type-laboratoire/type-laboratoire.state';
+import { LaboratoireValueState } from './ngrx/laboratoire-value/laboratoire-value.state';
+import { TypeTraitmentState } from './ngrx/type-traitment/type-traitment.state';
+import { TraitmentValueState } from './ngrx/traitment-value/traitment-value.state';
+import { typeIntrantsReducer } from './ngrx/type-intrant/type-intrant.reducer';
+import { intrantValuesReducer } from './ngrx/intrant-value/intrant-value.reducer';
+import { typeRadiosReducer } from './ngrx/type-radio/type-radio.reducer';
+import { radioValuesReducer } from './ngrx/radio-value/radio-value.reducer';
+import { typeLaboratoiresReducer } from './ngrx/type-laboratoire/type-laboratoire.reducer';
+import { laboratoireValuesReducer } from './ngrx/laboratoire-value/laboratoire-value.reducer';
+import { typeTraitmentsReducer } from './ngrx/type-traitment/type-traitment.reducer';
+import { traitmentValuesReducer } from './ngrx/traitment-value/traitment-value.reducer';
 
 export interface AppState {
     authentificationState: AuthentificationState,
@@ -23,7 +39,25 @@ export interface AppState {
     dciState: DciState
     antecedentValue: AntecedentValueState,
     typeAntecedent: TypeAntecedentState
+
+    typeIntrantState: TypeIntrantState,
+    intrantValueState: IntrantValueState,
+    typeRadioState: TypeRadioState,
+    radioValueState: RadioValueState,
+    typeLaboratoireState: TypeLaboratoireState,
+    laboratoireValueState: LaboratoireValueState,
+    typeTraitmentState: TypeTraitmentState,
+    traitmentValueState: TraitmentValueState
 }
+
+export const selectTypeIntrantState = createFeatureSelector<TypeIntrantState>('typeIntrantState');
+export const selectIntrantValueState = createFeatureSelector<IntrantValueState>('intrantValueState');
+export const selectTypeRadioState = createFeatureSelector<TypeRadioState>('typeRadioState');
+export const selectRadioValueState = createFeatureSelector<RadioValueState>('radioValueState');
+export const selectTypeLaboratoireState = createFeatureSelector<TypeLaboratoireState>('typeLaboratoireState');
+export const selectLaboratoireValueState = createFeatureSelector<LaboratoireValueState>('laboratoireValueState');
+export const selectTypeTraitmentState = createFeatureSelector<TypeTraitmentState>('typeTraitmentState');
+export const selectTraitmentValueState = createFeatureSelector<TraitmentValueState>('traitmentValueState');
 
 export const selectCategorieState = createFeatureSelector<CategorieState>('categorieState');
 export const selectFormeState = createFeatureSelector<FormeState>('formeState');
@@ -41,5 +75,13 @@ export const reducers: ActionReducerMap<AppState> = {
     familleState:famillesReducer,
     dciState: DcisReducer,
     antecedentValue: antecedentValuesReducer,
-    typeAntecedent: typeAntecedentsReducer
+    typeAntecedent: typeAntecedentsReducer,
+    typeIntrantState: typeIntrantsReducer,
+    intrantValueState: intrantValuesReducer,
+    typeRadioState: typeRadiosReducer,
+    radioValueState: radioValuesReducer,
+    typeLaboratoireState: typeLaboratoiresReducer,
+    laboratoireValueState: laboratoireValuesReducer,
+    typeTraitmentState: typeTraitmentsReducer,
+    traitmentValueState: traitmentValuesReducer
 }

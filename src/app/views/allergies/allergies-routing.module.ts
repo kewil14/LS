@@ -6,7 +6,7 @@ import { AllergieValueComponent } from './allergie-value/allergie-value.componen
 const routes: Routes = [
   { path: 'types', component: TypeAllergieComponent},
   { path: 'values', component: AllergieValueComponent},
-  { path: '**', redirectTo: 'allergie-value', pathMatch: 'full'},
+  { path: '**', redirectTo: 'values', pathMatch: 'full'},
 ];
 
 @NgModule({

@@ -20,13 +20,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "health",
+      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "health",
+      "app",
       "kebab-case"
     ],
     "eofline": true,

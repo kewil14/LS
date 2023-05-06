@@ -23,7 +23,7 @@ import { AddDciComponent } from './components/dci/forms/add-dci/add-dci.componen
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent
   ],
   imports: [
     CommonModule,

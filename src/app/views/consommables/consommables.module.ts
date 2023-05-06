@@ -8,6 +8,7 @@ import { FormesComponent } from './formes/formes.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DciComponent } from './dci/dci.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DciComponent } from './dci/dci.component';
     ConsommablesComponent,
     MedicamentsComponent,
     FormesComponent,
-    DciComponent
+    DciComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

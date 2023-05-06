@@ -15,8 +15,14 @@ import {reducers} from './core.state';
 import { CategoriesEffects } from './ngrx/categorie/categorie.effects';
 import { FamillesEffects } from './ngrx/famille/famille.effects';
 import { DcisEffects } from './ngrx/dci/dci.effects';
-import { TypeAllergiesEffects } from './ngrx/type-allergie/type-allergie.effects';
-import { AllergieValuesEffects } from './ngrx/allergie-value/allergie-value.effects';
+import { TypeIntrantsEffects } from './ngrx/type-intrant/type-intrant.effects';
+import { IntrantValuesEffects } from './ngrx/intrant-value/intrant-value.effects';
+import { TypeRadiosEffects } from './ngrx/type-radio/type-radio.effects';
+import { RadioValuesEffects } from './ngrx/radio-value/radio-value.effects';
+import { TypeLaboratoiresEffects } from './ngrx/type-laboratoire/type-laboratoire.effects';
+import { LaboratoireValuesEffects } from './ngrx/laboratoire-value/laboratoire-value.effects';
+import { TypeTraitmentsEffects } from './ngrx/type-traitment/type-traitment.effects';
+import { TraitmentValuesEffects } from './ngrx/traitment-value/traitment-value.effects';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -40,8 +46,14 @@ export function createTranslateLoader(http: HttpClient): any {
       CategoriesEffects,
       FamillesEffects,
       DcisEffects,
-      TypeAllergiesEffects,
-      AllergieValuesEffects
+      TypeIntrantsEffects,
+      IntrantValuesEffects,
+      TypeRadiosEffects,
+      RadioValuesEffects,
+      TypeLaboratoiresEffects,
+      LaboratoireValuesEffects,
+      TypeTraitmentsEffects,
+      TraitmentValuesEffects
     ]),
     StoreDevtoolsModule.instrument(),
   ],

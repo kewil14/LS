@@ -13,6 +13,31 @@
       "ALLERGIES": "allergies",
       "TYPES": "categories",
       "VALUES": "values"
+    },
+    "ANTECEDENTS":{
+      "ANTECEDENTS": "Antecedent",
+      "TYPES": "Types",
+      "VALUES": "values"
+    },
+    "INTRANTS":{
+      "INTRANTS": "intrants",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "LABORATOIRES":{
+      "LABORATOIRES": "laboratoires",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "RADIOS":{
+      "RADIOS": "radios",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
+    },
+    "TRAITMENTS":{
+      "TRAITMENTS": "traitments",
+      "TYPES": "Types",
+      "VALUES": "Valeurs"
     }
   },
   "FORMS": {
@@ -33,12 +58,13 @@
     "BIRTH": "birth date",
     "DESCRIPTION": "description",
     "GROUP_AUTHORITY": "authorites group",
-    "LABEL-FR": "",
-    "LABEL-EN": "",
-    "NAME-FR": "",
-    "NAME-EN": "",
+    "LABEL-FR": "Libellé",
+    "LABEL-EN": "Label",
+    "NAME-FR": "Nom",
+    "NAME-EN": "Name",
     "DESCRIPTION-FR": "",
     "DESCRIPTION-EN": "",
+    "CODE": "code",
     "HEADER":{
       "EDIT": "Edition Form"
     }

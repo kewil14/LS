@@ -7,7 +7,7 @@ import { LoadAllergieTypeGuard } from 'src/app/core/shared/guards/load-allergie-
 const routes: Routes = [
   { path: 'types', component: TypeAllergieComponent, canActivate: [LoadAllergieTypeGuard] },
   { path: 'values', component: AllergieValueComponent},
-  { path: '**', redirectTo: 'allergie-value', pathMatch: 'full'},
+  { path: '**', redirectTo: 'values', pathMatch: 'full'},
 ];
 
 @NgModule({

@@ -16,19 +16,19 @@ import { AddFormeComponent } from './components/formes/forms/add-forme/add-forme
 import { AddCategoryComponent } from './components/categories/forms/add-category/add-category.component';
 import { AddFamilleComponent } from './components/familles/forms/add-famille/add-famille/add-famille.component';
 import { AddDciComponent } from './components/dci/forms/add-dci/add-dci.component';
-import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-type.component';
-import { AddValueComponent } from './components/value-allergie/forms/add-value/add-value.component';
+import { AddTypeIntrantComponent } from './components/intrants/forms/add-type-intrant/add-type-intrant.component';
+import { AddIntrantValueComponent } from './components/intrants/forms/add-intrant-value/add-intrant-value.component';
 
 
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeComponent, AddValueComponent
+    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddFamilleComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, AddTypeComponent, AddValueComponent
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddFamilleComponent, AddIntrantValueComponent,
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, AddTypeIntrantComponent
     
   ],
   imports: [

@@ -13,61 +13,63 @@ import { AllergieValue } from 'src/app/core/shared/models/allergie-value.modal';
 })
 export class AddValueComponent implements OnInit {
 
-//   @Input() valueAllergie$!: BehaviorSubject<{operation: string, valueAllergie: AllergieValue}>;
-//   @Input() loading$!: BehaviorSubject<boolean>;
-//   valueAllergieForm!: FormGroup;
-//   isvalueAllergieSubmitted: boolean = false;
-//   operation: string = OperationEnum.CREATE;
-//   operationEnum: typeof OperationEnum = OperationEnum;
+  @Input() valueAllergie$!: BehaviorSubject<{operation: string, valueAllergie: AllergieValue}>;
+  @Input() loading$!: BehaviorSubject<boolean>;
+  valueAllergieForm!: FormGroup;
+  isvalueAllergieSubmitted: boolean = false;
+  operation: string = OperationEnum.CREATE;
+  operationEnum: typeof OperationEnum = OperationEnum;
 
-//   constructor(
-//     private store: Store,
-//     private formBuilder: FormBuilder,
-//   ) { }
+  constructor(
+    private store: Store,
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
-    // this.initCreatevalueAllergie();
-    // this.valueAllergie$.subscribe(data => {
-    //   this.isvalueAllergieSubmitted = false;
-    //   this.operation = data.operation;
-    //   if(data.operation == OperationEnum.CREATE) {
-    //     this.initCreatevalueAllergie();
-    //   } else {
-    //     this.initEditvalueAllergie(data.valueAllergie);
-    //   }
-    // });
+    this.initCreatevalueAllergie();
+    this.valueAllergie$.subscribe(data => {
+      this.isvalueAllergieSubmitted = false;
+      this.operation = data.operation;
+      if(data.operation == OperationEnum.CREATE) {
+        this.initCreatevalueAllergie();
+      } else {
+        this.initEditvalueAllergie(data.valueAllergie);
+      }
+    });
   }
 
-//   get valueAllergie(){ return this.valueAllergieForm.controls; }
+  get valueAllergie(){ return this.valueAllergieForm.controls; }
 
-//   initCreatevalueAllergie(): void {
-//     this.valueAllergieForm = this.formBuilder.group({
-//       libelleEn: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
-//       libelleFr: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])]
-//     })
-//   }
+  initCreatevalueAllergie(): void {
+    this.valueAllergieForm = this.formBuilder.group({
+      libelleEn: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+      libelleFr: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+      type: [null],
+    })
+  }
 
-//   initEditvalueAllergie(valueAllergie: AllergieValue): void {
-//     this.valueAllergieForm = this.formBuilder.group({
-//       id: valueAllergie.id,
-//       libelleEn: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
-//       libelleFr: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])]
+  initEditvalueAllergie(valueAllergie: AllergieValue): void {
+    this.valueAllergieForm = this.formBuilder.group({
+      id: valueAllergie.id,
+      libelleEn: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+      libelleFr: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+      type: [valueAllergie.type]
+        
+    })
+  }
 
-//     })
-//   }
-
-//   createvalueAllergie(): void {
-//     this.isvalueAllergieSubmitted = true;
-//     if(this.valueAllergieForm.invalid)  {
-//       return;
-//     } else {
-//       this.loading$.next(true);
-//       if(this.operation == OperationEnum.CREATE) {
-//         this.store.dispatch(createAllergieValue({allergieValue: this.valueAllergieForm.value}));
-//       } else {
-//         this.store.dispatch(updateAllergieValue({allergieValue: this.valueAllergieForm.value}));
-//       }
-//     }
-//   }
+  createvalueAllergie(): void {
+    this.isvalueAllergieSubmitted = true;
+    if(this.valueAllergieForm.invalid)  {
+      return;
+    } else {
+      this.loading$.next(true);
+      if(this.operation == OperationEnum.CREATE) {
+        this.store.dispatch(createAllergieValue({allergieValue: this.valueAllergieForm.value}));
+      } else {
+        this.store.dispatch(updateAllergieValue({allergieValue: this.valueAllergieForm.value}));
+      }
+    }
+  }
 }
 

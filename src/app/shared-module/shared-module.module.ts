@@ -16,6 +16,8 @@ import { AddFormeComponent } from './components/formes/forms/add-forme/add-forme
 import { AddCategoryComponent } from './components/categories/forms/add-category/add-category.component';
 import { AddFamilleComponent } from './components/familles/forms/add-famille/add-famille/add-famille.component';
 import { AddDciComponent } from './components/dci/forms/add-dci/add-dci.component';
+import { AddAntecedentValueComponent } from './components/antecedents-values/forms/add-antecedent-value/add-antecedent-value.component';
+import { AddTypeAntecedentComponent } from './components/types-antecedents/forms/add-type-antecedent/add-type-antecedent.component';
 import { AddTypeIntrantComponent } from './components/intrants/forms/add-type-intrant/add-type-intrant.component';
 import { AddIntrantValueComponent } from './components/intrants/forms/add-intrant-value/add-intrant-value.component';
 
@@ -23,12 +25,15 @@ import { AddIntrantValueComponent } from './components/intrants/forms/add-intran
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent
+    AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
+    AddTypeIntrantComponent, AddIntrantValueComponent
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddFamilleComponent, AddIntrantValueComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, AddTypeIntrantComponent
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
+    AddAntecedentValueComponent, AddTypeAntecedentComponent,
+    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent
     
   ],
   imports: [

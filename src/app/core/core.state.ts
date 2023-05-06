@@ -10,6 +10,10 @@ import { FamilleState } from './ngrx/famille/famille.state';
 import { famillesReducer } from './ngrx/famille/famille.reducer';
 import { DciState } from './ngrx/dci/dci.state';
 import { DcisReducer } from './ngrx/dci/dci.reducer';
+import { AntecedentValueState } from './ngrx/antecedent-value/antecedent-value.state';
+import { antecedentValuesReducer } from './ngrx/antecedent-value/antecedent-value.reducer';
+import { TypeAntecedentState } from './ngrx/type-antecedent/type-antecedent.state';
+import { typeAntecedentsReducer } from './ngrx/type-antecedent/type-antecedent.reducer';
 import { TypeIntrantState } from './ngrx/type-intrant/type-intrant.state';
 import { IntrantValueState } from './ngrx/intrant-value/intrant-value.state';
 import { RadioValueState } from './ngrx/radio-value/radio-value.state';
@@ -28,14 +32,17 @@ import { typeTraitmentsReducer } from './ngrx/type-traitment/type-traitment.redu
 import { traitmentValuesReducer } from './ngrx/traitment-value/traitment-value.reducer';
 import { TypeAllergieState } from './ngrx/type-allergie/type-allergie.state';
 import { AllergieValueState } from './ngrx/allergie-value/allergie-value.state';
+import { typeAllergiesReducer } from './ngrx/type-allergie/type-allergie.reducer';
+import { allergieValuesReducer } from './ngrx/allergie-value/allergie-value.reducer';
 
 export interface AppState {
     authentificationState: AuthentificationState,
     formeState: FormeState,
     categorieState: CategorieState,
     familleState: FamilleState,
-    dciState: DciState,
-
+    dciState: DciState
+    antecedentValue: AntecedentValueState,
+    typeAntecedent: TypeAntecedentState
     typeIntrantState: TypeIntrantState,
     intrantValueState: IntrantValueState,
     typeRadioState: TypeRadioState,
@@ -43,7 +50,9 @@ export interface AppState {
     typeLaboratoireState: TypeLaboratoireState,
     laboratoireValueState: LaboratoireValueState,
     typeTraitmentState: TypeTraitmentState,
-    traitmentValueState: TraitmentValueState
+    traitmentValueState: TraitmentValueState,
+    typeAllergieState: TypeAllergieState,
+    allergieValueState: AllergieValueState,
 }
 
 export const selectTypeIntrantState = createFeatureSelector<TypeIntrantState>('typeIntrantState');
@@ -60,8 +69,14 @@ export const selectFormeState = createFeatureSelector<FormeState>('formeState');
 export const selectFamilleState = createFeatureSelector<FamilleState>('familleState');
 export const selectAuthentificationState = createFeatureSelector<AuthentificationState>('authentificationState');
 export const selectDciState = createFeatureSelector<DciState>('dciState');
+
+export const selectTypeAntecedentState = createFeatureSelector<TypeAntecedentState>('typeAntecedent');
+export const selectAntecedenceValueState = createFeatureSelector<AntecedentValueState>('antecedentValue');
+
+
 export const selectTypeAllergieState = createFeatureSelector<TypeAllergieState>('typeAllergieState');
 export const selectAllergieValueState = createFeatureSelector<AllergieValueState>('allergieValueState');
+
 
 export const reducers: ActionReducerMap<AppState> = {
     authentificationState: AuthentificationReducer,
@@ -69,6 +84,12 @@ export const reducers: ActionReducerMap<AppState> = {
     categorieState:categoriesReducer,
     familleState:famillesReducer,
     dciState: DcisReducer,
+
+    antecedentValue: antecedentValuesReducer,
+    typeAntecedent: typeAntecedentsReducer,
+    typeAllergieState: typeAllergiesReducer,
+    allergieValueState: allergieValuesReducer,
+
     typeIntrantState: typeIntrantsReducer,
     intrantValueState: intrantValuesReducer,
     typeRadioState: typeRadiosReducer,

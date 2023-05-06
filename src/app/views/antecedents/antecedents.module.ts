@@ -5,6 +5,8 @@ import { AntecedentsRoutingModule } from './antecedents-routing.module';
 import { AntecedentsComponent } from './antecedents.component';
 import { AntecedentValueComponent } from './antecedent-value/antecedent-value.component';
 import { TypeAntecedentComponent } from './type-antecedent/type-antecedent.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { TypeAntecedentComponent } from './type-antecedent/type-antecedent.compo
   ],
   imports: [
     CommonModule,
-    AntecedentsRoutingModule
+    AntecedentsRoutingModule,
+    TranslateModule,
+    SharedModuleModule
   ]
 })
 export class AntecedentsModule { }

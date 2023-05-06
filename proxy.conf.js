@@ -1,10 +1,10 @@
 const PROXY_CONFIG = [
   {
       context: [
-          '/loto-service-customers'
+          '/health-hospi-core'
       ],
       // target: 'http://78.46.11.10:8777',
-      target: 'http://192.198.148.158:8777',
+      target: 'http://192.168.8.101:8777',
       secure: false
   }
 ]

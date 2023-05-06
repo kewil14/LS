@@ -15,7 +15,7 @@ const initState: AuthentificationState = {
 
 const reducer = createReducer(initState,
     on(erreursAuthentification, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
-    on(connexionOk, resetPasswordOk, resetPasswordActionOk, activateAccountOk, (state) => ({...state, dataState: DataStateEnum.SUCCESS, messages: []})),
+    on(connexionOk, resetPasswordOk, resetPasswordActionOk, activateAccountOk, (state) => ({...state, dataState: DataStateEnum.LOADED, messages: []})),
     on(connexion, resetPassword, resetPasswordAction, activateAccount, (state) => ({...state, dataState: DataStateEnum.LOADING})),
 )
 

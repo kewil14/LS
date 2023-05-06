@@ -3,47 +3,25 @@ import { MenuItem } from './menu.model';
 export const MENU: MenuItem[] = [
     {
         id: 1,
-        label: 'MENUITEMS.MENU.TEXT',
+        label: 'MENUITEMS.CONSOMMABLES.CONSOMMABLES',
         isTitle: true
     },
     {
         id: 2,
-        label: 'MENUITEMS.DASHBOARDS.TEXT',
+        label: 'MENUITEMS.CONSOMMABLES.CONSOMMABLES',
         icon: 'bx-home-circle',
         subItems: [
             {
                 id: 3,
-                label: 'MENUITEMS.DASHBOARDS.LIST.DEFAULT',
-                link: '/dashboard',
+                label: 'MENUITEMS.CONSOMMABLES.MEDICAMENTS',
+                link: '/consomables/medicaments',
                 parentId: 2
             },
             {
-                id: 4,
-                label: 'MENUITEMS.DASHBOARDS.LIST.SAAS',
-                link: '/dashboards/saas',
+                id: 3,
+                label: 'MENUITEMS.CONSOMMABLES.FORMES',
+                link: '/consomables/formes',
                 parentId: 2
-            },
-            {
-                id: 5,
-                label: 'MENUITEMS.DASHBOARDS.LIST.CRYPTO',
-                link: '/dashboards/crypto',
-                parentId: 2
-            },
-            {
-                id: 6,
-                label: 'MENUITEMS.DASHBOARDS.LIST.BLOG',
-                link: '/dashboards/blog',
-                parentId: 2
-            },
-            {
-                id: 7,
-                label: 'MENUITEMS.DASHBOARDS.LIST.JOBS',
-                link: '/dashboards/jobs',
-                parentId: 2,
-                badge: {
-                    variant: 'success',
-                    text: 'MENUITEMS.FILEMANAGER.BADGE',
-                },
             },
         ]
     },

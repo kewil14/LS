@@ -14,11 +14,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { StatComponent } from './widget/stat/stat.component';
 import { AddFormeComponent } from './components/formes/forms/add-forme/add-forme.component';
 import { AddCategoryComponent } from './components/categories/forms/add-category/add-category.component';
+import { AddDciComponent } from './components/dci/forms/add-dci/add-dci.component';
 
 
 @NgModule({
   declarations: [
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent
     
   ],
   exports: [

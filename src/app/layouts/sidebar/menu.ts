@@ -45,18 +45,22 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 8,
-        isLayout: true
-    },
-    {
-        id: 9,
-        label: 'MENUITEMS.APPS.TEXT',
-        isTitle: true
-    },
-    {
-        id: 10,
-        label: 'MENUITEMS.CALENDAR.TEXT',
-        icon: 'bx-calendar',
-        link: '/calendar',
+        label: 'MENUITEMS.ALLERGIES.ALLERGIES',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 9,
+                label: 'MENUITEMS.ALLERGIES.TYPES',
+                link: '/allergies/types',
+                parentId: 8
+            },
+            {
+                id: 10,
+                label: 'MENUITEMS.ALLERGIES.VALUES',
+                link: '/allergies/values',
+                parentId: 8
+            }
+        ]
     },
     {
         id: 11,

@@ -47,7 +47,7 @@
     <div class="col-md-5 d-none d-md-block">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title">{{ (operationDci$|async)?.operation == 'add' ? ('forms.add' | translate | titlecase) : ('forms.edit' | translate | titlecase) }}</h6>
+          <h6 class="card-title">{{ (operationDci$|async)?.operation == operationEnum.CREATE ? ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase) }}</h6>
           <app-add-dci [loading$]="loadingOperation$"
             [dci$]="operationDci$"></app-add-dci>
         </div>

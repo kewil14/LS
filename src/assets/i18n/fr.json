@@ -8,6 +8,11 @@
       "FAMILLES": "Familles",
       "DCI": "Dci",
       "CATEGORIES": "categories"
+    },
+    "ALLERGIES": {
+      "ALLERGIES": "allergies",
+      "TYPES": "categories",
+      "VALUES": "valeurs"
     }
   },
   "FORMS": {
@@ -29,6 +34,12 @@
     "DESCRIPTION": "description",
     "SELECT-ROLE": "sélectionner un rôle",
     "SELECT": "sélectionner",
+    "LABEL-FR": "",
+    "LABEL-EN": "",
+    "NAME-FR": "",
+    "NAME-EN": "",
+    "DESCRIPTION-FR": "",
+    "DESCRIPTION-EN": "",
     "HEADER":{
       "EDIT": "Formulaire de modification"
     }

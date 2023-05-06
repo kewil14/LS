@@ -4,7 +4,7 @@ import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { DataStateEnum } from 'src/app/core/config/data.state.enum';
+import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectDciState } from 'src/app/core/core.state';
 import { addDci, deleteDci, dellDci, erreurDcis, setDci } from 'src/app/core/ngrx/dci/dci.actions';
 import { DciState } from 'src/app/core/ngrx/dci/dci.state';
@@ -21,13 +21,14 @@ export class DciComponent  implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   dtOptions: any = {};
   dcis$!: Observable<DciState>;
-  operationDci$ = new BehaviorSubject<{operation: string, Dci: Dci}>({operation: 'add', Dci: {}});
+  operationDci$ = new BehaviorSubject<{operation: string, Dci: Dci}>({operation: OperationEnum.CREATE, Dci: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);
   dcis: Array<Dci> = [];
   currentDci!: Dci;
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
-
+  operationEnum: typeof OperationEnum = OperationEnum;
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -75,12 +76,12 @@ export class DciComponent  implements OnInit, OnDestroy {
 
   onCreateDci(): void {
     this.loadingOperation$.next(false);
-    this.operationDci$.next({operation: 'add', Dci: {}});
+    this.operationDci$.next({operation: OperationEnum.CREATE, Dci: {}});
   }
 
   onEditDci(Dci: Dci): void {
     this.loadingOperation$.next(false);
-    this.operationDci$.next({operation: 'edit', Dci: Dci});
+    this.operationDci$.next({operation: OperationEnum.UPDATE, Dci: Dci});
   }
 
   loaddcis(): void {

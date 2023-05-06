@@ -8,6 +8,11 @@
       "FAMILLES": "Famillies",
       "DCI": "Dci",
       "CATEGORIES": "categories"
+    },
+    "ALLERGIES": {
+      "ALLERGIES": "allergies",
+      "TYPES": "categories",
+      "VALUES": "values"
     }
   },
   "FORMS": {
@@ -28,6 +33,12 @@
     "BIRTH": "birth date",
     "DESCRIPTION": "description",
     "GROUP_AUTHORITY": "authorites group",
+    "LABEL-FR": "",
+    "LABEL-EN": "",
+    "NAME-FR": "",
+    "NAME-EN": "",
+    "DESCRIPTION-FR": "",
+    "DESCRIPTION-EN": "",
     "HEADER":{
       "EDIT": "Edition Form"
     }

@@ -24,9 +24,15 @@ export const MENU: MenuItem[] = [
                 parentId: 2
             },
             {
+<<<<<<< HEAD
                 id: 5,
                 label: 'MENUITEMS.CONSOMMABLES.FAMILLES',
                 link: '/consomables/familles',
+=======
+                id: 3,
+                label: 'MENUITEMS.CONSOMMABLES.DCI',
+                link: '/consomables/dci',
+>>>>>>> 5d0a9a855de52b1cf9905a0fdd319a49d8cb74a4
                 parentId: 2
             },
         ]

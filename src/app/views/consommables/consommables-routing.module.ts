@@ -8,6 +8,8 @@ import { FamillesComponent } from './familles/familles.component';
 import { LoadCategoriesGuard } from 'src/app/core/shared/guards/load-categories.guard';
 import { CategoriesComponent } from './categories/categories.component';
 import { LoadFamillesGuard } from 'src/app/core/shared/guards/load-familles.guards';
+import { DciComponent } from './dci/dci.component';
+import { LoadDciGuard } from 'src/app/core/shared/guards/load-dci.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +20,7 @@ const routes: Routes = [
       { path: 'familles', component: FamillesComponent, canActivate: [LoadFamillesGuard] },
       { path: 'formes', component: FormesComponent, canActivate: [ LoadFormesGuard ] },
       { path: 'categories', component: CategoriesComponent, canActivate: [ LoadCategoriesGuard ] },
+      { path: 'dci', component: DciComponent, canActivate: [ LoadDciGuard ] },
       { path: '**', redirectTo: 'medicaments', pathMatch: 'full' }
     ]
   }

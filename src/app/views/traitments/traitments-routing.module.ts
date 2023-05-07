@@ -7,7 +7,7 @@ import { LoadTraitmentValueGuard } from 'src/app/core/shared/guards/traitements/
 
 const routes: Routes = [
   { path: 'types', component: TypeTraitmentComponent, canActivate: [LoadTypeTraitmentGuard]},
-  { path: 'values', component: TraitmentValueComponent, canActivate: [LoadTraitmentValueGuard]},
+  { path: 'values', component: TraitmentValueComponent, canActivate: [LoadTraitmentValueGuard, LoadTypeTraitmentGuard]},
   { path: '**', redirectTo: 'values', pathMatch: 'full'},
 ];
 

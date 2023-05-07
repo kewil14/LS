@@ -16,8 +16,8 @@ $sidebar-collapsed-width:  70px;
 $sidebar-width-sm:  160px;
 
 // Vertical Sidebar - Dark
-$sidebar-dark-bg: #2a3042; //2c313a
-$sidebar-dark-menu-item-color: #a6b0cf;
+$sidebar-dark-bg: #0A90D2; //2c313a
+$sidebar-dark-menu-item-color: #000;
 $sidebar-dark-menu-sub-item-color: #79829c;
 $sidebar-dark-menu-item-icon-color: #6a7187;
 $sidebar-dark-menu-item-hover-color: #ffffff;
@@ -120,6 +120,7 @@ $yellow:  #f1b44c;
 $green:   #34c38f;
 $teal:    #050505;
 $cyan:    #50a5f1;
+$health:  #0A90D2;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -137,7 +138,8 @@ $colors: (
     "black":      $black,
     "white":      $white,
     "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "gray-dark":  $gray-800,
+    "health":     $health
 );
 // scss-docs-end colors-map
 
@@ -150,6 +152,7 @@ $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-200;
 $dark:          $gray-800;
+$health:        $health;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -162,7 +165,8 @@ $theme-colors: (
     "danger":     $danger,
     "pink":       $pink,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "health":     $health,
 );
 // scss-docs-end theme-colors-map
 
@@ -785,6 +789,7 @@ $table-variants: (
   "danger":     shift-color($danger, $table-bg-scale),
   "light":      $light,
   "dark":       $dark,
+  "health":     $health,
 );
 // scss-docs-end table-loop
 

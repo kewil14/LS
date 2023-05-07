@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { LengthTextPipe } from './pipes/length-text.pipe';
 import { SuspensionPipe } from './pipes/suspension.pipe';
 import { RelativeDatePipe } from './pipes/relative-date.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
@@ -24,32 +23,38 @@ import { AddTypeTraitementComponent } from './components/traitments/forms/add-ty
 import { AddTraitementValueComponent } from './components/traitments/forms/add-traitement-value/add-traitement-value.component';
 import { AddTypeLaboratoireComponent } from './components/laboratoires/forms/add-type-laboratoire/add-type-laboratoire.component';
 import { AddLaboratoireValueComponent } from './components/laboratoires/forms/add-laboratoire-value/add-laboratoire-value.component';
+import { AddValueComponent } from './components/value-allergie/forms/add-value/add-value.component';
+import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-type.component';
 
 
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
-    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent
+    AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
+    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent,
+    AddAntecedentValueComponent, AddValueComponent,AddTypeComponent
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddLaboratoireValueComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddLaboratoireValueComponent, 
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeLaboratoireComponent
+    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeLaboratoireComponent,
+    AddTypeComponent,AddValueComponent,
     
   ],
   imports: [
     CommonModule,
-    TranslateModule, //translate footer and header
-    FormsModule,
     ReactiveFormsModule,
-    FlatpickrModule.forRoot(),
+    FormsModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    TranslateModule,
+    TitleCasePipe,
+
+
+
   ]
 })
 export class SharedModuleModule {

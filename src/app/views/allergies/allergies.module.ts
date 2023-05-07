@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AllergiesRoutingModule } from './allergies-routing.module';
 import { AllergiesComponent } from './allergies.component';
 import { AllergieValueComponent } from './allergie-value/allergie-value.component';

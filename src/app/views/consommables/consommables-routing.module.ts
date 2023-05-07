@@ -11,7 +11,7 @@ import { DciComponent } from './dci/dci.component';
 import { LoadDciGuard } from 'src/app/core/shared/guards/medicaments/load-dci.guard';
 
 const routes: Routes = [
-  { path: 'medicaments', component: MedicamentsComponent },
+  { path: 'medicaments', component: MedicamentsComponent, loadChildren: () => import('./medicaments/medicaments.module').then(m => m.MedicamentsModule) },
   { path: 'familles', component: FamillesComponent, canActivate: [LoadFamillesGuard] },
   { path: 'formes', component: FormesComponent, canActivate: [ LoadFormesGuard ] },
   { path: 'categories', component: CategoriesComponent, canActivate: [ LoadCategoriesGuard ] },

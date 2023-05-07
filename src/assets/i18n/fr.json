@@ -89,7 +89,8 @@
     "CANCEL": "Annuler",
     "CHECK": "vérifier",
     "RESET": "réinitialiser",
-    "SAVE": "enregistrer"
+    "SAVE": "enregistrer",
+    "ACTION": "action"
   },
   "MESSAGES": {
     "ERRORS": {
@@ -112,6 +113,8 @@
     }
   },
   "LABELS": {
-    "LOGIN": "connexion"
+    "LOGIN": "connexion",
+    "REQUIRED": "requis",
+    "UNREQUIRED": "non requis"
   }
 }

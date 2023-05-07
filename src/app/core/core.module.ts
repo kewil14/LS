@@ -25,6 +25,8 @@ import { TypeLaboratoiresEffects } from './ngrx/type-laboratoire/type-laboratoir
 import { LaboratoireValuesEffects } from './ngrx/laboratoire-value/laboratoire-value.effects';
 import { TypeTraitmentsEffects } from './ngrx/type-traitment/type-traitment.effects';
 import { TraitmentValuesEffects } from './ngrx/traitment-value/traitment-value.effects';
+import { TypeAllergiesEffects } from './ngrx/type-allergie/type-allergie.effects';
+import { AllergieValuesEffects } from './ngrx/allergie-value/allergie-value.effects';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -57,7 +59,9 @@ export function createTranslateLoader(http: HttpClient): any {
       TypeLaboratoiresEffects,
       LaboratoireValuesEffects,
       TypeTraitmentsEffects,
-      TraitmentValuesEffects
+      TraitmentValuesEffects,
+      TypeAllergiesEffects,
+      AllergieValuesEffects
     ]),
     StoreDevtoolsModule.instrument(),
   ],

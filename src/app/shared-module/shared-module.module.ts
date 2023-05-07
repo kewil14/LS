@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { LengthTextPipe } from './pipes/length-text.pipe';
 import { SuspensionPipe } from './pipes/suspension.pipe';
 import { RelativeDatePipe } from './pipes/relative-date.pipe';
@@ -23,8 +23,8 @@ import { AddTypeTraitementComponent } from './components/traitments/forms/add-ty
 import { AddTraitementValueComponent } from './components/traitments/forms/add-traitement-value/add-traitement-value.component';
 import { AddTypeLaboratoireComponent } from './components/laboratoires/forms/add-type-laboratoire/add-type-laboratoire.component';
 import { AddLaboratoireValueComponent } from './components/laboratoires/forms/add-laboratoire-value/add-laboratoire-value.component';
-import { AddValueComponent } from './components/value-allergie/forms/add-value/add-value.component';
-import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-type.component';
+import { AddValueComponent } from './components/allergies/forms/add-value/add-value.component';
+import { AddTypeComponent } from './components/allergies/forms/add-type/add-type.component';
 
 
 @NgModule({
@@ -50,11 +50,7 @@ import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    TranslateModule,
-    TitleCasePipe,
-
-
-
+    TranslateModule
   ]
 })
 export class SharedModuleModule {

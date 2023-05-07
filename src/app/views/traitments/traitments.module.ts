@@ -5,6 +5,8 @@ import { TraitmentsRoutingModule } from './traitments-routing.module';
 import { TraitmentsComponent } from './traitments.component';
 import { TraitmentValueComponent } from './traitment-value/traitment-value.component';
 import { TypeTraitmentComponent } from './type-traitment/type-traitment.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { TypeTraitmentComponent } from './type-traitment/type-traitment.componen
   ],
   imports: [
     CommonModule,
-    TraitmentsRoutingModule
+    TraitmentsRoutingModule,
+    SharedModuleModule,
+    TranslateModule
   ]
 })
 export class TraitmentsModule { }

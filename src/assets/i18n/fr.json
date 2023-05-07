@@ -63,8 +63,8 @@
     "LABEL-EN": "Label",
     "NAME-FR": "Nom",
     "NAME-EN": "Name",
-    "DESCRIPTION-FR": "Description",
-    "DESCRIPTION-EN": "Description",
+    "DESCRIPTION-FR": "Description fr",
+    "DESCRIPTION-EN": "Description en",
     "CODE": "code",
     "HEADER":{
       "EDIT": "Formulaire de modification"

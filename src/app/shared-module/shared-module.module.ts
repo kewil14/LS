@@ -20,30 +20,24 @@ import { AddAntecedentValueComponent } from './components/antecedents-values/for
 import { AddTypeAntecedentComponent } from './components/types-antecedents/forms/add-type-antecedent/add-type-antecedent.component';
 import { AddTypeIntrantComponent } from './components/intrants/forms/add-type-intrant/add-type-intrant.component';
 import { AddIntrantValueComponent } from './components/intrants/forms/add-intrant-value/add-intrant-value.component';
-import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-type.component';
+import { AddTypeTraitementComponent } from './components/traitments/forms/add-type-traitement/add-type-traitement.component';
+import { AddTraitementValueComponent } from './components/traitments/forms/add-traitement-value/add-traitement-value.component';
 import { AddValueComponent } from './components/value-allergie/forms/add-value/add-value.component';
+import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-type.component';
 
 
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
     AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
-    AddTypeIntrantComponent, AddIntrantValueComponent,AddTypeComponent,AddValueComponent
-    
-  ],
-  exports: [
+    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
-    AddAntecedentValueComponent, AddTypeAntecedentComponent,AddTypeComponent,AddValueComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent
+    AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
+    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent,AddValueComponent,AddTypeComponent
     
   ],
   imports: [
-    CommonModule,
-    TranslateModule, //translate footer and header
-    FormsModule,
     ReactiveFormsModule,
-    FlatpickrModule.forRoot(),
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),

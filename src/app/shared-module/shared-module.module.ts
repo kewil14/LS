@@ -26,27 +26,24 @@ import { AddTypeLaboratoireComponent } from './components/laboratoires/forms/add
 import { AddLaboratoireValueComponent } from './components/laboratoires/forms/add-laboratoire-value/add-laboratoire-value.component';
 import { AddValueComponent } from './components/allergies/forms/add-value/add-value.component';
 import { AddTypeComponent } from './components/allergies/forms/add-type/add-type.component';
+import { StatComponent } from './widget/stat/stat.component';
+import { AddMedicamentComponent } from './components/medicaments/forms/add-medicament/add-medicament.component';
 
 
 @NgModule({
   declarations: [
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent, AddMedicamentComponent,
+    AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent
     
   ],
   exports: [
-    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, AddFormeComponent, AddCategoryComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, AddFormeComponent, AddCategoryComponent,AddDciComponent, 
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent, AddRadioValueComponent,
-    AddTypeRadioComponent,
-    LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
-    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent,
-    AddAntecedentValueComponent, AddValueComponent,AddTypeComponent
+    AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
+    AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent
     
   ],
   imports: [

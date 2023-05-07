@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { findAllCategorie } from '../../ngrx/categorie/categorie.actions';
+import { findAllCategorie } from '../../../ngrx/categorie/categorie.actions';
 
 @Injectable({
   providedIn: 'root'

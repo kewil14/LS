@@ -5,6 +5,11 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-baseline">
             <h6 class="card-title mb-0">{{'messages.radios.list-type-radio' | translate | titlecase}}</h6>
+            <div class="mb-2">
+              <button class="btn btn-xs btn-primary d-none d-md-block" (click)="onCreateTypeAntecedent()" type="button">
+                {{'ACTIONS.ADD' | translate | titlecase}}
+              </button>
+            </div>
             <!-- <div class="mb-2">
               <button class="btn btn-xs btn-primary d-none d-md-block" (click)="onCreateTypeAntecedent()" type="button">
                 {{'forms.add' | translate | titlecase}}
@@ -22,11 +27,14 @@
                 <tr>
                   <th>{{'LABELS.ID' | translate | titlecase }}</th>
                   <th>{{'FORMS.LABEL' | translate | titlecase }}</th>
+                  <th>{{'FORMS.LABEL-FR' | translate | titlecase }}</th>
+                  <th>{{'FORMS.LABEL-EN' | translate | titlecase }}</th>
                 </tr>
               </thead>
               <tbody >
                 <tr *ngFor="let item of typeAntecedents" class="table-light">
                   <td>{{item?.id}}</td>
+                  <td>{{item?.code}}</td>
                   <td>{{item?.libelleEn}}</td>
                   <td>{{item?.libelleFr}}</td>
                   <td class="d-flex">
@@ -48,7 +56,7 @@
     <div class="col-md-5 d-none d-md-block">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title">{{ (operationTypeAntecedent$|async)?.operation == 'add' ? ('ACTIONS.ADD' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase) }}</h6>
+          <h6 class="card-title">{{ (operationTypeAntecedent$|async)?.operation == operationEnum.CREATE ? ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase) }}</h6>
           <health-add-type-antecedent
             [loading$]="loadingOperation$"
             [typeAntecedent$]="operationTypeAntecedent$"

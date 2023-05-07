@@ -71,7 +71,7 @@ export const selectAuthentificationState = createFeatureSelector<Authentificatio
 export const selectDciState = createFeatureSelector<DciState>('dciState');
 
 export const selectTypeAntecedentState = createFeatureSelector<TypeAntecedentState>('typeAntecedent');
-export const selectAntecedenceValueState = createFeatureSelector<AntecedentValueState>('antecedentValue');
+export const selectAntecedentValueState = createFeatureSelector<AntecedentValueState>('antecedentValue');
 
 
 export const selectTypeAllergieState = createFeatureSelector<TypeAllergieState>('typeAllergieState');

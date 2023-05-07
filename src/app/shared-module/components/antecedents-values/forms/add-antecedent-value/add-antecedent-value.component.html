@@ -1,0 +1,48 @@
+<form (ngSubmit)="createAntecedentValue()" [formGroup]="antecedentValueForm">
+    <div class="mb-3">
+        <label for="idType">{{'forms.antecedentValue' | translate | titlecase }}</label>
+        <ng-select
+          #idType
+          placeholder="{{'messages.antecedentValue.select' | translate | titlecase }}"
+          formControlName="idType"
+          [ngClass]="{'is-invalid': isAntecedentValueSubmitted && antecedentValue['idType'].errors}"
+          >
+          <ng-option *ngFor="let typeAntecedent of typeAntecedents$|async" [value]="typeAntecedent.id">{{lang == appEnums.PREFIX_FR ? typeAntecedent.libelleFr : typeAntecedent.libelleEn }}</ng-option>
+        </ng-select>
+        <div *ngIf="isAntecedentValueSubmitted && antecedentValue['idType']?.errors" class="invalid-feedback">
+          <div *ngIf="antecedentValue['idType']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+          <div *ngIf="antecedentValue['idType']?.errors!['min']"> {{'MESSAGES.ERRORS.MIN' | translate | titlecase }} </div>
+        </div>
+      </div>
+
+    <div class="mb-3">
+        <label for="libelleFr">{{'FORMS.LABEL-FR' | translate | titlecase }}</label>
+        <input type="text" class="form-control" id="libelleFr" formControlName="libelleFr"
+        [ngClass]="{'is-invalid': isAntecedentValueSubmitted && antecedentValue['libelleFr'].errors}" placeholder="{{'FORMS.LABEL-FR' | translate | titlecase }}">
+        <div *ngIf="isAntecedentValueSubmitted && antecedentValue['libelleFr'].errors" class="invalid-feedback">
+                <div *ngIf="antecedentValue['libelleFr'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                <div *ngIf="antecedentValue['libelleFr'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                <div *ngIf="antecedentValue['libelleFr'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="libelleEn">{{'FORMS.LABEL-EN' | translate | titlecase }}</label>
+        <input type="text" class="form-control" id="libelleEn" formControlName="libelleEn"
+        [ngClass]="{'is-invalid': isAntecedentValueSubmitted && antecedentValue['libelleEn'].errors}" placeholder="{{'FORMS.LABEL-EN' | translate | titlecase }}">
+        <div *ngIf="isAntecedentValueSubmitted && antecedentValue['libelleEn'].errors" class="invalid-feedback">
+            <div *ngIf="antecedentValue['libelleEn'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+            <div *ngIf="antecedentValue['libelleEn'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+            <div *ngIf="antecedentValue['libelleEn'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+  
+    <div class="d-flex justify-content-end mt-2">
+        <button class="btn btn-xs btn-icon-text " [ngClass]="operation == operationEnum.CREATE ? 'btn-outline-success': 'btn-outline-warning'" type="submit" [disabled]="loading$|async">
+            <span *ngIf="loading$|async"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{ operation == operationEnum.CREATE ?  ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase)}}
+            <i data-feather="save" appFeatherIcon></i>
+        </button>
+    </div>
+  </form>
+  

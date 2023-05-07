@@ -28,6 +28,7 @@ export class TypeAntecedentComponent implements OnInit, OnDestroy {
   currentTypeAntecedent!: TypeAntecedent;
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
+  operationEnum: typeof OperationEnum = OperationEnum;
 
   constructor(
     private route: ActivatedRoute,

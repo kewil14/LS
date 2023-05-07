@@ -21,9 +21,9 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   dtOptions: any = {};
   AllergieValues$!: Observable<AllergieValueState>;
-  operationAllergieValue$ = new BehaviorSubject<{operation: string, AllergieValue: AllergieValue}>({operation: OperationEnum.CREATE, AllergieValue: {}});
+  operationAllergieValue$ = new BehaviorSubject<{operation: string, valueAllergie: AllergieValue}>({operation: OperationEnum.CREATE, valueAllergie: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);
-  AllergieValues: Array<AllergieValue> = [];
+  allergieValues: Array<AllergieValue> = [];
   currentAllergieValue!: AllergieValue;
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
@@ -76,19 +76,19 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
 
   onCreateAllergieValue(): void {
     this.loadingOperation$.next(false);
-    this.operationAllergieValue$.next({operation: OperationEnum.CREATE, AllergieValue: {}});
+    this.operationAllergieValue$.next({operation: OperationEnum.CREATE, valueAllergie: {}});
   }
 
-  onEditAllergieValue(AllergieValue: AllergieValue): void {
+  onEditAllergieValue(allergieValue: AllergieValue): void {
     this.loadingOperation$.next(false);
-    this.operationAllergieValue$.next({operation: OperationEnum.UPDATE, AllergieValue: AllergieValue});
+    this.operationAllergieValue$.next({operation: OperationEnum.UPDATE, valueAllergie: allergieValue});
   }
 
   loadAllergieValues(): void {
-    this.AllergieValues = [];
+    this.allergieValues = [];
     setTimeout(() => {
       this.store.select(selectAllergieValueState).pipe().subscribe( (data) => {
-        this.AllergieValues = data.allergieValues;
+        this.allergieValues = data.allergieValues;
       }
     )
     }, 1000);

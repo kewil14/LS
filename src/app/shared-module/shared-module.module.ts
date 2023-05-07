@@ -6,7 +6,6 @@ import { RelativeDatePipe } from './pipes/relative-date.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
@@ -23,6 +22,10 @@ import { AddRadioValueComponent } from './components/radios/forms/add-radio-valu
 import { AddTypeRadioComponent } from './components/radios/forms/add-type-radio/add-type-radio.component';
 import { AddAntecedentValueComponent } from './components/antecedents/forms/add-antecedent-value/add-antecedent-value.component';
 import { AddTypeAntecedentComponent } from './components/antecedents/forms/add-type-antecedent/add-type-antecedent.component';
+import { AddTypeLaboratoireComponent } from './components/laboratoires/forms/add-type-laboratoire/add-type-laboratoire.component';
+import { AddLaboratoireValueComponent } from './components/laboratoires/forms/add-laboratoire-value/add-laboratoire-value.component';
+import { AddValueComponent } from './components/allergies/forms/add-value/add-value.component';
+import { AddTypeComponent } from './components/allergies/forms/add-type/add-type.component';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { AddTypeAntecedentComponent } from './components/antecedents/forms/add-t
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent,
     AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent
+    AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent
     
   ],
   exports: [
@@ -38,19 +42,22 @@ import { AddTypeAntecedentComponent } from './components/antecedents/forms/add-t
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent, AddRadioValueComponent,
-    AddTypeRadioComponent
+    AddTypeRadioComponent,
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, AddFormeComponent, AddCategoryComponent,
+    AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
+    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent,
+    AddAntecedentValueComponent, AddValueComponent,AddTypeComponent
     
   ],
   imports: [
     CommonModule,
-    TranslateModule, //translate footer and header
-    FormsModule,
     ReactiveFormsModule,
-    FlatpickrModule.forRoot(),
+    FormsModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    TranslateModule
   ]
 })
 export class SharedModuleModule {

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { findAllTypeAllergie } from '../../ngrx/type-allergie/type-allergie.actions';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { findAllCategorie } from '../../../ngrx/categorie/categorie.actions';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoadAllergieTypeGuard implements CanActivate {
+export class LoadCategoriesGuard implements CanActivate {
   constructor(
     private storeService: Store
-  ){}
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.storeService.dispatch(findAllTypeAllergie());
+      this.storeService.dispatch(findAllCategorie());
     return true;
   }
   

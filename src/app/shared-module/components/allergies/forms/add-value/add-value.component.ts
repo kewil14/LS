@@ -1,10 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
+import { APP_ENUMS } from 'src/app/core/config/app.enums.config';
 import { OperationEnum } from 'src/app/core/config/data.state.enum';
+import { selectTypeAllergieState } from 'src/app/core/core.state';
 import { createAllergieValue, updateAllergieValue } from 'src/app/core/ngrx/allergie-value/allergie-value.actions';
 import { AllergieValue } from 'src/app/core/shared/models/allergie-value.modal';
+import { TypeAllergie } from 'src/app/core/shared/models/type-allergie.modal';
+import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 
 @Component({
   selector: 'health-add-value',
@@ -19,14 +23,22 @@ export class AddValueComponent implements OnInit {
   isvalueAllergieSubmitted: boolean = false;
   operation: string = OperationEnum.CREATE;
   operationEnum: typeof OperationEnum = OperationEnum;
+  typeAllergies$!: Observable<Array<TypeAllergie>>;
+  lang: string = APP_ENUMS.PREFIX_DEFAULT_LANGUAGE;
+  appEnums: typeof APP_ENUMS = APP_ENUMS;
 
   constructor(
     private store: Store,
     private formBuilder: FormBuilder,
+    private storeService: Store,
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
     this.initCreatevalueAllergie();
+    this.typeAllergies$ = this.storeService.select(selectTypeAllergieState).pipe(map(({typeAllergies}) => typeAllergies));
+    this.lang = this.localStorageService.localLangValue;
+    
     this.valueAllergie$.subscribe(data => {
       this.isvalueAllergieSubmitted = false;
       this.operation = data.operation;
@@ -44,7 +56,7 @@ export class AddValueComponent implements OnInit {
     this.valueAllergieForm = this.formBuilder.group({
       libelleEn: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
       libelleFr: [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
-      type: [null],
+      idType: [null, Validators.compose([Validators.required, Validators.min(0)])],
     })
   }
 
@@ -52,9 +64,8 @@ export class AddValueComponent implements OnInit {
     this.valueAllergieForm = this.formBuilder.group({
       id: valueAllergie.id,
       libelleEn: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
-      libelleFr: [valueAllergie.libelleEn, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
-      type: [valueAllergie.type]
-        
+      libelleFr: [valueAllergie.libelleFr, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+      idType: [valueAllergie.type?.id, Validators.compose([Validators.required, Validators.min(0)])]  
     })
   }
 
@@ -65,7 +76,7 @@ export class AddValueComponent implements OnInit {
     } else {
       this.loading$.next(true);
       if(this.operation == OperationEnum.CREATE) {
-        this.store.dispatch(createAllergieValue({allergieValue: this.valueAllergieForm.value}));
+        this.store.dispatch(createAllergieValue({allergieValue: this.valueAllergieForm.value, idType: this.valueAllergieForm.value.idType}));
       } else {
         this.store.dispatch(updateAllergieValue({allergieValue: this.valueAllergieForm.value}));
       }

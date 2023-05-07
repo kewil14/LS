@@ -5,6 +5,8 @@ import { LaboratoiresRoutingModule } from './laboratoires-routing.module';
 import { LaboratoiresComponent } from './laboratoires.component';
 import { LaboratoireValueComponent } from './laboratoire-value/laboratoire-value.component';
 import { TypeLaboratoireComponent } from './type-laboratoire/type-laboratoire.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { TypeLaboratoireComponent } from './type-laboratoire/type-laboratoire.co
   ],
   imports: [
     CommonModule,
-    LaboratoiresRoutingModule
+    LaboratoiresRoutingModule,
+    TranslateModule,
+    SharedModuleModule
   ]
 })
 export class LaboratoiresModule { }

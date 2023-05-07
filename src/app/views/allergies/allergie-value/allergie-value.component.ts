@@ -21,7 +21,7 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   dtOptions: any = {};
   AllergieValues$!: Observable<AllergieValueState>;
-  operationAllergieValue$ = new BehaviorSubject<{operation: string, allergieValue: AllergieValue}>({operation: OperationEnum.CREATE, allergieValue: {}});
+  operationAllergieValue$ = new BehaviorSubject<{operation: string, valueAllergie: AllergieValue}>({operation: OperationEnum.CREATE, valueAllergie: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);
   allergieValues: Array<AllergieValue> = [];
   currentAllergieValue!: AllergieValue;
@@ -76,12 +76,12 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
 
   onCreateAllergieValue(): void {
     this.loadingOperation$.next(false);
-    this.operationAllergieValue$.next({operation: OperationEnum.CREATE, allergieValue: {}});
+    this.operationAllergieValue$.next({operation: OperationEnum.CREATE, valueAllergie: {}});
   }
 
   onEditAllergieValue(allergieValue: AllergieValue): void {
     this.loadingOperation$.next(false);
-    this.operationAllergieValue$.next({operation: OperationEnum.UPDATE, allergieValue: allergieValue});
+    this.operationAllergieValue$.next({operation: OperationEnum.UPDATE, valueAllergie: allergieValue});
   }
 
   loadAllergieValues(): void {

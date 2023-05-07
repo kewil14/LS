@@ -38,6 +38,12 @@
       "TRAITMENTS": "traitments",
       "TYPES": "Types",
       "VALUES": "Valeurs"
+    },
+    "SETTING":{
+      "SETTING": "Setting",
+      "UTILISATEUR":"User",
+      "INSTITUTION":"Institutions",
+      "PARAMETRAGE":"Setting"
     }
   },
   "FORMS": {

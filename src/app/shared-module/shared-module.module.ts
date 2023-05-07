@@ -34,7 +34,7 @@ import { AddTraitementValueComponent } from './components/traitments/forms/add-t
   exports: [
     LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
-    AddAntecedentValueComponent, AddTypeAntecedentComponent,
+    AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent
     
   ],

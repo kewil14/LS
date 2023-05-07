@@ -1,4 +1,4 @@
-import { ChartType } from "./model";
+import { ChartType } from './crypto.model';
 
 const walletRadialChart: ChartType = {
     series: [76, 67, 61],

@@ -9,8 +9,8 @@ export const MENU: MenuItem[] = [
     {
         id: 30,
         label: 'MENUITEMS.DASHBOARD',
-        icon: 'bx-home-circle',
-        link: '/dashboard'
+        icon: 'bx bx-home',
+        link: '/dashboard'  
     },
     {
         id: 1,
@@ -20,7 +20,7 @@ export const MENU: MenuItem[] = [
     {
         id: 2,
         label: 'MENUITEMS.CONSOMMABLES.CONSOMMABLES',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-first-aid',
         subItems: [
             {
                 id: 3,
@@ -57,7 +57,7 @@ export const MENU: MenuItem[] = [
     {
         id: 8,
         label: 'MENUITEMS.ALLERGIES.ALLERGIES',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-ambulance',
         subItems: [
             {
                 id: 9,
@@ -76,7 +76,7 @@ export const MENU: MenuItem[] = [
     {
         id: 11,
         label: 'MENUITEMS.ANTECEDENTS.ANTECEDENTS',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-x-square',
         subItems: [
             {
                 id: 12,
@@ -95,7 +95,7 @@ export const MENU: MenuItem[] = [
     {
         id: 12,
         label: 'MENUITEMS.INTRANTS.INTRANTS',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-plus-circle',
         subItems: [
             {
                 id: 13,
@@ -114,7 +114,7 @@ export const MENU: MenuItem[] = [
     {
         id: 15,
         label: 'MENUITEMS.LABORATOIRES.LABORATOIRES',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-clinic',
         subItems: [
             {
                 id: 16,
@@ -152,7 +152,7 @@ export const MENU: MenuItem[] = [
     {
         id: 21,
         label: 'MENUITEMS.TRAITMENTS.TRAITMENTS',
-        icon: 'bx-home-circle',
+        icon: 'bx bxs-notepad',
         subItems: [
             {
                 id: 22,
@@ -169,72 +169,27 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
-        id: 90,
+        id: 25,
         label: 'MENUITEMS.SETTING.SETTING',
         isTitle: true
     },
     {
-        id: 40,
+        id: 29,
         label: 'MENUITEMS.SETTING.UTILISATEUR',
-        icon: 'bx-briefcase-alt-2',
-        subItems: [
-            {
-                id: 41,
-                label: 'MENUITEMS.PROJECTS.LIST.GRID',
-                link: '/projects/grid',
-                parentId: 40
-            },
-            {
-                id: 42,
-                label: 'MENUITEMS.PROJECTS.LIST.PROJECTLIST',
-                link: '/projects/list',
-                parentId: 40
-            }
-        ]
+        icon: 'bxs-user-detail',
+        link: '/user'
     },
     {
-        id: 45,
+        id: 30,
         label: 'MENUITEMS.SETTING.INSTITUTION',
         icon: 'bx-task',
-        subItems: [
-            {
-                id: 46,
-                label: 'MENUITEMS.TASKS.LIST.TASKLIST',
-                link: '/tasks/list',
-                parentId: 45
-            },
-            {
-                id: 47,
-                label: 'MENUITEMS.TASKS.LIST.KANBAN',
-                link: '/tasks/kanban',
-                parentId: 45
-            }
-        ]
+        link: '/institution'
     },
     {
-        id: 49,
+        id: 28,
         label: 'MENUITEMS.SETTING.PARAMETRAGE',
-        icon: 'bxs-user-detail',
-        subItems: [
-            {
-                id: 50,
-                label: 'MENUITEMS.CONTACTS.LIST.USERGRID',
-                link: '/contacts/grid',
-                parentId: 49
-            },
-            {
-                id: 51,
-                label: 'MENUITEMS.CONTACTS.LIST.USERLIST',
-                link: '/contacts/list',
-                parentId: 49
-            },
-            {
-                id: 52,
-                label: 'MENUITEMS.CONTACTS.LIST.PROFILE',
-                link: '/contacts/profile',
-                parentId: 49
-            }
-        ]
+        icon: 'bx bx-cog',
+        link: '/setting'
     }
 ];
 

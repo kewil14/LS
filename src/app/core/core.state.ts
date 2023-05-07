@@ -1,4 +1,3 @@
-import { Famille } from './shared/models/famille.modal';
 import {ActionReducerMap, createFeatureSelector} from '@ngrx/store';
 import { AuthentificationReducer } from './ngrx/authentification/authentification.reducer';
 import { AuthentificationState } from './ngrx/authentification/authentification.state';
@@ -34,6 +33,8 @@ import { TypeAllergieState } from './ngrx/type-allergie/type-allergie.state';
 import { AllergieValueState } from './ngrx/allergie-value/allergie-value.state';
 import { typeAllergiesReducer } from './ngrx/type-allergie/type-allergie.reducer';
 import { allergieValuesReducer } from './ngrx/allergie-value/allergie-value.reducer';
+import { ProduitState } from './ngrx/produit/produit.state';
+import { produitsReducer } from './ngrx/produit/produit.reducer';
 
 export interface AppState {
     authentificationState: AuthentificationState,
@@ -53,8 +54,10 @@ export interface AppState {
     traitmentValueState: TraitmentValueState,
     typeAllergieState: TypeAllergieState,
     allergieValueState: AllergieValueState,
+    produitState: ProduitState
 }
 
+export const selectProduitState = createFeatureSelector<ProduitState>('produitState');
 export const selectTypeIntrantState = createFeatureSelector<TypeIntrantState>('typeIntrantState');
 export const selectIntrantValueState = createFeatureSelector<IntrantValueState>('intrantValueState');
 export const selectTypeRadioState = createFeatureSelector<TypeRadioState>('typeRadioState');
@@ -63,17 +66,13 @@ export const selectTypeLaboratoireState = createFeatureSelector<TypeLaboratoireS
 export const selectLaboratoireValueState = createFeatureSelector<LaboratoireValueState>('laboratoireValueState');
 export const selectTypeTraitmentState = createFeatureSelector<TypeTraitmentState>('typeTraitmentState');
 export const selectTraitmentValueState = createFeatureSelector<TraitmentValueState>('traitmentValueState');
-
 export const selectCategorieState = createFeatureSelector<CategorieState>('categorieState');
 export const selectFormeState = createFeatureSelector<FormeState>('formeState');
 export const selectFamilleState = createFeatureSelector<FamilleState>('familleState');
 export const selectAuthentificationState = createFeatureSelector<AuthentificationState>('authentificationState');
 export const selectDciState = createFeatureSelector<DciState>('dciState');
-
 export const selectTypeAntecedentState = createFeatureSelector<TypeAntecedentState>('typeAntecedent');
 export const selectAntecedentValueState = createFeatureSelector<AntecedentValueState>('antecedentValue');
-
-
 export const selectTypeAllergieState = createFeatureSelector<TypeAllergieState>('typeAllergieState');
 export const selectAllergieValueState = createFeatureSelector<AllergieValueState>('allergieValueState');
 
@@ -84,12 +83,10 @@ export const reducers: ActionReducerMap<AppState> = {
     categorieState:categoriesReducer,
     familleState:famillesReducer,
     dciState: DcisReducer,
-
     antecedentValue: antecedentValuesReducer,
     typeAntecedent: typeAntecedentsReducer,
     typeAllergieState: typeAllergiesReducer,
     allergieValueState: allergieValuesReducer,
-
     typeIntrantState: typeIntrantsReducer,
     intrantValueState: intrantValuesReducer,
     typeRadioState: typeRadiosReducer,
@@ -97,5 +94,6 @@ export const reducers: ActionReducerMap<AppState> = {
     typeLaboratoireState: typeLaboratoiresReducer,
     laboratoireValueState: laboratoireValuesReducer,
     typeTraitmentState: typeTraitmentsReducer,
-    traitmentValueState: traitmentValuesReducer
+    traitmentValueState: traitmentValuesReducer,
+    produitState: produitsReducer
 }

@@ -4,7 +4,7 @@ const PROXY_CONFIG = [
           '/health-hospi-core'
       ],
       // target: 'http://78.46.11.10:8777',
-      target: 'http://192.168.8.101:8777',
+      target: 'http://192.168.8.100:8777',
       secure: false
   }
 ]

@@ -13,7 +13,7 @@ import { SettingComponent } from './setting/setting.component';
 import { InstitutionComponent } from './institution/institution.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'consomables', component: ConsommablesComponent, loadChildren: () => import('./consommables/consommables.module').then(m => m.ConsommablesModule) },
   { path: 'allergies', component: AllergiesComponent, loadChildren: () => import('./allergies/allergies.module').then(m => m.AllergiesModule) },
   { path: 'antecedents', component: AntecedentsComponent, loadChildren: () => import('./antecedents/antecedents.module').then(m => m.AntecedentsModule) },

@@ -43,7 +43,7 @@ export class ProduitService {
    * @returns
    */
   addProduit(entity: any, idCategorie: any, idForme: any): Observable<ResponseDto<Produit>> {
-    return this.http.post(API_URLS.HEALTH_CORE_URL + `/api/produit`, entity).pipe(share());
+    return this.http.post(API_URLS.HEALTH_CORE_URL + `/api/produit/${idCategorie}/${idForme}`, entity).pipe(share());
   }
 
   /**

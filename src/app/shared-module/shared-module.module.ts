@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { LengthTextPipe } from './pipes/length-text.pipe';
 import { SuspensionPipe } from './pipes/suspension.pipe';
 import { RelativeDatePipe } from './pipes/relative-date.pipe';
@@ -33,15 +33,28 @@ import { AddTypeComponent } from './components/type-allergie/forms/add-type/add-
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
-    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent,AddValueComponent,AddTypeComponent
+    AddFamilleComponent, AddDciComponent, AddValueComponent,AddTypeComponent
+    
+  ],
+  exports: [
+    LengthTextPipe, SuspensionPipe,  RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
+    LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent, AddDciComponent, 
+    AddAntecedentValueComponent, AddTypeAntecedentComponent,AddTypeComponent,AddValueComponent,
+    AddFamilleComponent, AddDciComponent, AddTypeIntrantComponent, AddIntrantValueComponent,AddTypeTraitementComponent, AddTraitementValueComponent,
     
   ],
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    TranslateModule,
+    TitleCasePipe,
+
+
+
   ]
 })
 export class SharedModuleModule {

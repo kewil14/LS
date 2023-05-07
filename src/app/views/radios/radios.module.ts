@@ -5,6 +5,8 @@ import { RadiosRoutingModule } from './radios-routing.module';
 import { RadiosComponent } from './radios.component';
 import { RadioValueComponent } from './radio-value/radio-value.component';
 import { TypeRadioComponent } from './type-radio/type-radio.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -12,10 +14,13 @@ import { TypeRadioComponent } from './type-radio/type-radio.component';
     RadiosComponent,
     RadioValueComponent,
     TypeRadioComponent
+
   ],
   imports: [
     CommonModule,
-    RadiosRoutingModule
+    RadiosRoutingModule,
+    TranslateModule,
+    SharedModuleModule
   ]
 })
 export class RadiosModule { }

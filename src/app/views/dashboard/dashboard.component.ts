@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'chart.js';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { walletRadialChart, overviewChart, transactionsData, bitconinChart, ethereumChart, litecoinChart } from './data';
+
+import { ChartType, Transactions } from './crypto.model';
+import { ChartComponent } from "ng-apexcharts";
+import { ConfigService } from './config.service';
 
 @Component({
   selector: 'health-dashboard',
@@ -8,7 +13,7 @@ import { ChartType } from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
 
-  // @ViewChild("chart", { static: false }) chart!: ChartComponent;
+  @ViewChild("chart", { static: false }) chart!: ChartComponent;
 
   // bread crumb items
   breadCrumbItems!: Array<{}>;
@@ -22,22 +27,20 @@ export class DashboardComponent implements OnInit {
 
   walletBalanceData: any;
 
-  // transactionsData!: Transactions[];
-  constructor(
-    // private configService: ConfigService
-    ) { }
+  transactionsData!: Transactions[];
+  constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Dashboards' }, { label: 'Crypto', active: true }];
 
-    // this.configService.getConfig().subscribe(response => {
-    //   this.walletBalanceData = response.cryptoWalletBalance;
-    // });
+    this.configService.getConfig().subscribe(response => {
+      this.walletBalanceData = response.cryptoWalletBalance;
+    });
 
-    // this._fetchData();
+    this._fetchData();
   }
 
-  public updateOptionsData = {
+  public updateOptionsData: any = {
     "1m": {
       xaxis: {
         min: new Date("28 Jan 2013").getTime(),
@@ -71,8 +74,8 @@ export class DashboardComponent implements OnInit {
   };
 
   public updateOptions(option: any): void {
-    // this.activeOptionButton = option;
-    // this.chart.updateOptions(this.updateOptionsData[option], false, true, true);
+    this.activeOptionButton = option;
+    this.chart.updateOptions(this.updateOptionsData[option], false, true, true);
   }
 
   getBalanceData(data: any) {
@@ -198,13 +201,12 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // private _fetchData() {
-  //   this.walletRadialChart = walletRadialChart;
-  //   this.overviewChart = overviewChart;
-  //   this.transactionsData = transactionsData;
-  //   this.bitconinChart = bitconinChart;
-  //   this.ethereumChart = ethereumChart;
-  //   this.litecoinChart = litecoinChart;
-  // }
+  private _fetchData() {
+    this.walletRadialChart = walletRadialChart;
+    this.overviewChart = overviewChart;
+    this.transactionsData = transactionsData;
+    this.bitconinChart = bitconinChart;
+    this.ethereumChart = ethereumChart;
+    this.litecoinChart = litecoinChart;
+  }
 }
-

@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UIModule } from 'src/app/shared-module/ui/ui.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -25,8 +26,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     TooltipModule.forRoot(),
     TabsModule.forRoot(),
     CarouselModule.forRoot(),
-    // WidgetModule,
     NgApexchartsModule,
+    SharedModuleModule,
     SimplebarAngularModule
   ]
 })

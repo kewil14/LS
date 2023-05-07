@@ -30,3 +30,8 @@ export const APP_ICONS = {
   SUCCESS: 'ri-notification-off-line',
   SECONDARY: 'ri-check-double-line'
 }
+
+export const APP_STATUS = {
+  STATUS_ORDONNANCE_REQUIRED: 'required',
+  STATUS_ORDONNANCE_UNREQUIRED: 'unrequired'
+}

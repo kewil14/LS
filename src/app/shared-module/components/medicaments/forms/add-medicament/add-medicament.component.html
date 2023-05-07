@@ -1,0 +1,88 @@
+<form (ngSubmit)="createProduit()" [formGroup]="produitForm">
+  <div class="mb-3">
+    <label for="idCategorie">{{'forms.produit' | translate | titlecase }}</label>
+    <ng-select
+      #idCategorie
+      placeholder="{{'messages.produit.select' | translate | titlecase }}"
+      formControlName="idCategorie"
+      [ngClass]="{'is-invalid': isProduitSubmitted && produit['idCategorie'].errors}"
+      >
+      <ng-option *ngFor="let categorie of categories$|async" [value]="categorie.id">{{categorie.libelle}}</ng-option>
+    </ng-select>
+    <div *ngIf="isProduitSubmitted && produit['idCategorie']?.errors" class="invalid-feedback">
+      <div *ngIf="produit['idCategorie']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+      <div *ngIf="produit['idCategorie']?.errors!['min']"> {{'MESSAGES.ERRORS.MIN' | translate | titlecase }} </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="idForme">{{'forms.produit' | translate | titlecase }}</label>
+    <ng-select
+      #idForme
+      placeholder="{{'messages.produit.select' | translate | titlecase }}"
+      formControlName="idForme"
+      [ngClass]="{'is-invalid': isProduitSubmitted && produit['idForme'].errors}"
+      >
+      <ng-option *ngFor="let forme of formes$|async" [value]="forme.id">{{forme.libelle}}</ng-option>
+    </ng-select>
+    <div *ngIf="isProduitSubmitted && produit['idForme']?.errors" class="invalid-feedback">
+      <div *ngIf="produit['idForme']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+      <div *ngIf="produit['idForme']?.errors!['min']"> {{'MESSAGES.ERRORS.MIN' | translate | titlecase }} </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="ordonnance">{{'forms.ordonnance' | translate | titlecase }}</label>
+    <select type="text" class="form-control" id="ordonnance" formControlName="ordonnance"
+      [ngClass]="{'is-invalid': isProduitSubmitted && produit['ordonnance'].errors}">
+      <option [value]="appStatus.STATUS_ORDONNANCE_REQUIRED">{{'LABELS.REQUIRED' | translate | titlecase}}</option>
+      <option [value]="appStatus.STATUS_ORDONNANCE_UNREQUIRED">{{'LABELS.UNREQUIRED' | translate | titlecase}}</option>
+    </select>
+    <div *ngIf="isProduitSubmitted && produit['ordonnance'].errors" class="invalid-feedback">
+      <div *ngIf="produit['ordonnance'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+      <div *ngIf="produit['ordonnance'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+      <div *ngIf="produit['ordonnance'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+      <label for="libelle">{{'FORMS.LABEL' | translate | titlecase }}</label>
+      <input type="text" class="form-control" id="libelle" formControlName="libelle"
+      [ngClass]="{'is-invalid': isProduitSubmitted && produit['libelle'].errors}" placeholder="{{'FORMS.LABEL' | translate | titlecase }}">
+      <div *ngIf="isProduitSubmitted && produit['libelle'].errors" class="invalid-feedback">
+        <div *ngIf="produit['libelle'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="produit['libelle'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+        <div *ngIf="produit['libelle'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+      </div>
+  </div>
+
+  <div class="mb-3">
+      <label for="dosage">{{'FORMS.DOSAGE' | translate | titlecase }}</label>
+      <input type="number" class="form-control" id="dosage" formControlName="dosage"
+      [ngClass]="{'is-invalid': isProduitSubmitted && produit['dosage'].errors}" placeholder="{{'FORMS.DOSAGE' | translate | titlecase }}">
+      <div *ngIf="isProduitSubmitted && produit['dosage'].errors" class="invalid-feedback">
+        <div *ngIf="produit['dosage'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="produit['dosage'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+        <div *ngIf="produit['dosage'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+      </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="description">{{'FORMS.DESCRIPTION' | translate | titlecase }}</label>
+    <textarea rows="3" type="text" class="form-control" id="description" formControlName="description"
+    [ngClass]="{'is-invalid': isProduitSubmitted && produit['description'].errors}" placeholder="{{'FORMS.DESCRIPTION' | translate | titlecase }}"></textarea>
+    <div *ngIf="isProduitSubmitted && produit['description'].errors" class="invalid-feedback">
+      <div *ngIf="produit['description'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+      <div *ngIf="produit['description'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+      <div *ngIf="produit['description'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+    </div>
+</div>
+
+  <div class="d-flex justify-content-end mt-2">
+      <button class="btn btn-xs btn-icon-text " [ngClass]="operation == operationEnum.CREATE ? 'btn-outline-success': 'btn-outline-warning'" type="submit" [disabled]="loading$|async">
+        <span *ngIf="loading$|async"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{ operation == operationEnum.CREATE ?  ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase)}}
+        <i data-feather="save" appFeatherIcon></i>
+      </button>
+  </div>
+</form>

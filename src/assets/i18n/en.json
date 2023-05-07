@@ -88,7 +88,8 @@
     "CANCEL": "cancel",
     "CHECK": "check",
     "RESET": "reset",
-    "SAVE": "save"
+    "SAVE": "save",
+    "ACTION": "action"
   },
   "MESSAGES": {
     "ERRORS": {
@@ -113,6 +114,8 @@
     }
   },
   "LABELS": {
-    "LOGIN": "login"
+    "LOGIN": "login",
+    "REQUIRED": "required",
+    "UNREQUIRED": "unrequired"
   }
 }

@@ -1,1 +1,59 @@
-<p>radio-value works!</p>
+
+<div class="row">
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h6 class="card-title mb-0">{{'messages.radios.list-type-radio' | translate | titlecase}}</h6>
+            <div class="mb-2">
+              <button class="btn btn-xs btn-primary d-none d-md-block" (click)="onCreateRadioValue()" type="button">
+                {{'ACTIONS.ADD' | translate | titlecase}}
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive" *ngIf="radioValues.length > 0" >
+            <table class="table table-hover mb-0 table-100 table-sm">
+              <thead>
+                <tr>
+                  <th>{{'LABELS.ID' | translate | titlecase }}</th>
+                  <th>{{'FORMS.CODE' | translate | titlecase }}</th>
+                  <th>{{'FORMS.LABEL-FR' | translate | titlecase }}</th>
+                  <th>{{'FORMS.LABEL-EN' | translate | titlecase }}</th>
+                  <th>{{'FORMS.TYPE' | translate | titlecase }}</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr *ngFor="let item of radioValues" class="table-light">
+                  <td>{{item?.id}}</td>
+                  <td>{{item?.code}}</td>
+                  <td>{{item?.libelleFr}}</td>
+                  <td>{{item?.libelleEn}}</td>
+                  <td>{{item?.type?.libelleFr}}</td>
+                  <td class="d-flex">
+                      <a (click)="onEditRadioValue(item)" class="btn btn-sm btn-warning">
+                        edit
+                      </a>
+                      <a (click)="delleteRadioValue(item?.id)" class="btn btn-sm btn-danger">
+                        delete
+                      </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5 d-none d-md-block">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">{{ (operationRadioValue$|async)?.operation == operationEnum.CREATE ? ('ACTIONS.SAVE' | translate | titlecase) : ('ACTIONS.UPDATE' | translate | titlecase) }}</h6>
+          <health-add-radio-value
+            [loading$]="loadingOperation$"
+            [radioValue$]="operationRadioValue$"
+            ></health-add-radio-value>
+        </div>
+      </div>
+    </div>
+  </div>

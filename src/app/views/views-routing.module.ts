@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: 'traitments', component: TraitmentsComponent, loadChildren: () => import('./traitments/traitments.module').then(m => m.TraitmentsModule) },
   { path: 'laboratoires', component: LaboratoiresComponent, loadChildren: () => import('./laboratoires/laboratoires.module').then(m => m.LaboratoiresModule) },
   { path: 'setting', component: SettingComponent, loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule) },
-  { path: 'setting', component: UserComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
-  { path: 'setting', component: InstitutionComponent, loadChildren: () => import('./institution/institution.module').then(m => m.InstitutionModule) },
+  { path: 'user', component: UserComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+  { path: 'institution', component: InstitutionComponent, loadChildren: () => import('./institution/institution.module').then(m => m.InstitutionModule) },
 ];
 
 @NgModule({

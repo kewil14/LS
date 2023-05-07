@@ -20,13 +20,15 @@ import { AddAntecedentValueComponent } from './components/antecedents-values/for
 import { AddTypeAntecedentComponent } from './components/types-antecedents/forms/add-type-antecedent/add-type-antecedent.component';
 import { AddTypeIntrantComponent } from './components/intrants/forms/add-type-intrant/add-type-intrant.component';
 import { AddIntrantValueComponent } from './components/intrants/forms/add-intrant-value/add-intrant-value.component';
+import { AddTypeTraitementComponent } from './components/traitments/forms/add-type-traitement/add-type-traitement.component';
+import { AddTraitementValueComponent } from './components/traitments/forms/add-traitement-value/add-traitement-value.component';
 
 
 @NgModule({
   declarations: [
     LengthTextPipe, SuspensionPipe, RelativeDatePipe, StatComponent, AddFormeComponent, AddCategoryComponent,
     AddFamilleComponent, AddDciComponent, AddAntecedentValueComponent, AddTypeAntecedentComponent,
-    AddTypeIntrantComponent, AddIntrantValueComponent
+    AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent
     
   ],
   exports: [

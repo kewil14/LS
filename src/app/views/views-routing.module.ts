@@ -17,8 +17,7 @@ const routes: Routes = [
   { path: 'radios', component: RadiosComponent, loadChildren: () => import('./radios/radios.module').then(m => m.RadiosModule) },
   { path: 'intrants', component: IntrantsComponent, loadChildren: () => import('./intrants/intrants.module').then(m => m.IntrantsModule) },
   { path: 'traitments', component: TraitmentsComponent, loadChildren: () => import('./traitments/traitments.module').then(m => m.TraitmentsModule) },
-  { path: 'laboratoires', component: LaboratoiresComponent, loadChildren: () => import('./laboratoires/laboratoires.module').then(m => m.LaboratoiresModule) },
-  { path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
+  { path: 'laboratoires', component: LaboratoiresComponent, loadChildren: () => import('./laboratoires/laboratoires.module').then(m => m.LaboratoiresModule) }
 ];
 
 @NgModule({

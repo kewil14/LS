@@ -3,7 +3,7 @@
     "DASHBOARD": "dashboard",
     "CONSOMMABLES": {
       "CONSOMMABLES": "Consommables",
-      "MEDICAMENTS": "medicaments",
+      "MEDICAMENTS": "medications",
       "FORMES": "Formes",
       "FAMILLES": "Famillies",
       "DCI": "Dci",
@@ -15,12 +15,12 @@
       "VALUES": "values"
     },
     "ANTECEDENTS":{
-      "ANTECEDENTS": "Antecedent",
+      "ANTECEDENTS": "clinical history",
       "TYPES": "Types",
       "VALUES": "values"
     },
     "INTRANTS":{
-      "INTRANTS": "intrants",
+      "INTRANTS": "inputs",
       "TYPES": "Types",
       "VALUES": "Valeurs"
     },

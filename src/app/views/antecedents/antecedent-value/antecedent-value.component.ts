@@ -18,7 +18,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class AntecedentValueComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   antecedentValues$!: Observable<AntecedentValueState>;
   operationAntecedentValue$ = new BehaviorSubject<{operation: string, antecedentValue: AntecedentValue}>({operation: OperationEnum.CREATE, antecedentValue: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

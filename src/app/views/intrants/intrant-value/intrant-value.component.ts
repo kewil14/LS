@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class IntrantValueComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   intrantValues$!: Observable<IntrantValueState>;
   operationIntrantValue$ = new BehaviorSubject<{operation: string, intrantValue: IntrantValue}>({operation: OperationEnum.CREATE, intrantValue: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

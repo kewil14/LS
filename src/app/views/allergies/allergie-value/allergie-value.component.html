@@ -12,13 +12,13 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table class="table table-hover mb-0 table-100 table-sm">
+            <table datatable [dtOptions]="dtOptions" *ngIf="allergieValues?.length || 0>0; else noDataAllergieValue" class="table table-hover mb-0 table-100 table-sm">
               <thead>
                 <tr>
                   <th>{{'LABELS.ID' | translate | titlecase }}</th>
                   <th>{{'FORMS.LABEL-EN' | translate | titlecase }}</th>
                   <th>{{'FORMS.LABEL-FR' | translate | titlecase }}</th>
-                  <!-- <th>{{'FORMS.TYPE' | translate | titlecase }}</th> -->
+                  <th>{{'FORMS.ACTION' | translate | titlecase }}</th>
                 </tr>
               </thead>
               <tbody >
@@ -34,10 +34,27 @@
                       <a (click)="delleteAllergieValue(item?.id)" class="btn btn-sm btn-danger">
                         delete
                       </a>
+                      <a  class="btn btn-sm btn-health">
+                        <health-allergie-detail
+                        
+                        >detail</health-allergie-detail>  
+                      </a>
                   </td>
                 </tr>
               </tbody>
             </table>
+            <ng-template #noDataAllergieValue>
+              <table datatable [dtOptions]="dtOptions" class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th>{{'LABELS.ID' | translate | titlecase }}</th>
+                    <th>{{'FORMS.LABEL-EN' | translate | titlecase }}</th>
+                    <th>{{'FORMS.LABEL-FR' | translate | titlecase }}</th>
+                    <th>{{'FORMS.ACTION' | translate | titlecase }}</th>
+                  </tr>
+                </thead>
+            </table>
+            </ng-template>
           </div>
         </div>
       </div>

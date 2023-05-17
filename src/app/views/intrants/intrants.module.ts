@@ -7,6 +7,7 @@ import { IntrantValueComponent } from './intrant-value/intrant-value.component';
 import { TypeIntrantComponent } from './type-intrant/type-intrant.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     IntrantsRoutingModule,
     SharedModuleModule,
-    TranslateModule
+    TranslateModule,
+    DataTablesModule
   ]
 })
 export class IntrantsModule { }

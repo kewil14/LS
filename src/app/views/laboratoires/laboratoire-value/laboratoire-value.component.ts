@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class LaboratoireValueComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   laboratoireValues$!: Observable<LaboratoireValueState>;
   operationLaboratoireValue$ = new BehaviorSubject<{operation: string, laboratoireValue: LaboratoireValue}>({operation: OperationEnum.CREATE, laboratoireValue: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

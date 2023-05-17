@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class DciComponent  implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   dcis$!: Observable<DciState>;
   operationDci$ = new BehaviorSubject<{operation: string, Dci: Dci}>({operation: OperationEnum.CREATE, Dci: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

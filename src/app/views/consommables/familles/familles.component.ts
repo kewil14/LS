@@ -18,7 +18,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class FamillesComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   familles$!: Observable<FamilleState>;
   operationFamille$ = new BehaviorSubject<{operation: string, famille: Famille}>({operation: OperationEnum.CREATE, famille: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

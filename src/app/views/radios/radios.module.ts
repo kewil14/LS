@@ -7,6 +7,7 @@ import { RadioValueComponent } from './radio-value/radio-value.component';
 import { TypeRadioComponent } from './type-radio/type-radio.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
     CommonModule,
     RadiosRoutingModule,
     TranslateModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DataTablesModule
   ]
 })
 export class RadiosModule { }

@@ -7,6 +7,7 @@ import { LaboratoireValueComponent } from './laboratoire-value/laboratoire-value
 import { TypeLaboratoireComponent } from './type-laboratoire/type-laboratoire.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
     CommonModule,
     LaboratoiresRoutingModule,
     TranslateModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DataTablesModule
   ]
 })
 export class LaboratoiresModule { }

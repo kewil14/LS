@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FamillesComponent } from './familles/familles.component';
 import { DciComponent } from './dci/dci.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CategoriesComponent } from './categories/categories.component';
     CommonModule,
     ConsommablesRoutingModule,
     SharedModuleModule,
-    TranslateModule
+    TranslateModule,
+    DataTablesModule
   ]
 })
 export class ConsommablesModule { }

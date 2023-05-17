@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class TypeRadioComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   typeRadios$!: Observable<TypeRadioState>;
   operationTypeRadio$ = new BehaviorSubject<{operation: string, typeRadio: TypeRadio}>({operation: OperationEnum.CREATE, typeRadio: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

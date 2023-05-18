@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConsommablesComponent } from './consommables/consommables.component';
 import { AllergiesComponent } from './allergies/allergies.component';
 import { AntecedentsComponent } from './antecedents/antecedents.component';

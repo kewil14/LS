@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class ListProduitsComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   produits$!: Observable<ProduitState>;
   operationProduit$ = new BehaviorSubject<{operation: string, produit: Produit}>({operation: OperationEnum.CREATE, produit: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

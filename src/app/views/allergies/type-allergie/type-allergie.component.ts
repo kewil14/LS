@@ -17,9 +17,8 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
   styleUrls: ['./type-allergie.component.scss']
 })
 export class TypeAllergieComponent implements OnInit, OnDestroy {
-
+  dtOptions: DataTables.Settings = {};
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
   TypeAllergies$!: Observable<TypeAllergieState>;
   operationTypeAllergie$ = new BehaviorSubject<{operation: string, typeAllergie: TypeAllergie}>({operation: OperationEnum.CREATE, typeAllergie: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

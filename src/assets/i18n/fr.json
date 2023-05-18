@@ -74,7 +74,8 @@
     "CODE": "code",
     "HEADER":{
       "EDIT": "Formulaire de modification"
-    }
+    },
+    "ACTION":"actions"
   },
   "ACTIONS": {
     "UPDATE": "mise à jour",

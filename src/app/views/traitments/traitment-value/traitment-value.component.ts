@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class TraitmentValueComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   traitmentValues$!: Observable<TraitmentValueState>;
   operationTraitmentValue$ = new BehaviorSubject<{operation: string, traitmentValue: TraitmentValue}>({operation: OperationEnum.CREATE, traitmentValue: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

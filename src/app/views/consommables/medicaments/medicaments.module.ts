@@ -7,6 +7,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { MedicamentsComponent } from './medicaments.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     MedicamentsRoutingModule,
     SharedModuleModule,
-    TranslateModule
+    TranslateModule,
+    DataTablesModule
   ]
 })
 export class MedicamentsModule { }

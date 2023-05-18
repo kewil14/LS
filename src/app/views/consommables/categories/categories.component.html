@@ -12,11 +12,12 @@
             </div>
           </div>
           <div class="table-responsive" *ngIf="categories.length > 0" >
-            <table class="table table-hover mb-0 table-100 table-sm">
+            <table datatable [dtOptions]="dtOptions" *ngIf="categories?.length || 0>0; else noDataCategories"class="table table-hover mb-0 table-100 table-sm">
               <thead>
                 <tr>
                   <th>{{'LABELS.ID' | translate | titlecase }}</th>
                   <th>{{'FORMS.LABEL' | translate | titlecase }}</th>
+                  <th>{{'FORMS.ACTION' | translate | titlecase }}</th>
                 </tr>
               </thead>
               <tbody >
@@ -34,6 +35,17 @@
                 </tr>
               </tbody>
             </table>
+            <ng-template #noDataCategories>
+              <table datatable [dtOptions]="dtOptions" class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th>{{'LABELS.ID' | translate | titlecase }}</th>
+                    <th>{{'FORMS.LABEL' | translate | titlecase }}</th>
+                    <th>{{'FORMS.ACTION' | translate | titlecase }}</th>
+                  </tr>
+                </thead>
+            </table>
+            </ng-template>
           </div>
         </div>
       </div>

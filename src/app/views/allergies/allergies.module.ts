@@ -6,19 +6,22 @@ import { AllergieValueComponent } from './allergie-value/allergie-value.componen
 import { TypeAllergieComponent } from './type-allergie/type-allergie.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
-
+import { DataTablesModule } from 'angular-datatables';
+import { AllergieDetailComponent } from './allergie-value/allergie-detail/allergie-detail.component';
 
 @NgModule({
   declarations: [
     AllergiesComponent,
     AllergieValueComponent,
-    TypeAllergieComponent
+    TypeAllergieComponent,
+    AllergieDetailComponent
   ],
   imports: [
     CommonModule,
     AllergiesRoutingModule,
     TranslateModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DataTablesModule,
   ]
 })
 export class AllergiesModule { }

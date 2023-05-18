@@ -7,6 +7,7 @@ import { AntecedentValueComponent } from './antecedent-value/antecedent-value.co
 import { TypeAntecedentComponent } from './type-antecedent/type-antecedent.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
     CommonModule,
     AntecedentsRoutingModule,
     TranslateModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DataTablesModule
   ]
 })
 export class AntecedentsModule { }

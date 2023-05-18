@@ -7,6 +7,7 @@ import { TraitmentValueComponent } from './traitment-value/traitment-value.compo
 import { TypeTraitmentComponent } from './type-traitment/type-traitment.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
     CommonModule,
     TraitmentsRoutingModule,
     SharedModuleModule,
-    TranslateModule
+    TranslateModule,
+    DataTablesModule
   ]
 })
 export class TraitmentsModule { }

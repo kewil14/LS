@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class TypeTraitmentComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   typeTraitments$!: Observable<TypeTraitmentState>;
   operationTypeTraitment$ = new BehaviorSubject<{operation: string, typeTraitment: TypeTraitment}>({operation: OperationEnum.CREATE, typeTraitment: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

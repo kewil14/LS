@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class TypeIntrantComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   typeIntrants$!: Observable<TypeIntrantState>;
   operationTypeIntrant$ = new BehaviorSubject<{operation: string, typeIntrant: TypeIntrant}>({operation: OperationEnum.CREATE, typeIntrant: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

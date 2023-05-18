@@ -73,7 +73,8 @@
     "CODE": "code",
     "HEADER":{
       "EDIT": "Edition Form"
-    }
+    },
+    "ACTION":"actions"
   },
   "ACTIONS": {
     "UPDATE": "update", 

@@ -19,7 +19,7 @@ import { LocalStorageService } from 'src/app/core/shared/services/local-storage.
 export class FormesComponent implements OnInit, OnDestroy {
 
   subscriptions: Array<Subscription> = [];
-  dtOptions: any = {};
+  dtOptions: DataTables.Settings = {};
   formes$!: Observable<FormeState>;
   operationForme$ = new BehaviorSubject<{operation: string, forme: Forme}>({operation: 'add', forme: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);

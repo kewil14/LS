@@ -8,13 +8,15 @@ import { TypeLaboratoireComponent } from './type-laboratoire/type-laboratoire.co
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
+import { LaboratoireDetailComponent } from './laboratoire-value/laboratoire-detail/laboratoire-detail.component';
 
 
 @NgModule({
   declarations: [
     LaboratoiresComponent,
     LaboratoireValueComponent,
-    TypeLaboratoireComponent
+    TypeLaboratoireComponent,
+    LaboratoireDetailComponent
   ],
   imports: [
     CommonModule,

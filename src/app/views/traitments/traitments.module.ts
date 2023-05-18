@@ -8,13 +8,15 @@ import { TypeTraitmentComponent } from './type-traitment/type-traitment.componen
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
+import { TraitmentDetailComponent } from './traitment-value/traitment-detail/traitment-detail.component';
 
 
 @NgModule({
   declarations: [
     TraitmentsComponent,
     TraitmentValueComponent,
-    TypeTraitmentComponent
+    TypeTraitmentComponent,
+    TraitmentDetailComponent
   ],
   imports: [
     CommonModule,

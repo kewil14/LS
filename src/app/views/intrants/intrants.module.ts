@@ -8,13 +8,15 @@ import { TypeIntrantComponent } from './type-intrant/type-intrant.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DataTablesModule } from 'angular-datatables';
+import { IntrantDetailComponent } from './intrant-value/intrant-detail/intrant-detail.component';
 
 
 @NgModule({
   declarations: [
     IntrantsComponent,
     IntrantValueComponent,
-    TypeIntrantComponent
+    TypeIntrantComponent,
+    IntrantDetailComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,6 @@ import { IntrantsComponent } from './intrants/intrants.component';
 import { TraitmentsComponent } from './traitments/traitments.component';
 import { LaboratoiresComponent } from './laboratoires/laboratoires.component';
 import { UserComponent } from './user/user.component';
-import { SettingComponent } from './setting/setting.component';
 import { InstitutionComponent } from './institution/institution.component';
 
 const routes: Routes = [
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'intrants', component: IntrantsComponent, loadChildren: () => import('./intrants/intrants.module').then(m => m.IntrantsModule) },
   { path: 'traitments', component: TraitmentsComponent, loadChildren: () => import('./traitments/traitments.module').then(m => m.TraitmentsModule) },
   { path: 'laboratoires', component: LaboratoiresComponent, loadChildren: () => import('./laboratoires/laboratoires.module').then(m => m.LaboratoiresModule) },
-  { path: 'setting', component: SettingComponent, loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule) },
   { path: 'user', component: UserComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: 'institution', component: InstitutionComponent, loadChildren: () => import('./institution/institution.module').then(m => m.InstitutionModule) },
 ];

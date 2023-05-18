@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InstitutionRoutingModule } from './institution-routing.module';
 import { InstitutionComponent } from './institution.component';
 import { DataTablesModule } from 'angular-datatables';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { DataTablesModule } from 'angular-datatables';
   imports: [
     CommonModule,
     InstitutionRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    NgApexchartsModule
+
   ]
 })
 export class InstitutionModule { }

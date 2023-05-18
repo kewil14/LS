@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  BaseUrlHealthHospiCore: '/health-hospi-core'
+  BaseUrlHealthHospiCore: 'https://gateway.health-care.cm/health-hospi-core'
 };

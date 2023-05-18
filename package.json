@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.js --port 4100",
+    "start": "ng serve --port 4100",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let typeLaboratoires = [...state.typeLaboratoires];
     let list: Array<TypeLaboratoire> = typeLaboratoires.filter((item) => item.id != typeLaboratoire.id);
     list.push(typeLaboratoire)
-    return {...state, typeLaboratoires: list, typeLaboratoire: typeLaboratoire, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeLaboratoires: list, typeLaboratoire: typeLaboratoire, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTypeLaboratoire, (state, {typeLaboratoire}) => {
     let typeLaboratoires = [...state.typeLaboratoires];
     let list: Array<TypeLaboratoire> = typeLaboratoires.filter((item) => item.id != typeLaboratoire.id);
-    return {...state, typeLaboratoires: list, typeLaboratoire: typeLaboratoire, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeLaboratoires: list, typeLaboratoire: typeLaboratoire, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTypeLaboratoire, (state, {typeLaboratoire}) => {
     let typeLaboratoires = [...state.typeLaboratoires];
     typeLaboratoires.push(typeLaboratoire);
     return {...state, typeLaboratoires: typeLaboratoires, typeLaboratoire: typeLaboratoire, messages: []};
   }),
-  on(loadTypeLaboratoire, (state, {typeLaboratoires}) => ({...state, typeLaboratoires: typeLaboratoires, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTypeLaboratoire, (state, {typeLaboratoires}) => ({...state, typeLaboratoires: typeLaboratoires, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeLaboratoires, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTypeLaboratoire, findTypeLaboratoireById, updateTypeLaboratoire,
     createTypeLaboratoire, deleteTypeLaboratoire, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

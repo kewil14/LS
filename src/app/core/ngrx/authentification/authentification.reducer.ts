@@ -1,8 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { DataStateEnum } from "../../config/data.state.enum";
 import { connexion, connexionOk, erreursAuthentification, resetPassword,
-    resetPasswordAction, resetPasswordActionOk, resetPasswordOk,
-    activateAccount, activateAccountOk
+    resetPasswordOk
 } from "./authentification.actions";
 import { AuthentificationState } from "./authentification.state";
 
@@ -15,8 +14,8 @@ const initState: AuthentificationState = {
 
 const reducer = createReducer(initState,
     on(erreursAuthentification, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
-    on(connexionOk, resetPasswordOk, resetPasswordActionOk, activateAccountOk, (state) => ({...state, dataState: DataStateEnum.LOADED, messages: []})),
-    on(connexion, resetPassword, resetPasswordAction, activateAccount, (state) => ({...state, dataState: DataStateEnum.LOADING})),
+    on(connexionOk, resetPasswordOk, (state) => ({...state, dataState: DataStateEnum.SUCCESS, messages: []})),
+    on(connexion, resetPassword, (state) => ({...state, dataState: DataStateEnum.LOADING})),
 )
 
 export function AuthentificationReducer(

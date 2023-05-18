@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let typeRadios = [...state.typeRadios];
     let list: Array<TypeRadio> = typeRadios.filter((item) => item.id != typeRadio.id);
     list.push(typeRadio)
-    return {...state, typeRadios: list, typeRadio: typeRadio, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeRadios: list, typeRadio: typeRadio, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTypeRadio, (state, {typeRadio}) => {
     let typeRadios = [...state.typeRadios];
     let list: Array<TypeRadio> = typeRadios.filter((item) => item.id != typeRadio.id);
-    return {...state, typeRadios: list, typeRadio: typeRadio, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeRadios: list, typeRadio: typeRadio, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTypeRadio, (state, {typeRadio}) => {
     let typeRadios = [...state.typeRadios];
     typeRadios.push(typeRadio);
     return {...state, typeRadios: typeRadios, typeRadio: typeRadio, messages: []};
   }),
-  on(loadTypeRadio, (state, {typeRadios}) => ({...state, typeRadios: typeRadios, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTypeRadio, (state, {typeRadios}) => ({...state, typeRadios: typeRadios, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeRadios, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTypeRadio, findTypeRadioById, updateTypeRadio,
     createTypeRadio, deleteTypeRadio, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

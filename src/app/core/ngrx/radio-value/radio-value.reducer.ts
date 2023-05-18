@@ -19,19 +19,19 @@ const reducer = createReducer(initState,
     let radioValues = [...state.radioValues];
     let list: Array<RadioValue> = radioValues.filter((item) => item.id != radioValue.id);
     list.push(radioValue)
-    return {...state, radioValues: list, radioValue: radioValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, radioValues: list, radioValue: radioValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellRadioValue, (state, {radioValue}) => {
     let radioValues = [...state.radioValues];
     let list: Array<RadioValue> = radioValues.filter((item) => item.id != radioValue.id);
-    return {...state, radioValues: list, radioValue: radioValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, radioValues: list, radioValue: radioValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addRadioValue, (state, {radioValue}) => {
     let radioValues = [...state.radioValues];
     radioValues.push(radioValue);
     return {...state, radioValues: radioValues, radioValue: radioValue, messages: []};
   }),
-  on(loadRadioValue, (state, {radioValues}) => ({...state, radioValues: radioValues, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadRadioValue, (state, {radioValues}) => ({...state, radioValues: radioValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurRadioValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllRadioValue, findRadioValueById, updateRadioValue,
     createRadioValue, deleteRadioValue, findRadioValueByCode, findRadioValueByIdType, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

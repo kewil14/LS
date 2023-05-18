@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let categories = [...state.categories];
     let list: Array<Categorie> = categories.filter((item) => item.id != categorie.id);
     list.push(categorie)
-    return {...state, categories: list, categorie: categorie, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, categories: list, categorie: categorie, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellCategorie, (state, {categorie}) => {
     let categories = [...state.categories];
     let list: Array<Categorie> = categories.filter((item) => item.id != categorie.id);
-    return {...state, categories: list, categorie: categorie, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, categories: list, categorie: categorie, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addCategorie, (state, {categorie}) => {
     let categories = [...state.categories];
     categories.push(categorie);
     return {...state, categories: categories, categorie: categorie, messages: []};
   }),
-  on(loadCategorie, (state, {categories}) => ({...state, categories: categories, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadCategorie, (state, {categories}) => ({...state, categories: categories, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurCategories, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllCategorie, findCategorieById, updateCategorie,
     createCategorie, deleteCategorie, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

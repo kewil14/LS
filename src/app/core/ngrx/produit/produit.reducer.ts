@@ -19,19 +19,19 @@ const reducer = createReducer(initState,
     let produits = [...state.produits];
     let list: Array<Produit> = produits.filter((item) => item.id != produit.id);
     list.push(produit)
-    return {...state, produits: list, produit: produit, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, produits: list, produit: produit, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellProduit, (state, {produit}) => {
     let produits = [...state.produits];
     let list: Array<Produit> = produits.filter((item) => item.id != produit.id);
-    return {...state, produits: list, produit: produit, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, produits: list, produit: produit, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addProduit, (state, {produit}) => {
     let produits = [...state.produits];
     produits.push(produit);
     return {...state, produits: produits, produit: produit, messages: []};
   }),
-  on(loadProduit, (state, {produits}) => ({...state, produits: produits, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadProduit, (state, {produits}) => ({...state, produits: produits, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurProduits, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllProduit, findProduitById, updateProduit, createProduit, deleteProduit,
     findProduitByIdCategorie, findProduitByIdForme, updateProduitPicture, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

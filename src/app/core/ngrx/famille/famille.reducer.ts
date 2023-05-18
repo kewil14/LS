@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let familles = [...state.familles];
     let list: Array<Famille> = familles.filter((item) => item.id != famille.id);
     list.push(famille)
-    return {...state, familles: list, famille: famille, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, familles: list, famille: famille, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellFamille, (state, {famille}) => {
     let familles = [...state.familles];
     let list: Array<Famille> = familles.filter((item) => item.id != famille.id);
-    return {...state, familles: list, famille: famille, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, familles: list, famille: famille, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addFamille, (state, {famille}) => {
     let familles = [...state.familles];
     familles.push(famille);
     return {...state, familles: familles, famille: famille, messages: []};
   }),
-  on(loadFamille, (state, {familles}) => ({...state, familles: familles, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadFamille, (state, {familles}) => ({...state, familles: familles, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurFamilles, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllFamille, findFamilleById, updateFamille,
     createFamille, deleteFamille, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

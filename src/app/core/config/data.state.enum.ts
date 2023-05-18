@@ -1,6 +1,6 @@
 export enum DataStateEnum {
   LOADING="Loading",
-  LOADED="Loaded",
+  SUCCESS="Success",
   ERROR="Error",
   INITIAL="Initial",
 }

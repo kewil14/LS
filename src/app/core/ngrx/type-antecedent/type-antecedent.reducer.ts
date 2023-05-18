@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let typeAntecedents = [...state.typeAntecedents];
     let list: Array<TypeAntecedent> = typeAntecedents.filter((item) => item.id != typeAntecedent.id);
     list.push(typeAntecedent)
-    return {...state, typeAntecedents: list, typeAntecedent: typeAntecedent, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeAntecedents: list, typeAntecedent: typeAntecedent, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTypeAntecedent, (state, {typeAntecedent}) => {
     let typeAntecedents = [...state.typeAntecedents];
     let list: Array<TypeAntecedent> = typeAntecedents.filter((item) => item.id != typeAntecedent.id);
-    return {...state, typeAntecedents: list, typeAntecedent: typeAntecedent, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeAntecedents: list, typeAntecedent: typeAntecedent, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTypeAntecedent, (state, {typeAntecedent}) => {
     let typeAntecedents = [...state.typeAntecedents];
     typeAntecedents.push(typeAntecedent);
     return {...state, typeAntecedents: typeAntecedents, typeAntecedent: typeAntecedent, messages: []};
   }),
-  on(loadTypeAntecedent, (state, {typeAntecedents}) => ({...state, typeAntecedents: typeAntecedents, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTypeAntecedent, (state, {typeAntecedents}) => ({...state, typeAntecedents: typeAntecedents, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeAntecedents, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTypeAntecedent, findTypeAntecedentById, updateTypeAntecedent,
     createTypeAntecedent, deleteTypeAntecedent, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

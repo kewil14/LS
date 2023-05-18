@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let typeAllergies = [...state.typeAllergies];
     let list: Array<TypeAllergie> = typeAllergies.filter((item) => item.id != typeAllergie.id);
     list.push(typeAllergie)
-    return {...state, typeAllergies: list, typeAllergie: typeAllergie, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeAllergies: list, typeAllergie: typeAllergie, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTypeAllergie, (state, {typeAllergie}) => {
     let typeAllergies = [...state.typeAllergies];
     let list: Array<TypeAllergie> = typeAllergies.filter((item) => item.id != typeAllergie.id);
-    return {...state, typeAllergies: list, typeAllergie: typeAllergie, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeAllergies: list, typeAllergie: typeAllergie, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTypeAllergie, (state, {typeAllergie}) => {
     let typeAllergies = [...state.typeAllergies];
     typeAllergies.push(typeAllergie);
     return {...state, typeAllergies: typeAllergies, typeAllergie: typeAllergie, messages: []};
   }),
-  on(loadTypeAllergie, (state, {typeAllergies}) => ({...state, typeAllergies: typeAllergies, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTypeAllergie, (state, {typeAllergies}) => ({...state, typeAllergies: typeAllergies, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeAllergies, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTypeAllergie, findTypeAllergieById, updateTypeAllergie,
     createTypeAllergie, deleteTypeAllergie, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

@@ -19,19 +19,19 @@ const reducer = createReducer(initState,
     let allergieValues = [...state.allergieValues];
     let list: Array<AllergieValue> = allergieValues.filter((item) => item.id != allergieValue.id);
     list.push(allergieValue)
-    return {...state, allergieValues: list, allergieValue: allergieValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, allergieValues: list, allergieValue: allergieValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellAllergieValue, (state, {allergieValue}) => {
     let allergieValues = [...state.allergieValues];
     let list: Array<AllergieValue> = allergieValues.filter((item) => item.id != allergieValue.id);
-    return {...state, allergieValues: list, allergieValue: allergieValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, allergieValues: list, allergieValue: allergieValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addAllergieValue, (state, {allergieValue}) => {
     let allergieValues = [...state.allergieValues];
     allergieValues.push(allergieValue);
     return {...state, allergieValues: allergieValues, allergieValue: allergieValue, messages: []};
   }),
-  on(loadAllergieValue, (state, {allergieValues}) => ({...state, allergieValues: allergieValues, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadAllergieValue, (state, {allergieValues}) => ({...state, allergieValues: allergieValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurAllergieValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllAllergieValue, findAllergieValueById, updateAllergieValue,
     createAllergieValue, deleteAllergieValue, findAllergieValueByCode, findAllergieValueByIdType, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

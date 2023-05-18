@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let formes = [...state.formes];
     let list: Array<Forme> = formes.filter((item) => item.id != forme.id);
     list.push(forme)
-    return {...state, formes: list, forme: forme, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, formes: list, forme: forme, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellForme, (state, {forme}) => {
     let formes = [...state.formes];
     let list: Array<Forme> = formes.filter((item) => item.id != forme.id);
-    return {...state, formes: list, forme: forme, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, formes: list, forme: forme, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addForme, (state, {forme}) => {
     let formes = [...state.formes];
     formes.push(forme);
     return {...state, formes: formes, forme: forme, messages: []};
   }),
-  on(loadForme, (state, {formes}) => ({...state, formes: formes, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadForme, (state, {formes}) => ({...state, formes: formes, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurFormes, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllForme, findFormeById, updateForme,
     createForme, deleteForme, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

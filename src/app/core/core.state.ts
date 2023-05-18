@@ -35,6 +35,10 @@ import { typeAllergiesReducer } from './ngrx/type-allergie/type-allergie.reducer
 import { allergieValuesReducer } from './ngrx/allergie-value/allergie-value.reducer';
 import { ProduitState } from './ngrx/produit/produit.state';
 import { produitsReducer } from './ngrx/produit/produit.reducer';
+import { InstitutionState } from './ngrx/institution/institution.state';
+import { institutionsReducer } from './ngrx/institution/institution.reducer';
+import { ProfileState } from './ngrx/profile/profile.state';
+import { profilesReducer } from './ngrx/profile/profile.reducer';
 
 export interface AppState {
     authentificationState: AuthentificationState,
@@ -54,9 +58,13 @@ export interface AppState {
     traitmentValueState: TraitmentValueState,
     typeAllergieState: TypeAllergieState,
     allergieValueState: AllergieValueState,
-    produitState: ProduitState
+    produitState: ProduitState,
+    institutionState: InstitutionState;
+    profileState: ProfileState
 }
 
+export const selectProfileState = createFeatureSelector<ProfileState>('profileState');
+export const selectInstitutionState = createFeatureSelector<InstitutionState>('institutionState');
 export const selectProduitState = createFeatureSelector<ProduitState>('produitState');
 export const selectTypeIntrantState = createFeatureSelector<TypeIntrantState>('typeIntrantState');
 export const selectIntrantValueState = createFeatureSelector<IntrantValueState>('intrantValueState');
@@ -95,5 +103,7 @@ export const reducers: ActionReducerMap<AppState> = {
     laboratoireValueState: laboratoireValuesReducer,
     typeTraitmentState: typeTraitmentsReducer,
     traitmentValueState: traitmentValuesReducer,
-    produitState: produitsReducer
+    produitState: produitsReducer,
+    institutionState: institutionsReducer,
+    profileState: profilesReducer
 }

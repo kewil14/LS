@@ -19,19 +19,19 @@ const reducer = createReducer(initState,
     let intrantValues = [...state.intrantValues];
     let list: Array<IntrantValue> = intrantValues.filter((item) => item.id != intrantValue.id);
     list.push(intrantValue)
-    return {...state, intrantValues: list, intrantValue: intrantValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, intrantValues: list, intrantValue: intrantValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellIntrantValue, (state, {intrantValue}) => {
     let intrantValues = [...state.intrantValues];
     let list: Array<IntrantValue> = intrantValues.filter((item) => item.id != intrantValue.id);
-    return {...state, intrantValues: list, intrantValue: intrantValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, intrantValues: list, intrantValue: intrantValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addIntrantValue, (state, {intrantValue}) => {
     let intrantValues = [...state.intrantValues];
     intrantValues.push(intrantValue);
     return {...state, intrantValues: intrantValues, intrantValue: intrantValue, messages: []};
   }),
-  on(loadIntrantValue, (state, {intrantValues}) => ({...state, intrantValues: intrantValues, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadIntrantValue, (state, {intrantValues}) => ({...state, intrantValues: intrantValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurIntrantValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllIntrantValue, findIntrantValueById, updateIntrantValue,
     createIntrantValue, deleteIntrantValue, findIntrantValueByCode, findIntrantValueByIdType, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

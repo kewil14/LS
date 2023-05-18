@@ -18,19 +18,19 @@ const reducer = createReducer(initState,
     let typeIntrants = [...state.typeIntrants];
     let list: Array<TypeIntrant> = typeIntrants.filter((item) => item.id != typeIntrant.id);
     list.push(typeIntrant)
-    return {...state, typeIntrants: list, typeIntrant: typeIntrant, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeIntrants: list, typeIntrant: typeIntrant, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTypeIntrant, (state, {typeIntrant}) => {
     let typeIntrants = [...state.typeIntrants];
     let list: Array<TypeIntrant> = typeIntrants.filter((item) => item.id != typeIntrant.id);
-    return {...state, typeIntrants: list, typeIntrant: typeIntrant, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, typeIntrants: list, typeIntrant: typeIntrant, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTypeIntrant, (state, {typeIntrant}) => {
     let typeIntrants = [...state.typeIntrants];
     typeIntrants.push(typeIntrant);
     return {...state, typeIntrants: typeIntrants, typeIntrant: typeIntrant, messages: []};
   }),
-  on(loadTypeIntrant, (state, {typeIntrants}) => ({...state, typeIntrants: typeIntrants, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTypeIntrant, (state, {typeIntrants}) => ({...state, typeIntrants: typeIntrants, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeIntrants, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTypeIntrant, findTypeIntrantById, updateTypeIntrant,
     createTypeIntrant, deleteTypeIntrant, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

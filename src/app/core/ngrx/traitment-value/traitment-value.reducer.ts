@@ -19,19 +19,19 @@ const reducer = createReducer(initState,
     let traitmentValues = [...state.traitmentValues];
     let list: Array<TraitmentValue> = traitmentValues.filter((item) => item.id != traitmentValue.id);
     list.push(traitmentValue)
-    return {...state, traitmentValues: list, traitmentValue: traitmentValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, traitmentValues: list, traitmentValue: traitmentValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(dellTraitmentValue, (state, {traitmentValue}) => {
     let traitmentValues = [...state.traitmentValues];
     let list: Array<TraitmentValue> = traitmentValues.filter((item) => item.id != traitmentValue.id);
-    return {...state, traitmentValues: list, traitmentValue: traitmentValue, dataState: DataStateEnum.LOADED, messages: []}
+    return {...state, traitmentValues: list, traitmentValue: traitmentValue, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
   on(addTraitmentValue, (state, {traitmentValue}) => {
     let traitmentValues = [...state.traitmentValues];
     traitmentValues.push(traitmentValue);
     return {...state, traitmentValues: traitmentValues, traitmentValue: traitmentValue, messages: []};
   }),
-  on(loadTraitmentValue, (state, {traitmentValues}) => ({...state, traitmentValues: traitmentValues, dataState: DataStateEnum.LOADED, messages: []})),
+  on(loadTraitmentValue, (state, {traitmentValues}) => ({...state, traitmentValues: traitmentValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTraitmentValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
   on( findAllTraitmentValue, findTraitmentValueById, updateTraitmentValue,
     createTraitmentValue, deleteTraitmentValue, findTraitmentValueByCode, findTraitmentValueByIdType, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))

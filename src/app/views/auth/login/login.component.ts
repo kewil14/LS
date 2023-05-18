@@ -7,7 +7,6 @@ import { APP_LINK } from 'src/app/core/config/app.url.config';
 import { Actions, ofType } from '@ngrx/effects';
 import { connexion, connexionOk, erreursAuthentification } from 'src/app/core/ngrx/authentification/authentification.actions';
 import { APP_ICONS } from 'src/app/core/config/app.enums.config';
-import { ListRoles } from 'src/app/core/config/list-roles';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -52,7 +51,7 @@ export class LoginComponent implements OnInit {
           {type: {icon: APP_ICONS.DANGER, color: APP_COLORS.DANGER}, title: APP_COLORS.DANGER, message: messages[0], dismissible: false}
         )
       }),
-      this.actionService.pipe(ofType(connexionOk)).subscribe(({typeUser}) =>{
+      this.actionService.pipe(ofType(connexionOk)).subscribe(() =>{
         this.messages$.next(
           {type: {icon: APP_ICONS.SUCCESS, color: APP_COLORS.SUCCESS}, title: APP_COLORS.SUCCESS, message: 'connexion reussi' , dismissible: false}
         );

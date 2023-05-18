@@ -1,10 +1,12 @@
 
 export class AuthentificationDto {
     constructor(
-        public jwt?: string,
-        public prefix?: string,
-        public status?: string,
-        public type?: string,
-        public messages?: Array<string>
+        public access_token?: string,
+        public expires_in?: number,
+        public refresh_expires_in?: number,
+        public refresh_token?: string,
+        public token_type?: string,
+        public code?: string,
+        public secret?: string,
     ) {}
 }

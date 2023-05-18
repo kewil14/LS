@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         var auth = this.localStorageService.currentTokenValue;
-        const xhr = request.clone({ headers: request.headers.set('authorization', `${auth.prefix}${auth.jwt}`) });
+        const xhr = request.clone({ headers: request.headers.set('authorization', `${auth.token_type} ${auth.access_token}`) });
         return next.handle(xhr);
     }
 }

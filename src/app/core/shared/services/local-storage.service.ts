@@ -39,13 +39,13 @@ export class LocalStorageService {
   }
 
   getRoles(): Array<any> {
-    const jwt = this.currentTokenValue?.jwt || '';
+    const jwt = this.currentTokenValue?.access_token || '';
     const jwtHelper = new JwtHelperService();
     return jwtHelper.decodeToken(jwt)?.roles;
   }
 
   isTokenExpired(): boolean {
-    const jwt = this.currentTokenValue?.jwt || '';
+    const jwt = this.currentTokenValue?.access_token || '';
     const jwtHelper = new JwtHelperService();
     if (jwtHelper.isTokenExpired(jwt)) {
       this.logout();
@@ -54,7 +54,7 @@ export class LocalStorageService {
   }
 
   getSubject(): string {
-    const jwt = this.currentTokenValue?.jwt || '';
+    const jwt = this.currentTokenValue?.access_token || '';
     const jwtHelper = new JwtHelperService();
     return jwtHelper.decodeToken(jwt)?.sub;
   }

@@ -31,7 +31,7 @@ import { AddMedicamentComponent } from './components/medicaments/forms/add-medic
 import { DisplayDetailMedicamentComponent } from './components/medicaments/cards/display-detail-medicament/display-detail-medicament.component';
 import { DisplayDetailCategoryComponent } from './components/medicaments/cards/display-detail-category/display-detail-category.component';
 import { DisplayDetailFormeComponent } from './components/formes/forms/add-forme/card/display-detail-forme/display-detail-forme.component';
-import { DisplayDetailFamilleComponent } from './components/medicaments/cards/display-detail-famille/display-detail-famille.component';
+import { DisplayDetailFamilleComponent } from './components/familles/card/display-detail-famille/display-detail-famille.component';
 import { DisplayDetailDciComponent } from './components/medicaments/cards/display-detail-dci/display-detail-dci.component';
 
 

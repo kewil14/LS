@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,13 +28,18 @@ export class FamillesComponent implements OnInit, OnDestroy {
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
 
+  famille$ = new BehaviorSubject<Famille>({});
+  loadingActivate$ = new BehaviorSubject<boolean>(false);
+  loadingDelete$ =new BehaviorSubject<boolean>(false);
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private store: Store,
-    private actionService: Actions
+    private actionService: Actions,
+    private modalService: NgbModal,
   ) { }
   ngOnDestroy(): void { this.subscriptions.forEach(s => s.unsubscribe())}
 
@@ -94,5 +100,14 @@ export class FamillesComponent implements OnInit, OnDestroy {
   }
   delleteFamille(idFamille: any): void {
     this.store.dispatch(deleteFamille({idFamille: idFamille}));
+  }
+
+  detailFamille(templateView: TemplateRef<any>, famille: Famille){
+    this.famille$.next(famille);
+    this.modalService.open(templateView, { size: 'md', centered: true });
+  }
+
+  actionFamille(){
+    
   }
 }

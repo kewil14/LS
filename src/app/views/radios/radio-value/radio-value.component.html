@@ -11,7 +11,7 @@
               </button>
             </div>
           </div>
-          <div class="table-responsive" *ngIf="radioValues.length > 0" >
+          <div class="table-responsive">
             <table datatable [dtOptions]="dtOptions" *ngIf="radioValues?.length || 0>0; else noDataRadioValue" class="table table-hover mb-0 table-100 table-sm">
               <thead>
                 <tr>

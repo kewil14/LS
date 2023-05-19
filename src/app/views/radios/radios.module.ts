@@ -8,13 +8,15 @@ import { TypeRadioComponent } from './type-radio/type-radio.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
+import { RadioDetailComponent } from './radio-value/radio-detail/radio-detail.component';
 
 
 @NgModule({
   declarations: [
     RadiosComponent,
     RadioValueComponent,
-    TypeRadioComponent
+    TypeRadioComponent,
+    RadioDetailComponent
 
   ],
   imports: [

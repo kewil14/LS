@@ -1291,7 +1291,7 @@ $pagination-hover-bg:               var(--#{$prefix}gray-200);
 $pagination-hover-border-color:     var(--#{$prefix}gray-400);
 
 $pagination-active-color:           $component-active-color;
-$pagination-active-bg:              $component-active-bg;
+$pagination-active-bg:              $health;
 $pagination-active-border-color:    $pagination-active-bg;
 
 $pagination-disabled-color:         var(--#{$prefix}gray-400);

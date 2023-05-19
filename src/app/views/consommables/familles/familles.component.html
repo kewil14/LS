@@ -6,16 +6,11 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-baseline">
             <h6 class="card-title mb-0">{{'messages.radios.list-type-radio' | translate | titlecase}}</h6>
-            <!-- <div class="mb-2">
+            <div class="mb-2">
               <button class="btn btn-xs btn-primary d-none d-md-block" (click)="onCreateFamille()" type="button">
                 {{'forms.add' | translate | titlecase}}
               </button>
-              <button
-                ngbTooltip="{{'messages.radios.add-radio'|translate | titlecase}}"
-                (click)="addNewGs(addGs)"
-                class="btn btn-info btn-xs d-md-none ">{{'forms.add' | translate | titlecase}}
-              </button>
-            </div> -->
+            </div>
           </div>
           <div class="table-responsive">
             <table datatable [dtOptions]="dtOptions" *ngIf="familles?.length || 0>0; else noDataFamilles"class="table table-hover mb-0 table-100 table-sm">
@@ -31,12 +26,13 @@
                   <td>{{item?.id}}</td>
                   <td>{{item?.libelle}}</td>
                   <td class="d-flex">
-                      <a (click)="onEditFamille(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditFamille(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteFamille(item?.id)" class="btn btn-sm btn-danger">
-                        delete
+                      <a (click)="detailFamille(detail, item)" class="btn btn-sm btn-primary btn-icon">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
+                      
                   </td>
                 </tr>
               </tbody>
@@ -68,6 +64,15 @@
         </div>
       </div>
     </div>
+  </div>
+</ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+     
   </div>
 </ng-template>
 

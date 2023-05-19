@@ -1,12 +1,11 @@
 import { APP_COLORS } from './../../../core/config/app.enums.config';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APP_LINK } from 'src/app/core/config/app.url.config';
 import { Actions, ofType } from '@ngrx/effects';
 import { connexion, connexionOk, erreursAuthentification } from 'src/app/core/ngrx/authentification/authentification.actions';
-import { APP_ICONS } from 'src/app/core/config/app.enums.config';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -14,23 +13,25 @@ import { Store } from '@ngrx/store';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
+  subscriptions: Subscription[] = [];
   loginForm!: FormGroup;
   isSubmitted = false;
-  subscriptions: Subscription[] = [];
   error = '';
   returnUrl!: string;
   fieldTextType!: boolean;
   AppLinks: typeof APP_LINK = APP_LINK;
-  messages$ = new BehaviorSubject<{type: {icon: any, color: any}, title: any, message: any, dismissible: boolean}>({type: {icon: APP_ICONS.SUCCESS, color: APP_COLORS.SUCCESS}, title: APP_COLORS.SUCCESS, message: '', dismissible: false})
+  loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,
-    private actionService: Actions,
-    private storeService: Store) { }
+    private storeService: Store,
+    private actionsService: Actions,
+    private router: Router) { }
+
+  ngOnDestroy(): void { this.subscriptions.forEach(subscription => subscription.unsubscribe());}
 
   ngOnInit() {
     this.initFormLogin();
@@ -40,33 +41,38 @@ export class LoginComponent implements OnInit {
     // get return url from route parameters or default to '/'
     // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    this.actionAuthentication()
+
+    this.actionLogin()
   }
 
-  // Authentification action
-  actionAuthentication(): void {
+  actionLogin(): void {
     this.subscriptions.push(
-      this.actionService.pipe(ofType(erreursAuthentification)).subscribe(({messages}) => {
-        this.messages$.next(
-          {type: {icon: APP_ICONS.DANGER, color: APP_COLORS.DANGER}, title: APP_COLORS.DANGER, message: messages[0], dismissible: false}
-        )
-      }),
-      this.actionService.pipe(ofType(connexionOk)).subscribe(() =>{
-        this.messages$.next(
-          {type: {icon: APP_ICONS.SUCCESS, color: APP_COLORS.SUCCESS}, title: APP_COLORS.SUCCESS, message: 'connexion reussi' , dismissible: false}
-        );
-        setTimeout(() => {
-          // conditons de passage
-          this.router.navigateByUrl('/dashboard')
-        })
-      })
+      this.actionsService.pipe(ofType(connexionOk)).subscribe(
+        () => {
+          this.loading = false;
+          setTimeout(() => {
+            
+          }, 100)
+          this.router.navigate([this.returnUrl]);
+        }
+      ),
+      this.actionsService.pipe(ofType(erreursAuthentification)).subscribe(
+        (data) => {
+          data.messages.forEach((message) => {
+            console.log(message);
+            
+          });
+          //this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
+          this.loading = false;
+        }
+      )
     )
   }
 
   initFormLogin(): void {
     this.loginForm = this.formBuilder.group({
       username: [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(50)])]
+      password: [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])]
     })
   }
    // convenience getter for easy access to form fields
@@ -77,11 +83,12 @@ export class LoginComponent implements OnInit {
    */
   onSubmit() {
     this.isSubmitted = true;
-    this.router.navigateByUrl('/dashboard')
     if (this.loginForm.invalid) {
       return;
-    } 
-    this.storeService.dispatch(connexion({loginDto: this.loginForm.value}));
+    } else {
+      this.storeService.dispatch(connexion({loginDto: this.loginForm.value}));
+      this.loading = true;
+    }
   }
 
   /**

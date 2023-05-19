@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, catchError, map, of } from 'rxjs';
 import { LocalStorageService } from '../services/local-storage.service';
-import { UserService } from '../services/services-customer/user.service';
 import { Store } from '@ngrx/store';
-import { setProfile } from '../../ngrx/profile/profile.actions';
+import { InstitutionService } from '../services/services-institution/institution.service';
+import { setSante } from '../../ngrx/institution/institution.actions';
 import { APP_LINK } from '../../config/app.url.config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthInstitutionGuard implements CanActivate {
   constructor(
     private router: Router,
     private localStorageService: LocalStorageService,
-    private userService: UserService,
+    private institutionService: InstitutionService,
     private storeService: Store
     ) {}
   canActivate(
@@ -24,11 +24,11 @@ export class AuthGuard implements CanActivate {
       this.router.navigate([APP_LINK.LINK_AUTH_LOGIN], { queryParams: { returnUrl: state.url }});
       return false;
     } else {
-      //return true;
-      return this.userService.findUserByToken().pipe(
-        map(user => {
-          if(user.id) {
-            this.storeService.dispatch(setProfile({profile: user}));
+      // return true;
+      return this.institutionService.findSanteBuToken().pipe(
+        map(institution => {
+          if(institution.id) {
+            this.storeService.dispatch(setSante({sante: institution}));
             return true;
           } else {
             this.logout();

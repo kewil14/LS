@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { setInstitution, setPharmacy, setHopital, erreurInstitutions,
-  findInstitutionByToken, findHopitalByToken, findPharmacyBuToken
+import { setInstitution, setPharmacy, setHopital, setSante, erreurInstitutions,
+  findInstitutionByToken, findHopitalByToken, findPharmacyBuToken, findSanteBuToken
 } from './institution.actions';
 import { InstitutionState } from './institution.state';
 import { DataStateEnum } from 'src/app/core/config/data.state.enum';
@@ -9,6 +9,7 @@ const initState: InstitutionState = {
   institution: {},
   pharmacy: {},
   hopital: {},
+  sante: {},
   dataState: DataStateEnum.INITIAL,
   messages: []
 }
@@ -23,8 +24,11 @@ const reducer = createReducer(initState,
   on(setHopital, (state, {hopital}) => {
     return {...state, hopital: hopital, dataState: DataStateEnum.SUCCESS, messages: []}
   }),
+  on(setSante, (state, {sante}) => {
+    return {...state, sante: sante, dataState: DataStateEnum.SUCCESS, messages: []}
+  }),
   on(erreurInstitutions, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),
-  on( findInstitutionByToken, findHopitalByToken, findPharmacyBuToken, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))
+  on( findInstitutionByToken, findHopitalByToken, findPharmacyBuToken, findSanteBuToken, state => ({ ...state, dataState: DataStateEnum.LOADING, messages: [] }))
 );
 
 export function institutionsReducer(

@@ -5,6 +5,7 @@ import { InstitutionRoutingModule } from './institution-routing.module';
 import { InstitutionComponent } from './institution.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CommonModule,
     InstitutionRoutingModule,
     DataTablesModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    TranslateModule
 
   ]
 })

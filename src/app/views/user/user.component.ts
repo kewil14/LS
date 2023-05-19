@@ -5,6 +5,10 @@ import { User } from 'src/app/core/shared/models/modal-customer/user.modal';
 
 import { users } from './data'
 import { APP_COLORS } from 'src/app/core/config/app.enums.config';
+import { UserState } from 'src/app/core/ngrx/user/user.state';
+import { Store } from '@ngrx/store';
+import { selectUserState } from 'src/app/core/core.state';
+import { DataStateEnum } from 'src/app/core/config/data.state.enum';
 
 @Component({
   selector: 'health-user',
@@ -13,16 +17,22 @@ import { APP_COLORS } from 'src/app/core/config/app.enums.config';
 })
 export class UserComponent implements OnInit {
 
-
+  userState$!: Observable<UserState>;
   dbOptions: any = {}
   users$!: Observable<User[]>
   color!: string
+  dataStateEnum: typeof DataStateEnum = DataStateEnum;
+  
+
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private storeService: Store
   ){}
 
   ngOnInit(): void {
     this.dbOptions = this.localStorageService.dbOptions();
+
+    this.userState$ = this.storeService.select(selectUserState).pipe();
     this.users$ = of(users)
     this.color.startsWith
   }

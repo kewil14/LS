@@ -21,7 +21,7 @@ import { DataTablesModule } from 'angular-datatables';
     MedicamentsRoutingModule,
     SharedModuleModule,
     TranslateModule,
-    DataTablesModule
+    DataTablesModule,
   ]
 })
 export class MedicamentsModule { }

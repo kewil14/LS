@@ -24,13 +24,18 @@
                 <tr *ngFor="let item of produits" class="table-light">
                   <td>{{item?.id}}</td>
                   <td>{{item?.code}}</td>
-                  <td class="d-flex">
-                      <a (click)="onEditProduit(item)" class="btn btn-sm btn-warning">
+                  <td>
+                    <div class="d-flex justify-content-center">
+                      <a (click)="onEditProduit(item)" class="btn btn-sm btn-warning ms-2">
                         edit
                       </a>
-                      <a (click)="delleteProduit(item?.id)" class="btn btn-sm btn-danger">
+                      <a (click)="delleteProduit(item?.id)" class="btn btn-sm btn-danger ms-2">
                         delete
                       </a>
+                      <a (click)="openXlModal(detailProduit)" class="btn btn-sm btn-primary btn-icon ms-2">
+                        detail
+                      </a>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -46,6 +51,19 @@
                 </thead>
             </table>
             </ng-template>
+            <ng-template #detailProduit let-modal>
+              <div class="modal-header">
+                  
+                  <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+              </div>
+              <div class="modal-body text-center">
+                  <health-detail-produit
+                  [loading$]="loadingOperation$"
+                  [product$]="currentProduit$"
+                  ></health-detail-produit>
+              </div>
+          
+          </ng-template>
           </div>
         </div>
       </div>

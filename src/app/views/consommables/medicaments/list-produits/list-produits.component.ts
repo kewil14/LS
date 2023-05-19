@@ -6,10 +6,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectProduitState } from 'src/app/core/core.state';
-import { addProduit, deleteProduit, dellProduit, erreurProduits, setProduit } from 'src/app/core/ngrx/produit/produit.actions';
+import { addProduit, deleteProduit, dellProduit, erreurProduits, findProduitById, setProduit } from 'src/app/core/ngrx/produit/produit.actions';
 import { ProduitState } from 'src/app/core/ngrx/produit/produit.state';
 import { Produit } from 'src/app/core/shared/models/produit.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'health-list-produits',
@@ -24,7 +25,7 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
   operationProduit$ = new BehaviorSubject<{operation: string, produit: Produit}>({operation: OperationEnum.CREATE, produit: {}});
   loadingOperation$ = new BehaviorSubject<boolean>(false);
   produits: Array<Produit> = [];
-  currentProduit!: Produit;
+  currentProduit$= new BehaviorSubject<{ produit: Produit}>({ produit: {}});
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
   operationEnum: typeof OperationEnum = OperationEnum;
@@ -35,7 +36,8 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private store: Store,
-    private actionService: Actions
+    private actionService: Actions,
+    private modalService: NgbModal,
   ) { }
   ngOnDestroy(): void { this.subscriptions.forEach(s => s.unsubscribe())}
 
@@ -97,4 +99,14 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
   delleteProduit(idProduit: any): void {
     this.store.dispatch(deleteProduit({idProduit: idProduit}));
   }
+
+  openXlModal(templateView: any) {
+    this.modalService.open(templateView, { size: 'xl', centered: true });
+  }
+
+  showProduit(produit: Produit) {
+  this.loadingOperation$.next(false);
+  this.currentProduit$.next({produit: produit});
+}
+ 
 }

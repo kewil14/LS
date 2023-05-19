@@ -10,7 +10,7 @@ import { LoadProduitsGuard } from 'src/app/core/shared/guards/medicaments/load-p
 
 const routes: Routes = [
   { path: 'list', component: ListProduitsComponent, canActivate: [LoadFormesGuard, LoadDciGuard, LoadCategoriesGuard, LoadFamillesGuard, LoadProduitsGuard]},
-  { path: 'detail/:idProduit', component: DetailProduitComponent },
+  { path: 'detail/:idProduit', component: DetailProduitComponent},
   { path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 

@@ -11,18 +11,10 @@ import { Produit } from 'src/app/core/shared/models/produit.modal';
 })
 export class DetailProduitComponent implements OnInit{
 
-  @Input() product$!: BehaviorSubject<{produit: Produit}>;
-  @Input() loading$!: BehaviorSubject<boolean>;
-
   constructor(){}
 
   ngOnInit(): void {
-    this.product$.subscribe(d =>{this.showProduit(d.produit)});
+    
   }
 
-  showProduit(produit: Produit): void{
-    id: produit.id;
-    libelle: produit.libelle;
-    dosage: produit.dosage;
-  }
 }

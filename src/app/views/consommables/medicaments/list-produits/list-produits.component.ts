@@ -112,10 +112,6 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 
-  showProduit(produit: Produit) {
-    this.loadingOperation$.next(false);
-    this.currentProduit$.next({produit: produit});
-  }
 
   actionMedicament($event: {action: TypeActionEnum, medicament: Produit}): void {
     console.log($event);

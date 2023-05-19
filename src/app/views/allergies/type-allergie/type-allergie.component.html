@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(TypeAllergies$|async)?.dataState == dataState.LOADING; else listTypeAllergiesView"></app-loader-page>
+<ng-template #listTypeAllergiesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -63,3 +64,6 @@
         </div>
       </div>
     </div>
+  </div>
+</ng-template>
+

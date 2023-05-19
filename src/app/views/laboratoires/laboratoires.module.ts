@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
 import { LaboratoireDetailComponent } from './laboratoire-value/laboratoire-detail/laboratoire-detail.component';
+import { UIModule } from 'src/app/shared-module/ui/ui.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LaboratoireDetailComponent } from './laboratoire-value/laboratoire-deta
     LaboratoiresRoutingModule,
     TranslateModule,
     SharedModuleModule,
-    DataTablesModule
+    DataTablesModule,
+    UIModule
   ]
 })
 export class LaboratoiresModule { }

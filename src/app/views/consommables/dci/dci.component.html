@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(dcis$|async)?.dataState == dataState.LOADING; else listDcisView"></app-loader-page>
+<ng-template #listDcisView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -65,3 +66,5 @@
         </div>
       </div>
     </div>
+    </div>
+</ng-template>

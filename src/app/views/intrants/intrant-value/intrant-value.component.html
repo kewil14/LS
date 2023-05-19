@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(intrantValues$|async)?.dataState == dataState.LOADING; else listIntrantValuesView"></app-loader-page>
+<ng-template #listIntrantValuesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -71,3 +72,5 @@
       </div>
     </div>
   </div>
+</ng-template>
+

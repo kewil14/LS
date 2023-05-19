@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
 import { AntecedentDetailComponent } from './antecedent-value/antecedent-detail/antecedent-detail.component';
+import { UIModule } from 'src/app/shared-module/ui/ui.module';
 
 
 
@@ -24,7 +25,8 @@ import { AntecedentDetailComponent } from './antecedent-value/antecedent-detail/
     AntecedentsRoutingModule,
     TranslateModule,
     SharedModuleModule,
-    DataTablesModule
+    DataTablesModule,
+    UIModule
   ]
 })
 export class AntecedentsModule { }

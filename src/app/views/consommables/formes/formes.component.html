@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(formes$|async)?.dataState == dataState.LOADING; else listFormesView"></app-loader-page>
+<ng-template #listFormesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -68,3 +69,6 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+

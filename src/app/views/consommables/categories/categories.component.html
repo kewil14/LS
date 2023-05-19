@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(categories$|async)?.dataState == dataState.LOADING; else listCategoriesView"></app-loader-page>
+<ng-template #listCategoriesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -63,3 +64,6 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+

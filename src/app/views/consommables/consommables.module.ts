@@ -10,6 +10,7 @@ import { FamillesComponent } from './familles/familles.component';
 import { DciComponent } from './dci/dci.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DataTablesModule } from 'angular-datatables';
+import { UIModule } from 'src/app/shared-module/ui/ui.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DataTablesModule } from 'angular-datatables';
     ConsommablesRoutingModule,
     SharedModuleModule,
     TranslateModule,
-    DataTablesModule
+    DataTablesModule,
+    UIModule
   ]
 })
 export class ConsommablesModule { }

@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
 import { TraitmentDetailComponent } from './traitment-value/traitment-detail/traitment-detail.component';
+import { UIModule } from 'src/app/shared-module/ui/ui.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TraitmentDetailComponent } from './traitment-value/traitment-detail/tra
     TraitmentsRoutingModule,
     SharedModuleModule,
     TranslateModule,
-    DataTablesModule
+    DataTablesModule,
+    UIModule
   ]
 })
 export class TraitmentsModule { }

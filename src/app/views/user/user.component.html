@@ -5,12 +5,13 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table datatable [dtOptions]="dbOptions" *ngIf="((users$|async)?.length  || 0) > 0; else noDataRole"  class="table table-hover table-sm">
+                        <table datatable [dtOptions]="dbOptions" *ngIf="((userState$|async)?.users?.length || 0) > 0; else noDataRole"  class="table table-hover table-sm">
                             <thead>
                                 <tr>
                                   <th>{{'LABELS.ID_USER' | translate | uppercase}}</th>
                                   <th>{{'LABELS.ID_INSTITUTION' | translate | uppercase}}</th>
                                   <th>{{'LABELS.LOGIN' | translate | uppercase}}</th>
+                                  <th>{{'LABELS.ID' | translate | uppercase}}</th>
                                   <th>{{'LABELS.FIRSTNAME' | translate | uppercase}}</th>
                                   <th>{{'LABELS.LASTNAME' | translate | uppercase}}</th>
                                   <th>{{'LABELS.COUNTRY' | translate | uppercase}}</th>
@@ -26,10 +27,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr class="table-{{ligneColor(''+user.lastName | uppercase)}}" *ngFor="let user of (users$|async)">
+                            <tr class="table-{{ligneColor(''+user.lastName | uppercase)}}" *ngFor="let user of (userState$|async)?.users">
                                 <td>{{user.userId}}</td>
                                 <td>{{user.institutionId}}</td>
                                 <td>{{user.login}}</td>
+                                <td>{{user.id}}</td>
                                 <td>{{user.firstName}}</td>
                                 <td>{{user.lastName}}</td>
                                 <td>{{user.countryOfBirth}}</td>
@@ -52,6 +54,7 @@
                                         <th>{{'LABELS.ID_USER' | translate | uppercase}}</th>
                                         <th>{{'LABELS.ID_INSTITUTION' | translate | uppercase}}</th>
                                         <th>{{'LABELS.LOGIN' | translate | uppercase}}</th>
+                                        <th>{{'LABELS.ID' | translate | uppercase}}</th>
                                         <th>{{'LABELS.FIRSTNAME' | translate | uppercase}}</th>
                                         <th>{{'LABELS.LASTNAME' | translate | uppercase}}</th>
                                         <th>{{'LABELS.COUNTRY' | translate | uppercase}}</th>

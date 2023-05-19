@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { DataTablesModule } from 'angular-datatables';
 import { AllergieDetailComponent } from './allergie-value/allergie-detail/allergie-detail.component';
+import { UIModule } from 'src/app/shared-module/ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AllergieDetailComponent } from './allergie-value/allergie-detail/allerg
     TranslateModule,
     SharedModuleModule,
     DataTablesModule,
+    UIModule
   ]
 })
 export class AllergiesModule { }

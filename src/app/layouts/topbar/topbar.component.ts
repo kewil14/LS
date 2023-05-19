@@ -5,6 +5,10 @@ import { environment } from '../../../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { LanguageService } from '../../core/shared/services/language.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable, map } from 'rxjs';
+import { User } from 'src/app/core/shared/models/modal-customer/user.modal';
+import { Store } from '@ngrx/store';
+import { selectProfileState } from 'src/app/core/core.state';
 
 @Component({
   selector: 'app-topbar',
@@ -23,7 +27,10 @@ export class TopbarComponent implements OnInit {
   countryName: any;
   valueset: any;
 
+  currentUser$!: Observable<User>
+
   constructor(@Inject(DOCUMENT) private document: any,
+              private storeService: Store,
               private router: Router,
               public languageService: LanguageService,
               public translate: TranslateService,
@@ -51,6 +58,10 @@ export class TopbarComponent implements OnInit {
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
+
+    this.currentUser$ = this.storeService.select(selectProfileState).pipe(
+      map(({profile}) => profile)
+    )
   }
 
   setLanguage(text: string, lang: string, flag: string) {

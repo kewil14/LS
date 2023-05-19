@@ -58,47 +58,47 @@
               <div class="table-responsive">
                 <table class="table table-nowrap mb-0">
                   <tbody>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.status != null">
                         <th scope="row">{{'LABEL.STATUS' | translate}} :</th>
                         <td>{{(institution$|async)?.status}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.phoneNumber != null">
                       <th scope="row">Mobile :</th>
                       <td>{{(institution$|async)?.phoneNumber}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.siteWeb != null">
                         <th scope="row">{{"LABEL.WEB_SITE" | translate}} :</th>
                         <td>{{(institution$|async)?.siteWeb}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.email != null">
                       <th scope="row">E-mail :</th>
                       <td>{{(institution$|async)?.email}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.boitePostale != null">
                       <th scope="row">{{'LABEL.POBOX' | translate}} :</th>
                       <td>{{(institution$|async)?.boitePostale}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.lattitude != null">
                         <th scope="row">{{'LABEL.LATITUDE' | translate}} :</th>
                         <td>{{(institution$|async)?.lattitude}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.longitude != null">
                         <th scope="row">{{'LABEL.LONGITUDE' | translate}} :</th>
                         <td>{{(institution$|async)?.longitude}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.regionCode != null">
                         <th scope="row">{{'LABEL.REGION_CODE' | translate}} :</th>
                         <td>{{(institution$|async)?.regionCode}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.departmentCode != null">
                         <th scope="row">{{'LABEL.DEPARTEMENT_CODE' | translate}} :</th>
                         <td>{{(institution$|async)?.departmentCode}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.districtCode != null">
                         <th scope="row">{{'LABEL.DISTRICT_CODE' | translate}} :</th>
                         <td>{{(institution$|async)?.districtCode}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="(institution$|async)?.quarterCode != null">
                         <th scope="row">{{'LABEL.QUARTER_CODE' | translate}} :</th>
                         <td>{{(institution$|async)?.quarterCode}}</td>
                     </tr>

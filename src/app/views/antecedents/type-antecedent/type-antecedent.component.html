@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(typeAntecedents$|async)?.dataState == dataState.LOADING; else listTypeAntecedentsView"></app-loader-page>
+<ng-template #listTypeAntecedentsView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -79,3 +80,5 @@
       </div>
     </div>
   </div>
+</ng-template>
+

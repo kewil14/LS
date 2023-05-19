@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(antecedentValues$|async)?.dataState == dataState.LOADING; else listAntecedentValuesView"></app-loader-page>
+<ng-template #listAntecedentValuesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -70,3 +71,5 @@
       </div>
     </div>
   </div>
+</ng-template>
+

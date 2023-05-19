@@ -1,6 +1,6 @@
 .loader {
     position: absolute;
-    width: 100%;
+    width: 85%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -16,19 +16,19 @@
   
   @keyframes flash {
     0% {
-      color: red;
-      font-size: 100px;
+      color: rgb(0, 174, 255);
+      font-size: 60px;
       text-shadow: 0 0 7px #fff900;
     }
-    90% {
+    50% {
       color: #010000;
       letter-spacing: 15px;
-      font-size: 50px;
+      font-size: 25px;
       text-shadow: none;
     }
     100% {
-      color: red;
-      font-size: 100px;
+      color: rgb(0, 174, 255);
+      font-size: 60px;
       text-shadow: 0 0 7px #fff900;
     }
   }

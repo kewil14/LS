@@ -1,5 +1,6 @@
-
-<div class="row">
+<app-loader-page *ngIf="(radioValues$|async)?.dataState == dataState.LOADING; else listRadioValuesView"></app-loader-page>
+<ng-template #listRadioValuesView>
+  <div class="row">
     <div class="col-md-7">
       <div class="card">
         <div class="card-body">
@@ -72,3 +73,5 @@
       </div>
     </div>
   </div>
+</ng-template>
+

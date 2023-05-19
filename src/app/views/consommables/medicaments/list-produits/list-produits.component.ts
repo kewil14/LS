@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
@@ -11,6 +11,7 @@ import { ProduitState } from 'src/app/core/ngrx/produit/produit.state';
 import { Produit } from 'src/app/core/shared/models/produit.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TypeActionEnum } from 'src/app/core/shared/enums/TypeActionEnum';
 
 @Component({
   selector: 'health-list-produits',
@@ -29,6 +30,10 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
   operationEnum: typeof OperationEnum = OperationEnum;
+
+  medicament$ = new BehaviorSubject<Produit>({});
+  loadingActivate$ = new BehaviorSubject<boolean>(false);
+  loadingDelete$ =new BehaviorSubject<boolean>(false);
 
   constructor(
     private route: ActivatedRoute,
@@ -56,17 +61,22 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
         ofType(erreurProduits)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
+        this.loadingDelete$.next(false);
+        this.loadingActivate$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
       }),
       this.actionService.pipe(
         ofType(setProduit)
       ).subscribe(() => {
         this.onCreateProduit();
+        this.modalService.dismissAll();
         this.loadingOperation$.next(false);
         this.loadProduits();
       }),
       this.actionService.pipe(ofType(addProduit)).subscribe(() => {
         this.onCreateProduit();
+        this.loadingDelete$.next(false);
+        this.loadingActivate$.next(false);
         this.loadingOperation$.next(false);
         this.loadProduits();
       }),
@@ -96,17 +106,24 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
     )
     }, 1000);
   }
-  delleteProduit(idProduit: any): void {
-    this.store.dispatch(deleteProduit({idProduit: idProduit}));
-  }
 
-  openXlModal(templateView: any) {
-    this.modalService.open(templateView, { size: 'xl', centered: true });
+  detailMedicament(templateView: TemplateRef<any>, produit: Produit) {
+    this.medicament$.next(produit);
+    this.modalService.open(templateView, { size: 'md', centered: true });
   }
 
   showProduit(produit: Produit) {
-  this.loadingOperation$.next(false);
-  this.currentProduit$.next({produit: produit});
-}
+    this.loadingOperation$.next(false);
+    this.currentProduit$.next({produit: produit});
+  }
+
+  actionMedicament($event: {action: TypeActionEnum, medicament: Produit}): void {
+    console.log($event);
+    if($event.action == TypeActionEnum.DELETE) {
+      this.store.dispatch(deleteProduit({idProduit: $event.medicament.id}));
+    } else {
+      // dispatcher l'action avtivate produit ici
+    }
+  }
  
 }

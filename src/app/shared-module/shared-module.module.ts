@@ -28,6 +28,11 @@ import { AddValueComponent } from './components/allergies/forms/add-value/add-va
 import { AddTypeComponent } from './components/allergies/forms/add-type/add-type.component';
 import { StatComponent } from './widget/stat/stat.component';
 import { AddMedicamentComponent } from './components/medicaments/forms/add-medicament/add-medicament.component';
+import { DisplayDetailMedicamentComponent } from './components/medicaments/cards/display-detail-medicament/display-detail-medicament.component';
+import { DisplayDetailCategoryComponent } from './components/medicaments/cards/display-detail-category/display-detail-category.component';
+import { DisplayDetailFormeComponent } from './components/medicaments/cards/display-detail-forme/display-detail-forme.component';
+import { DisplayDetailFamilleComponent } from './components/medicaments/cards/display-detail-famille/display-detail-famille.component';
+import { DisplayDetailDciComponent } from './components/medicaments/cards/display-detail-dci/display-detail-dci.component';
 
 
 @NgModule({
@@ -36,14 +41,15 @@ import { AddMedicamentComponent } from './components/medicaments/forms/add-medic
     AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent
     
   ],
   exports: [
     LengthTextPipe, SuspensionPipe,  RelativeDatePipe, AddFormeComponent, AddCategoryComponent,AddDciComponent, 
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
-    AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent
+    AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent
     
   ],
   imports: [

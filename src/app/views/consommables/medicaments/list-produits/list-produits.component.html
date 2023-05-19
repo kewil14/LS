@@ -29,11 +29,8 @@
                       <a (click)="onEditProduit(item)" class="btn btn-sm btn-warning ms-2">
                         edit
                       </a>
-                      <a (click)="delleteProduit(item?.id)" class="btn btn-sm btn-danger ms-2">
-                        delete
-                      </a>
-                      <a (click)="openXlModal(detailProduit)" class="btn btn-sm btn-primary btn-icon ms-2">
-                        detail
+                      <a (click)="detailMedicament(detailProduit, item)" class="btn btn-sm btn-primary btn-icon ms-2">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
                     </div>
                   </td>
@@ -51,19 +48,6 @@
                 </thead>
             </table>
             </ng-template>
-            <ng-template #detailProduit let-modal>
-              <div class="modal-header">
-                  
-                  <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
-              </div>
-              <div class="modal-body text-center">
-                  <health-detail-produit
-                  [loading$]="loadingOperation$"
-                  [product$]="currentProduit$"
-                  ></health-detail-produit>
-              </div>
-          
-          </ng-template>
           </div>
         </div>
       </div>
@@ -81,3 +65,19 @@
       </div>
     </div>
   </div>
+
+  <ng-template #detailProduit let-modal>
+    <div class="modal-header">
+        
+        <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+    </div>
+    <div class="modal-body text-center">
+        <health-display-detail-medicament
+          [loadingActivate$]="loadingActivate$"
+          [loadingDelete$]="loadingDelete$"
+          [medicament$]="medicament$"
+          (onActions)="actionMedicament($event)"
+        ></health-display-detail-medicament>
+    </div>
+
+</ng-template>

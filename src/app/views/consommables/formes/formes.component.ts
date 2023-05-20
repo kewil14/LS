@@ -34,6 +34,8 @@ export class FormesComponent implements OnInit, OnDestroy {
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
 
+  titleModal$ = new BehaviorSubject<string>('');
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -109,6 +111,7 @@ export class FormesComponent implements OnInit, OnDestroy {
 
   detailForme(templateView: TemplateRef<any>, forme: Forme){
     this.forme$.next(forme);
+    this.titleModal$.next('Defail Forme')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

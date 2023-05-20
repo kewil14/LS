@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'health-header-modal',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-modal.component.scss']
 })
 export class HeaderModalComponent {
-
+  @Input() title$!: BehaviorSubject<string>;
 }

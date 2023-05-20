@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addTypeLaboratoire, (state, {typeLaboratoire}) => {
     let typeLaboratoires = [...state.typeLaboratoires];
     typeLaboratoires.push(typeLaboratoire);
-    return {...state, typeLaboratoires: typeLaboratoires, typeLaboratoire: typeLaboratoire, messages: []};
+    return {...state, typeLaboratoires: typeLaboratoires, typeLaboratoire: typeLaboratoire,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTypeLaboratoire, (state, {typeLaboratoires}) => ({...state, typeLaboratoires: typeLaboratoires, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeLaboratoires, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

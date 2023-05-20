@@ -31,12 +31,13 @@
                   <td>{{item?.id}}</td>
                   <td>{{item?.libelle}}</td>
                   <td class="d-flex">
-                      <a (click)="onEditForme(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditForme(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteForme(item?.id)" class="btn btn-sm btn-danger">
-                        delete
+                      <a (click)="detailForme(detail, item)" class="btn btn-sm btn-primary btn-icon ms-2">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
+                      
                   </td>
                 </tr>
               </tbody>
@@ -70,5 +71,21 @@
     </div>
   </div>
 </ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      <health-header-modal
+        [title$]="titleModal$"
+      ></health-header-modal>
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+      <health-display-detail-forme
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [forme$]="forme$"
+        (onActions)="actionForme($event)"
+      ></health-display-detail-forme>
+  </div>
 
+</ng-template>
 

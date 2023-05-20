@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addLaboratoireValue, (state, {laboratoireValue}) => {
     let laboratoireValues = [...state.laboratoireValues];
     laboratoireValues.push(laboratoireValue);
-    return {...state, laboratoireValues: laboratoireValues, laboratoireValue: laboratoireValue, messages: []};
+    return {...state, laboratoireValues: laboratoireValues, laboratoireValue: laboratoireValue,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadLaboratoireValue, (state, {laboratoireValues}) => ({...state, laboratoireValues: laboratoireValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurLaboratoireValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

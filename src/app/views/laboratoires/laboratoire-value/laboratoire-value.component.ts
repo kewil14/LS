@@ -1,13 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectLaboratoireValueState } from 'src/app/core/core.state';
-import { addLaboratoireValue, deleteLaboratoireValue, dellLaboratoireValue, erreurLaboratoireValues, setLaboratoireValue } from 'src/app/core/ngrx/laboratoire-value/laboratoire-value.actions';
+import { addLaboratoireValue, deleteLaboratoireValue, dellLaboratoireValue, erreurLaboratoireValues, setLaboratoireValue, updateLaboratoireValue } from 'src/app/core/ngrx/laboratoire-value/laboratoire-value.actions';
 import { LaboratoireValueState } from 'src/app/core/ngrx/laboratoire-value/laboratoire-value.state';
+import { TypeActionEnum } from 'src/app/core/shared/enums/TypeActionEnum';
 import { LaboratoireValue } from 'src/app/core/shared/models/laboratoire-value.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 
@@ -29,13 +31,18 @@ export class LaboratoireValueComponent implements OnInit, OnDestroy {
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
   operationEnum: typeof OperationEnum = OperationEnum;
 
+  laboratoire$ = new BehaviorSubject<LaboratoireValue>({});
+  loadingActivate$ = new BehaviorSubject<boolean>(false);
+  loadingDelete$ =new BehaviorSubject<boolean>(false);
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private store: Store,
-    private actionService: Actions
+    private actionService: Actions,
+    private modalService: NgbModal,
   ) { }
   ngOnDestroy(): void { this.subscriptions.forEach(s => s.unsubscribe())}
 
@@ -54,6 +61,8 @@ export class LaboratoireValueComponent implements OnInit, OnDestroy {
         ofType(erreurLaboratoireValues)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
+        this.loadingDelete$.next(false);
+        this.loadingActivate$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
       }),
       this.actionService.pipe(
@@ -96,5 +105,17 @@ export class LaboratoireValueComponent implements OnInit, OnDestroy {
   }
   delleteLaboratoireValue(idLaboratoireValue: any): void {
     this.store.dispatch(deleteLaboratoireValue({idLaboratoireValue: idLaboratoireValue}));
+  }
+  detailLaboratoire(templateView: TemplateRef<any>, laboratoire: LaboratoireValue){
+    this.laboratoire$.next(laboratoire);
+    this.modalService.open(templateView, { size: 'md', centered: true });
+  }
+
+  actionLaboratoire($event: {action: TypeActionEnum, laboratoire: LaboratoireValue}){
+    if($event.action == TypeActionEnum.DELETE) {
+      this.store.dispatch(deleteLaboratoireValue({idLaboratoireValue: $event.laboratoire.id}));
+    } else {
+      this.store.dispatch(updateLaboratoireValue({laboratoireValue: $event.laboratoire}));
+    }
   }
 }

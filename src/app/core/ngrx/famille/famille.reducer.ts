@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addFamille, (state, {famille}) => {
     let familles = [...state.familles];
     familles.push(famille);
-    return {...state, familles: familles, famille: famille, messages: []};
+    return {...state, familles: familles, famille: famille,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadFamille, (state, {familles}) => ({...state, familles: familles, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurFamilles, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

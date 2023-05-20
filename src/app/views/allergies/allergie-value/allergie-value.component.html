@@ -29,16 +29,11 @@
                   <td>{{item?.libelleFr}}</td>
                   <!-- <td>{{item?.type}}</td> -->
                   <td class="d-flex">
-                      <a (click)="onEditAllergieValue(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditAllergieValue(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteAllergieValue(item?.id)" class="btn btn-sm btn-danger">
-                        delete
-                      </a>
-                      <a  class="btn btn-sm btn-health">
-                        <health-allergie-detail
-                        
-                        >detail</health-allergie-detail>  
+                      <a (click)="detailAllergie(detail, item)" class="btn btn-sm btn-primary btn-icon">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
                   </td>
                 </tr>
@@ -70,6 +65,20 @@
         </div>
       </div>
     </div>
+  </div>
+</ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+      <health-display-detail-allergie
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [allergie$]="allergie$"
+        (onActions)="actionAllergie($event)"
+      ></health-display-detail-allergie>
   </div>
 </ng-template>
 

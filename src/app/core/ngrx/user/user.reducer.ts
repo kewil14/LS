@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addUser, (state, {user}) => {
     let users = [...state.users];
     users.push(user);
-    return {...state, users: users, user: user, messages: []};
+    return {...state, users: users, user: user,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadUser, (state, {users}) => ({...state, users: users, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurUsers, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

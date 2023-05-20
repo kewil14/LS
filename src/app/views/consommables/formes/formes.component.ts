@@ -1,13 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum } from 'src/app/core/config/data.state.enum';
 import { selectFormeState } from 'src/app/core/core.state';
-import { addForme, deleteForme, dellForme, erreurFormes, setForme } from 'src/app/core/ngrx/forme/forme.actions';
+import { addForme, deleteForme,updateForme, dellForme, erreurFormes, setForme } from 'src/app/core/ngrx/forme/forme.actions';
 import { FormeState } from 'src/app/core/ngrx/forme/forme.state';
+import { TypeActionEnum } from 'src/app/core/shared/enums/TypeActionEnum';
 import { Forme } from 'src/app/core/shared/models/forme.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 
@@ -28,13 +30,20 @@ export class FormesComponent implements OnInit, OnDestroy {
   dataState: typeof DataStateEnum = DataStateEnum;
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
 
+  forme$ = new BehaviorSubject<Forme>({});
+  loadingActivate$ = new BehaviorSubject<boolean>(false);
+  loadingDelete$ =new BehaviorSubject<boolean>(false);
+
+  titleModal$ = new BehaviorSubject<string>('');
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private store: Store,
-    private actionService: Actions
+    private actionService: Actions,
+    private modalService: NgbModal,
   ) { }
   ngOnDestroy(): void { this.subscriptions.forEach(s => s.unsubscribe())}
 
@@ -53,12 +62,15 @@ export class FormesComponent implements OnInit, OnDestroy {
         ofType(erreurFormes)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
+        this.loadingDelete$.next(false);
+        this.loadingActivate$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
       }),
       this.actionService.pipe(
         ofType(setForme)
       ).subscribe(() => {
         this.onCreateForme();
+        this.modalService.dismissAll();
         this.loadingOperation$.next(false);
         this.loadFormes();
       }),
@@ -95,5 +107,19 @@ export class FormesComponent implements OnInit, OnDestroy {
   }
   delleteForme(idForme: any): void {
     this.store.dispatch(deleteForme({idForme: idForme}));
+  }
+
+  detailForme(templateView: TemplateRef<any>, forme: Forme){
+    this.forme$.next(forme);
+    this.titleModal$.next('Defail Forme')
+    this.modalService.open(templateView, { size: 'md', centered: true });
+  }
+
+  actionForme($event:{action: TypeActionEnum, forme: Forme}): void {
+    if($event.action == TypeActionEnum.DELETE) {
+      this.store.dispatch(deleteForme({idForme: $event.forme.id}));
+    } else {
+      this.store.dispatch(updateForme({forme: $event.forme}));
+    }
   }
 }

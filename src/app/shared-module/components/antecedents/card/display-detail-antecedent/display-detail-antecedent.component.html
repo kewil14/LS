@@ -1,0 +1,27 @@
+<div>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.LABEL'| translate | titlecase}}</label>
+    <p class="text-muted">{{(antecedent$|async)?.libelleEn}}</p>
+</div>
+<div>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.LABEL'| translate | titlecase}}</label>
+    <p class="text-muted">{{(antecedent$|async)?.libelleFr}}</p>
+</div>
+<div>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.TYPE'| translate | titlecase}}</label>
+    <p class="text-muted">{{(antecedent$|async)?.type?.libelleEn}}</p>
+</div>
+<div>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.TYPE'| translate | titlecase}}</label>
+    <p class="text-muted">{{(antecedent$|async)?.type?.libelleFr}}</p>
+</div>
+
+
+<div class="mt-3 d-flex justify-content-end" *ngIf="antecedent$|async as antecedent">
+    <a (click)="clickAction(typeActionEnum.DELETE, antecedent)" class="btn btn-sm justify-content-center btn-icon mr-2">
+        <i class="bx bx-highlight font-size-4 align-middle me-2"></i>
+        <span *ngIf="loadingDelete$|async"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </a>
+    <a (click)="clickAction(typeActionEnum.ACTIVATE, antecedent)" class="btn btn-sm justify-content-center btn-icon mr-2">
+        <i class="bx bx-grid-small font-size-4 align-middle me-2"></i>
+    </a>
+</div>

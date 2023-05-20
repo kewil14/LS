@@ -10,6 +10,7 @@ import { LaboratoiresComponent } from './laboratoires/laboratoires.component';
 import { UserComponent } from './user/user.component';
 import { InstitutionComponent } from './institution/institution.component';
 import { LoadUserGuard } from '../core/shared/guards/load-user.guard';
+import { FaqsComponent } from './setting/faqs/faqs.component';
 
 const routes: Routes = [
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'laboratoires', component: LaboratoiresComponent, loadChildren: () => import('./laboratoires/laboratoires.module').then(m => m.LaboratoiresModule) },
   { path: 'user', component: UserComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule), canActivate: [LoadUserGuard] },
   { path: 'institution', component: InstitutionComponent, loadChildren: () => import('./institution/institution.module').then(m => m.InstitutionModule) },
+  { path: 'setting', component: FaqsComponent, loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule) },
 ];
 
 @NgModule({

@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addAntecedentValue, (state, {antecedentValue}) => {
     let antecedentValues = [...state.antecedentValues];
     antecedentValues.push(antecedentValue);
-    return {...state, antecedentValues: antecedentValues, antecedentValue: antecedentValue, messages: []};
+    return {...state, antecedentValues: antecedentValues, antecedentValue: antecedentValue,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadAntecedentValue, (state, {antecedentValues}) => ({...state, antecedentValues: antecedentValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurAntecedentValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

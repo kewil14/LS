@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addTypeTraitment, (state, {typeTraitment}) => {
     let typeTraitments = [...state.typeTraitments];
     typeTraitments.push(typeTraitment);
-    return {...state, typeTraitments: typeTraitments, typeTraitment: typeTraitment, messages: []};
+    return {...state, typeTraitments: typeTraitments, typeTraitment: typeTraitment,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTypeTraitment, (state, {typeTraitments}) => ({...state, typeTraitments: typeTraitments, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeTraitments, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectProduitState } from 'src/app/core/core.state';
-import { addProduit, deleteProduit, dellProduit, erreurProduits, findProduitById, setProduit } from 'src/app/core/ngrx/produit/produit.actions';
+import { addProduit, deleteProduit, dellProduit, erreurProduits, findProduitById, setProduit, updateProduit } from 'src/app/core/ngrx/produit/produit.actions';
 import { ProduitState } from 'src/app/core/ngrx/produit/produit.state';
 import { Produit } from 'src/app/core/shared/models/produit.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
@@ -112,17 +112,13 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 
-  showProduit(produit: Produit) {
-    this.loadingOperation$.next(false);
-    this.currentProduit$.next({produit: produit});
-  }
 
   actionMedicament($event: {action: TypeActionEnum, medicament: Produit}): void {
     console.log($event);
     if($event.action == TypeActionEnum.DELETE) {
       this.store.dispatch(deleteProduit({idProduit: $event.medicament.id}));
     } else {
-      // dispatcher l'action avtivate produit ici
+      this.store.dispatch(updateProduit({produit: $event.medicament, idCategorie: $event.medicament.categorie, idForme: $event.medicament.forme}));
     }
   }
  

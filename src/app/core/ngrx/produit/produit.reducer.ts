@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addProduit, (state, {produit}) => {
     let produits = [...state.produits];
     produits.push(produit);
-    return {...state, produits: produits, produit: produit, messages: []};
+    return {...state, produits: produits, produit: produit,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadProduit, (state, {produits}) => ({...state, produits: produits, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurProduits, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

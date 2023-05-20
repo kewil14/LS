@@ -29,10 +29,17 @@ import { AddTypeComponent } from './components/allergies/forms/add-type/add-type
 import { StatComponent } from './widget/stat/stat.component';
 import { AddMedicamentComponent } from './components/medicaments/forms/add-medicament/add-medicament.component';
 import { DisplayDetailMedicamentComponent } from './components/medicaments/cards/display-detail-medicament/display-detail-medicament.component';
-import { DisplayDetailCategoryComponent } from './components/medicaments/cards/display-detail-category/display-detail-category.component';
-import { DisplayDetailFormeComponent } from './components/medicaments/cards/display-detail-forme/display-detail-forme.component';
-import { DisplayDetailFamilleComponent } from './components/medicaments/cards/display-detail-famille/display-detail-famille.component';
-import { DisplayDetailDciComponent } from './components/medicaments/cards/display-detail-dci/display-detail-dci.component';
+import { DisplayDetailCategoryComponent } from './components/categories/card/display-detail-category/display-detail-category.component';
+import { DisplayDetailFormeComponent } from './components/formes/forms/add-forme/card/display-detail-forme/display-detail-forme.component';
+import { DisplayDetailFamilleComponent } from './components/familles/card/display-detail-famille/display-detail-famille.component';
+import { DisplayDetailDciComponent } from './components/dci/forms/add-dci/card/display-detail-dci/display-detail-dci.component';
+import { DisplayDetailAllergieComponent } from './components/allergies/card/display-detail-allergie/display-detail-allergie.component';
+import { DisplayDetailAntecedentComponent } from './components/antecedents/card/display-detail-antecedent/display-detail-antecedent.component';
+import { DisplayDetailIntrantComponent } from './components/intrants/card/display-detail-intrant/display-detail-intrant.component';
+import { DisplayDetailLaboratoireComponent } from './components/laboratoires/card/display-detail-laboratoire/display-detail-laboratoire.component';
+import { DisplayDetailRadioComponent } from './components/radios/card/display-detail-radio/display-detail-radio.component';
+import { DisplayDetailTraitmentComponent } from './components/traitments/card/display-detail-traitment/display-detail-traitment.component';
+import { HeaderModalComponent } from './components/header-modal/header-modal.component';
 
 
 @NgModule({
@@ -41,7 +48,7 @@ import { DisplayDetailDciComponent } from './components/medicaments/cards/displa
     AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent
     
   ],
   exports: [
@@ -49,7 +56,8 @@ import { DisplayDetailDciComponent } from './components/medicaments/cards/displa
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
-    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent
+    
     
   ],
   imports: [

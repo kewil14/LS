@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addTypeAntecedent, (state, {typeAntecedent}) => {
     let typeAntecedents = [...state.typeAntecedents];
     typeAntecedents.push(typeAntecedent);
-    return {...state, typeAntecedents: typeAntecedents, typeAntecedent: typeAntecedent, messages: []};
+    return {...state, typeAntecedents: typeAntecedents, typeAntecedent: typeAntecedent,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTypeAntecedent, (state, {typeAntecedents}) => ({...state, typeAntecedents: typeAntecedents, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeAntecedents, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

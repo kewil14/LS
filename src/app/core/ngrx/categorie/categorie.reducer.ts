@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addCategorie, (state, {categorie}) => {
     let categories = [...state.categories];
     categories.push(categorie);
-    return {...state, categories: categories, categorie: categorie, messages: []};
+    return {...state, categories: categories, categorie: categorie,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadCategorie, (state, {categories}) => ({...state, categories: categories, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurCategories, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

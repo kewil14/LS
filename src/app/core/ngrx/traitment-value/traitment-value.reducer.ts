@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addTraitmentValue, (state, {traitmentValue}) => {
     let traitmentValues = [...state.traitmentValues];
     traitmentValues.push(traitmentValue);
-    return {...state, traitmentValues: traitmentValues, traitmentValue: traitmentValue, messages: []};
+    return {...state, traitmentValues: traitmentValues, traitmentValue: traitmentValue, dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTraitmentValue, (state, {traitmentValues}) => ({...state, traitmentValues: traitmentValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTraitmentValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

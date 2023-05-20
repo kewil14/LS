@@ -7,8 +7,12 @@
     <p class="text-muted">{{(laboratoire$|async)?.libelleFr}}</p>
 </div>
 <div>
-    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.LABEL'| translate | titlecase}}</label>
-    <p class="text-muted">{{(laboratoire$|async)?.type}}</p>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.TYPE'| translate | titlecase}}</label>
+    <p class="text-muted">{{(laboratoire$|async)?.type?.libelleEn}}</p>
+</div>
+<div>
+    <label class="tx-11 fw-bolder mb-0 text-uppercase">{{'FORMS.TYPE'| translate | titlecase}}</label>
+    <p class="text-muted">{{(laboratoire$|async)?.type?.libelleFr}}</p>
 </div>
 
 

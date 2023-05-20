@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addTypeIntrant, (state, {typeIntrant}) => {
     let typeIntrants = [...state.typeIntrants];
     typeIntrants.push(typeIntrant);
-    return {...state, typeIntrants: typeIntrants, typeIntrant: typeIntrant, messages: []};
+    return {...state, typeIntrants: typeIntrants, typeIntrant: typeIntrant,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTypeIntrant, (state, {typeIntrants}) => ({...state, typeIntrants: typeIntrants, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeIntrants, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addIntrantValue, (state, {intrantValue}) => {
     let intrantValues = [...state.intrantValues];
     intrantValues.push(intrantValue);
-    return {...state, intrantValues: intrantValues, intrantValue: intrantValue, messages: []};
+    return {...state, intrantValues: intrantValues, intrantValue: intrantValue,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadIntrantValue, (state, {intrantValues}) => ({...state, intrantValues: intrantValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurIntrantValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

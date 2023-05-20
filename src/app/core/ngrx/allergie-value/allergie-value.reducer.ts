@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addAllergieValue, (state, {allergieValue}) => {
     let allergieValues = [...state.allergieValues];
     allergieValues.push(allergieValue);
-    return {...state, allergieValues: allergieValues, allergieValue: allergieValue, messages: []};
+    return {...state, allergieValues: allergieValues, allergieValue: allergieValue, dataState: DataStateEnum.SUCCESS,messages: []};
   }),
   on(loadAllergieValue, (state, {allergieValues}) => ({...state, allergieValues: allergieValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurAllergieValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

@@ -29,7 +29,7 @@ const reducer = createReducer(initState,
   on(addRadioValue, (state, {radioValue}) => {
     let radioValues = [...state.radioValues];
     radioValues.push(radioValue);
-    return {...state, radioValues: radioValues, radioValue: radioValue, messages: []};
+    return {...state, radioValues: radioValues, radioValue: radioValue,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadRadioValue, (state, {radioValues}) => ({...state, radioValues: radioValues, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurRadioValues, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

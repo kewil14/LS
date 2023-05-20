@@ -53,6 +53,7 @@
     "USERNAME": "username",
     "EMAIL": "e-mail",
     "LABEL": "label",
+    "TYPE": "type",
     "NAME": "name",
     "CITY": "city",
     "STATE": "state",

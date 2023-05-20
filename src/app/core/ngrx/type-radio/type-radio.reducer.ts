@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addTypeRadio, (state, {typeRadio}) => {
     let typeRadios = [...state.typeRadios];
     typeRadios.push(typeRadio);
-    return {...state, typeRadios: typeRadios, typeRadio: typeRadio, messages: []};
+    return {...state, typeRadios: typeRadios, typeRadio: typeRadio,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadTypeRadio, (state, {typeRadios}) => ({...state, typeRadios: typeRadios, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurTypeRadios, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

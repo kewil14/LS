@@ -185,11 +185,11 @@ export const MENU: MenuItem[] = [
         icon: 'bx-task',
         link: '/institution'
     },
-    // {
-    //     id: 28,
-    //     label: 'MENUITEMS.SETTING.PARAMETRAGE',
-    //     icon: 'bx bx-cog',
-    //     link: '/setting'
-    // }
+    {
+        id: 28,
+        label: 'MENUITEMS.SETTING.PARAMETRAGE',
+        icon: 'bx bx-cog',
+        link: '/setting'
+    }
 ];
 

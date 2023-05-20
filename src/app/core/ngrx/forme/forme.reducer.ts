@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addForme, (state, {forme}) => {
     let formes = [...state.formes];
     formes.push(forme);
-    return {...state, formes: formes, forme: forme, messages: []};
+    return {...state, formes: formes, forme: forme,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadForme, (state, {formes}) => ({...state, formes: formes, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurFormes, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

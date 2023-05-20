@@ -28,7 +28,7 @@ const reducer = createReducer(initState,
   on(addDci, (state, {dci}) => {
     let dcis = [...state.dcis];
     dcis.push(dci);
-    return {...state, dcis: dcis, dci: dci, messages: []};
+    return {...state, dcis: dcis, dci: dci,dataState: DataStateEnum.SUCCESS, messages: []};
   }),
   on(loadDci, (state, {dcis}) => ({...state, dcis: dcis, dataState: DataStateEnum.SUCCESS, messages: []})),
   on(erreurDcis, (state, {messages}) => ({...state, dataState: DataStateEnum.ERROR, messages: messages})),

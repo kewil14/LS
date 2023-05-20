@@ -7,8 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectFamilleState } from 'src/app/core/core.state';
-import { addFamille, deleteFamille, dellFamille, erreurFamilles, setFamille } from 'src/app/core/ngrx/famille/famille.actions';
+import { addFamille, deleteFamille, dellFamille, erreurFamilles, setFamille, updateFamille } from 'src/app/core/ngrx/famille/famille.actions';
 import { FamilleState } from 'src/app/core/ngrx/famille/famille.state';
+import { TypeActionEnum } from 'src/app/core/shared/enums/TypeActionEnum';
 import { Famille } from 'src/app/core/shared/models/famille.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 @Component({
@@ -58,6 +59,8 @@ export class FamillesComponent implements OnInit, OnDestroy {
         ofType(erreurFamilles)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
+        this.loadingDelete$.next(false);
+        this.loadingActivate$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
       }),
       this.actionService.pipe(
@@ -69,6 +72,7 @@ export class FamillesComponent implements OnInit, OnDestroy {
       }),
       this.actionService.pipe(ofType(addFamille)).subscribe(() => {
         this.onCreateFamille();
+        this.modalService.dismissAll();
         this.loadingOperation$.next(false);
         this.loadFamilles();
       }),
@@ -107,7 +111,11 @@ export class FamillesComponent implements OnInit, OnDestroy {
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 
-  actionFamille(){
-    
+  actionFamille($event: {action: TypeActionEnum, famille: Famille}){
+    if($event.action == TypeActionEnum.DELETE) {
+      this.store.dispatch(deleteFamille({idFamille: $event.famille.id}));
+    } else {
+      this.store.dispatch(updateFamille({famille: $event.famille}));
+    }
   }
 }

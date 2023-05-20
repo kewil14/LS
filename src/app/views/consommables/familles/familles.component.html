@@ -72,7 +72,12 @@
       <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
   </div>
   <div class="modal-body text-center">
-     
+      <health-display-detail-famille
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [famille$]="famille$"
+        (onActions)="actionFamille($event)"
+      ></health-display-detail-famille>
   </div>
 </ng-template>
 

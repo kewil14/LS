@@ -31,11 +31,11 @@
                   <td>{{item?.id}}</td>
                   <td>{{item?.libelle}}</td>
                   <td class="d-flex">
-                      <a (click)="onEditDci(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditDci(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteDci(item?.id)" class="btn btn-sm btn-danger">
-                        delete
+                      <a (click)="detailDci(detail, item)" class="btn btn-sm btn-primary btn-icon">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
                   </td>
                 </tr>
@@ -67,4 +67,18 @@
       </div>
     </div>
     </div>
+</ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+      <health-display-detail-dci
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [dci$]="dci$"
+        (onActions)="actionDci($event)"
+      ></health-display-detail-dci>
+  </div>
 </ng-template>

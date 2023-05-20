@@ -26,11 +26,11 @@
                   <td>{{item?.id}}</td>
                   <td>{{item?.libelle}}</td>
                   <td class="d-flex">
-                      <a (click)="onEditCategorie(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditCategorie(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteCategorie(item?.id)" class="btn btn-sm btn-danger">
-                        delete
+                      <a (click)="detailCategorie(detail, item)" class="btn btn-sm btn-primary btn-icon">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
                   </td>
                 </tr>
@@ -63,6 +63,20 @@
         </div>
       </div>
     </div>
+  </div>
+</ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+      <health-display-detail-category
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [categorie$]="categorie$"
+        (onActions)="actionCategorie($event)"
+      ></health-display-detail-category>
   </div>
 </ng-template>
 

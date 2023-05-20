@@ -32,11 +32,11 @@
                   <td>{{item?.libelleEn}}</td>
                   <td>{{item?.type?.libelleFr}}</td>
                   <td class="d-flex">
-                      <a (click)="onEditAntecedentValue(item)" class="btn btn-sm btn-warning">
+                      <a (click)="onEditAntecedentValue(item)" class="btn btn-sm btn-warning me-2">
                         edit
                       </a>
-                      <a (click)="delleteAntecedentValue(item?.id)" class="btn btn-sm btn-danger">
-                        delete
+                      <a (click)="detailAntecedent(detail, item)" class="btn btn-sm btn-primary btn-icon">
+                        {{'ACTIONS.VIEW'|translate|titlecase}}
                       </a>
                   </td>
                 </tr>
@@ -70,6 +70,20 @@
         </div>
       </div>
     </div>
+  </div>
+</ng-template>
+<ng-template #detail let-modal>
+  <div class="modal-header">
+      
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body text-center">
+      <health-display-detail-antecedent
+        [loadingActivate$]="loadingActivate$"
+        [loadingDelete$]="loadingDelete$"
+        [antecedent$]="antecedent$"
+        (onActions)="actionAntecedent($event)"
+      ></health-display-detail-antecedent>
   </div>
 </ng-template>
 

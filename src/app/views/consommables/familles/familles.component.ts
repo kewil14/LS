@@ -31,8 +31,8 @@ export class FamillesComponent implements OnInit, OnDestroy {
 
   famille$ = new BehaviorSubject<Famille>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
-  loadingDelete$ =new BehaviorSubject<boolean>(false);
-
+  loadingDelete$ = new BehaviorSubject<boolean>(false);
+  title$ = new BehaviorSubject<string>('');
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -108,6 +108,7 @@ export class FamillesComponent implements OnInit, OnDestroy {
 
   detailFamille(templateView: TemplateRef<any>, famille: Famille){
     this.famille$.next(famille);
+    this.title$.next('Detail Famille')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

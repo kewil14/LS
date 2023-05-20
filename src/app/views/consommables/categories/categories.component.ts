@@ -34,6 +34,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   categorie$ = new BehaviorSubject<Categorie>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
+  titleModal$ = new BehaviorSubject<string>('');
 
   constructor(
     private route: ActivatedRoute,
@@ -109,6 +110,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   }
   detailCategorie(templateView: TemplateRef<any>, categorie: Categorie){
     this.categorie$.next(categorie);
+    this.titleModal$.next('Detail Categorie')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

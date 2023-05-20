@@ -55,7 +55,8 @@ import { DisplayDetailTraitmentComponent } from './components/traitments/card/di
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
-    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent
+    
     
   ],
   imports: [

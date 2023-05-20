@@ -1,13 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataStateEnum, OperationEnum } from 'src/app/core/config/data.state.enum';
 import { selectAllergieValueState } from 'src/app/core/core.state';
-import { addAllergieValue, deleteAllergieValue, dellAllergieValue, erreurAllergieValues, setAllergieValue } from 'src/app/core/ngrx/allergie-value/allergie-value.actions';
+import { addAllergieValue, deleteAllergieValue, dellAllergieValue, erreurAllergieValues, setAllergieValue, updateAllergieValue } from 'src/app/core/ngrx/allergie-value/allergie-value.actions';
 import { AllergieValueState } from 'src/app/core/ngrx/allergie-value/allergie-value.state';
+import { TypeActionEnum } from 'src/app/core/shared/enums/TypeActionEnum';
 import { AllergieValue } from 'src/app/core/shared/models/allergie-value.modal';
 import { LocalStorageService } from 'src/app/core/shared/services/local-storage.service';
 
@@ -28,13 +30,18 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   messages$ = new BehaviorSubject<{type: any, title: any, messages: Array<any>, isTitle: boolean, dismissible: boolean}>({type: 'success', title: 'any', messages: [], isTitle: false, dismissible: true});
   operationEnum: typeof OperationEnum = OperationEnum;
   
+  allergie$ = new BehaviorSubject<AllergieValue>({});
+  loadingActivate$ = new BehaviorSubject<boolean>(false);
+  loadingDelete$ =new BehaviorSubject<boolean>(false);
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private store: Store,
-    private actionService: Actions
+    private actionService: Actions,
+    private modalService: NgbModal,
   ) { }
   ngOnDestroy(): void { this.subscriptions.forEach(s => s.unsubscribe())}
 
@@ -52,6 +59,8 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
         ofType(erreurAllergieValues)
       ).subscribe((data) => {
         this.loadingOperation$.next(false);
+        this.loadingOperation$.next(false);
+        this.loadingDelete$.next(false);
         this.messages$.next({type: 'danger', title: 'Erreur', messages: data.messages, isTitle: true, dismissible: true});
       }),
       this.actionService.pipe(
@@ -63,6 +72,7 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
       }),
       this.actionService.pipe(ofType(addAllergieValue)).subscribe(() => {
         this.onCreateAllergieValue();
+        this.modalService.dismissAll();
         this.loadingOperation$.next(false);
         this.loadAllergieValues();
       }),
@@ -94,6 +104,18 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   }
   delleteAllergieValue(idAllergieValue: any): void {
     this.store.dispatch(deleteAllergieValue({idAllergieValue: idAllergieValue}));
+  }
+  detailAllergie(templateView: TemplateRef<any>, allergie: AllergieValue){
+    this.allergie$.next(allergie);
+    this.modalService.open(templateView, { size: 'md', centered: true });
+  }
+
+  actionAllergie($event: {action: TypeActionEnum, allergie: AllergieValue}){
+    if($event.action == TypeActionEnum.DELETE) {
+      this.store.dispatch(deleteAllergieValue({idAllergieValue: $event.allergie.id}));
+    } else {
+      this.store.dispatch(updateAllergieValue({allergieValue: $event.allergie}));
+    }
   }
 }
 

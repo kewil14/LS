@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { selectInstitutionState } from 'src/app/core/core.state';
 import { Sante } from 'src/app/core/shared/models/modal-institution/sante.modal';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TypeInstitutionEnum } from 'src/app/core/shared/enums/TypeInstitutionEnum';
 
 @Component({
   selector: 'health-institution',
@@ -50,6 +51,21 @@ export class InstitutionComponent implements OnInit {
   }
 
   onCreateInstitution(templateView: TemplateRef<any>){
-    this.modalService.open(templateView,{ size: 'md', centered: true })
+    this.modalService.open(templateView,{ size: 'sm', centered: true })
+  }
+
+  actionTypeInstitution($event: {type: TypeInstitutionEnum}): void {
+    this.modalService.dismissAll();
+    console.log($event);
+    
+    if($event.type == TypeInstitutionEnum.INSTITUTION_ASSURANCE) {
+      // rediriger vers la pages assurance
+    } else if($event.type == TypeInstitutionEnum.INSTITUTION_HOPI) {
+      // rediriger la pages hopi
+    } else if($event.type == TypeInstitutionEnum.INSTITUTION_COMMUNE) {
+      // rediriger la pages commune
+    } else if($event.type == TypeInstitutionEnum.INSTITUTION_PHARMA) {
+      // rediriger la pages pharma
+    }
   }
 }

@@ -167,8 +167,10 @@
         <health-header-modal></health-header-modal>
         <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
     </div>
-    <div class="modal-body text-center">
-       <health-form-create-institution></health-form-create-institution>
+    <div class="modal-body">
+       <health-form-create-institution
+        (onSelectType)="actionTypeInstitution($event)"
+       ></health-form-create-institution>
     </div>
   </ng-template>
   

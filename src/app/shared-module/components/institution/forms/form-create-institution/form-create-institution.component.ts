@@ -13,7 +13,7 @@ export class FormCreateInstitutionComponent implements OnInit {
   isSUbmitted: boolean = false;
   @Output() onSelectType = new EventEmitter<{type: TypeInstitutionEnum}>();
 
-  listTypeInstitution: Array<TypeInstitutionEnum> = [];
+  listTypeInstitution: Array<TypeInstitutionEnum> = [TypeInstitutionEnum.INSTITUTION_ASSURANCE, TypeInstitutionEnum.INSTITUTION_COMMUNE, TypeInstitutionEnum.INSTITUTION_HOPI, TypeInstitutionEnum.INSTITUTION_PHARMA];
 
   constructor(
     private fb: FormBuilder

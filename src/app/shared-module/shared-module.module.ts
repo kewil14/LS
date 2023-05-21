@@ -58,7 +58,7 @@ import { HeaderModalComponent } from './components/header-modal/header-modal.com
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
     DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent
     
-    
+  
   ],
   imports: [
     CommonModule,

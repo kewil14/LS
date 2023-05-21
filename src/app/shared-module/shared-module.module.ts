@@ -69,7 +69,7 @@ import { FormCreateInstitutionComponent } from './components/institution/forms/f
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    TranslateModule
+    TranslateModule,
   ]
 })
 export class SharedModuleModule {

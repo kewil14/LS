@@ -8,6 +8,7 @@ import { selectInstitutionState } from 'src/app/core/core.state';
 import { Sante } from 'src/app/core/shared/models/modal-institution/sante.modal';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TypeInstitutionEnum } from 'src/app/core/shared/enums/TypeInstitutionEnum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'health-institution',
@@ -24,7 +25,8 @@ export class InstitutionComponent implements OnInit {
 
   constructor(
     private storeService: Store,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router:Router,
   ) { }
 
   ngOnInit() {
@@ -60,12 +62,16 @@ export class InstitutionComponent implements OnInit {
     
     if($event.type == TypeInstitutionEnum.INSTITUTION_ASSURANCE) {
       // rediriger vers la pages assurance
+      this.router.navigateByUrl('/assurance')
     } else if($event.type == TypeInstitutionEnum.INSTITUTION_HOPI) {
       // rediriger la pages hopi
+      this.router.navigateByUrl('/hopi')
     } else if($event.type == TypeInstitutionEnum.INSTITUTION_COMMUNE) {
       // rediriger la pages commune
+      this.router.navigateByUrl('/commune')
     } else if($event.type == TypeInstitutionEnum.INSTITUTION_PHARMA) {
       // rediriger la pages pharma
+      this.router.navigateByUrl('/pharma')
     }
   }
 }

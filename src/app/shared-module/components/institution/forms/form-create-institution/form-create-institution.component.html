@@ -1,23 +1,147 @@
-<form (ngSubmit)="selectType()" [formGroup]="selectInstitutionForm">
-    <div class="mb-3">
-      <label for="type">{{'forms.select-type-institution' | translate | titlecase }}</label>
-      <ng-select
-        placeholder="{{'forms.select-type-institution' | translate | titlecase }}"
-        formControlName="type"
-        [ngClass]="{'is-invalid': isSUbmitted && selectInstitution['type'].errors}"
-        >
-        <ng-option *ngFor="let typeInstitution of listTypeInstitution" [value]="typeInstitution">{{typeInstitution}}</ng-option>
-      </ng-select>
-      <div *ngIf="isSUbmitted && selectInstitution['type']?.errors" class="invalid-feedback">
-        <div *ngIf="selectInstitution['type']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-        <div *ngIf="selectInstitution['type']?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+<!-- <form (ngSubmit)="constructInstitution()" [formGroup]="institutionForm">
+  <div class="row">
+      <div formGroupName="institution">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="mb-3">
+                      <label for="name" class="form-label">{{'FORMS.NAME'|translate | titlecase}}</label>
+                      <input type="text" class="form-control" id="firstname"
+                          formControlName="name"
+                          [ngClass]="{'is-invalid': isInstitutionFormSubmitted && user['customer'].get('firstname')?.errors}" placeholder="{{'FORMS.FIRSTNAME'|translate | titlecase}}">
+                      <div *ngIf="isUserFormSubmitted && user['customer'].get('firstname')?.errors" class="invalid-feedback">
+                          <div *ngIf="user['customer'].get('firstname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                          <div *ngIf="user['customer'].get('firstname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                          <div *ngIf="user['customer'].get('firstname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="mb-3">
+                      <label for="lastname" class="form-label">{{'FORMS.LASTNAME'|translate | titlecase}}</label>
+                      <input type="text" class="form-control" id="lastname" formControlName="lastname"
+                          [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('lastname')?.errors}" placeholder="{{'FORMS.LASTNAME'|translate | titlecase}}">
+                      <div *ngIf="isUserFormSubmitted && user['customer'].get('lastname')?.errors" class="invalid-feedback">
+                          <div *ngIf="user['customer'].get('lastname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                          <div *ngIf="user['customer'].get('lastname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                          <div *ngIf="user['customer'].get('lastname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="col-lg-12">
+              <div class="mb-3">
+                  <label for="sexe" class="form-label">{{'FORMS.SEXE'|translate |titlecase}}</label>
+                  <ng-select
+                      [items]="listSexes"
+                      formControlName="sexe"
+                      [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('sexe')?.errors}"
+                      placeholder="{{'FORMS.SEXE'|translate | titlecase}}"
+                  ></ng-select>
+                  <div *ngIf="isUserFormSubmitted && user['customer'].get('sexe')?.errors" class="invalid-feedback">
+                      <div *ngIf="user['customer'].get('sexe')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                      <div *ngIf="user['customer'].get('sexe')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                      <div *ngIf="user['customer'].get('sexe')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                  </div>
+              </div>
+          </div>
+          <div formGroupName="address">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="phone1" class="form-label">{{'FORMS.PHONE'|translate |titlecase}}</label>
+                          <input type="number" class="form-control" id="phone1"
+                              placeholder="{{'FORMS.PHONE'|translate | titlecase}}"
+                              formControlName="phone1"
+                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('phone1')?.errors}">
+                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('phone1')?.errors" class="invalid-feedback">
+                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="email" class="form-label">{{'FORMS.EMAIL'|translate|titlecase}}</label>
+                          <input type="email" class="form-control" id="email"
+                              placeholder="{{'FORMS.EMAIL'|translate | titlecase}}"
+                              formControlName="email"
+                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('email')?.errors}" />
+                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('email')?.errors" class="invalid-feedback">
+                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['email']"> {{'MESSAGES.ERRORS.EMAIL-NOT-VALIDE' | translate | titlecase }} </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="mb-3">
+                          <label for="city" class="form-label">{{'FORMS.CITY'|translate|titlecase}}</label>
+                          <input type="text" class="form-control" id="city"
+                              placeholder="{{'FORMS.CITY'|translate|titlecase}}"
+                              formControlName="city"
+                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('city')?.errors}"  />
+                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('city')?.errors" class="invalid-feedback">
+                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="mb-3">
+                          <label for="state" class="form-label">{{'FORMS.STATE'|translate|titlecase}}</label>
+                          <input type="text" class="form-control" id="state"
+                              placeholder="{{'FORMS.STATE'|translate|titlecase}}"
+                              formControlName="state"
+                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('state')?.errors}"  />
+                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('state')?.errors" class="invalid-feedback">
+                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="mb-3">
+                          <label for="street" class="form-label">{{'FORMS.STREET'|translate|titlecase}}</label>
+                          <input type="text" class="form-control" id="street"
+                              placeholder="{{'FORMS.STREET'|translate|titlecase}}"
+                              formControlName="street"
+                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('street')?.errors}"  />
+                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('street')?.errors" class="invalid-feedback">
+                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
-
-    <div class="d-flex justify-content-end mt-2">
-      <button class="btn btn-xs btn-icon-text btn-outline-success" type="submit">
-        {{ ('ACTIONS.SELECT' | translate | titlecase)}}
-        <i data-feather="save" appFeatherIcon></i>
-      </button>
-    </div>
-</form>
+      <div class="col-lg-12">
+          <div class="mb-3">
+              <label for="username" class="form-label">{{'FORMS.USERNAME'|translate|titlecase}}</label>
+              <input type="text" class="form-control" id="username"
+                  placeholder="{{'FORMS.USERNAME'|translate|titlecase}}"
+                  formControlName="username"
+                  [ngClass]="{'is-invalid': isUserFormSubmitted && user['username'].errors}"  />
+              <div *ngIf="isUserFormSubmitted && user['username'].errors" class="invalid-feedback">
+                  <div *ngIf="user['username'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                  <div *ngIf="user['username'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                  <div *ngIf="user['username'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-12">
+          <div class="hstack gap-2 justify-content-end">
+              <button type="submit" class="btn btn-primary">{{'ACTIONS.ADD' |translate |titlecase}}</button>
+              <button type="button" class="btn btn-soft-success">{{'ACTIONS.CANCEL'|translate |titlecase}}</button>
+          </div>
+      </div>
+  </div>
+</form> -->

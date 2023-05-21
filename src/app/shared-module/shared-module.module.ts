@@ -41,6 +41,8 @@ import { DisplayDetailRadioComponent } from './components/radios/card/display-de
 import { DisplayDetailTraitmentComponent } from './components/traitments/card/display-detail-traitment/display-detail-traitment.component';
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
 import { FormCreateInstitutionComponent } from './components/institution/forms/form-create-institution/form-create-institution.component';
+import { SelectInstitutionComponent } from './components/institution/modal/select-institution/select-institution.component';
+
 
 
 @NgModule({
@@ -49,7 +51,7 @@ import { FormCreateInstitutionComponent } from './components/institution/forms/f
     AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent, SelectInstitutionComponent
     
   ],
   exports: [
@@ -57,7 +59,7 @@ import { FormCreateInstitutionComponent } from './components/institution/forms/f
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
-    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent,SelectInstitutionComponent
     
     
   ],

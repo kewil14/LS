@@ -1,0 +1,16 @@
+<form (ngSubmit)="selectType()" [formGroup]="selectInstitutionForm">
+    <div class="mb-3">
+      <label for="type">{{'forms.select-type-institution' | translate | titlecase }}</label>
+      <ng-select
+        placeholder="{{'forms.select-type-institution' | translate | titlecase }}"
+        formControlName="type"
+        [ngClass]="{'is-invalid': isSUbmitted && selectInstitution['type'].errors}"
+        >
+        <ng-option *ngFor="let typeInstitution of listTypeInstitution" [value]="typeInstitution">{{typeInstitution}}</ng-option>
+      </ng-select>
+      <div *ngIf="isSUbmitted && selectInstitution['type']?.errors" class="invalid-feedback">
+        <div *ngIf="selectInstitution['type']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+        <div *ngIf="selectInstitution['type']?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+      </div>
+    </div>
+</form>

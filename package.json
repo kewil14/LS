@@ -48,6 +48,7 @@
     "bootstrap": "^5.2.0",
     "chart.js": "^2.9.4",
     "chartist": "^0.11.4",
+    "datatable-responsive": "^0.0.1",
     "datatables.net": "^1.13.4",
     "datatables.net-bs5": "^1.11.3",
     "datatables.net-dt": "^1.13.4",

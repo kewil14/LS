@@ -1,0 +1,9 @@
+<button type="{{(loading$|async)!=true? 'subtmit': 'button'}}" class="btn" [ngClass]="{'btn-success': operation == operationEnum.CREATE, 'btn-warning':operation == operationEnum.UPDATE}">
+  <span class="d-flex align-items-center">
+    <span class="spinner-border flex-shrink-0" *ngIf="(loading$|async)==true">
+      <span class="visually-hiden"></span>
+    </span>
+      <span class="flex-grow-1">{{buttonText | translate}} <span *ngIf="(loading$|async)==true">  . . . </span></span>
+  </span>
+  
+</button>

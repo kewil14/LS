@@ -40,7 +40,7 @@ import { DisplayDetailLaboratoireComponent } from './components/laboratoires/car
 import { DisplayDetailRadioComponent } from './components/radios/card/display-detail-radio/display-detail-radio.component';
 import { DisplayDetailTraitmentComponent } from './components/traitments/card/display-detail-traitment/display-detail-traitment.component';
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
-import { FormCreateInstitutionComponent } from './components/institution/form-create-institution/form-create-institution.component';
+import { FormCreateInstitutionComponent } from './components/institution/forms/form-create-institution/form-create-institution.component';
 
 
 @NgModule({

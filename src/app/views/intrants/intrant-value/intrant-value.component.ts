@@ -34,6 +34,7 @@ export class IntrantValueComponent implements OnInit, OnDestroy {
   intrant$ = new BehaviorSubject<IntrantValue>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
+  titleModal$ = new BehaviorSubject<string>('');
 
   constructor(
     private route: ActivatedRoute,
@@ -109,6 +110,7 @@ export class IntrantValueComponent implements OnInit, OnDestroy {
   }
   detailIntrant(templateView: TemplateRef<any>, intrant: IntrantValue){
     this.intrant$.next(intrant);
+    this.titleModal$.next('Detail Intrant')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

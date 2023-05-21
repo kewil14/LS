@@ -33,7 +33,7 @@ export class AntecedentValueComponent implements OnInit, OnDestroy {
   antecedent$ = new BehaviorSubject<AntecedentValue>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
-
+  titleModal$ = new BehaviorSubject<string>('');
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -107,6 +107,7 @@ export class AntecedentValueComponent implements OnInit, OnDestroy {
   }
   detailAntecedent(templateView: TemplateRef<any>, antecedent: AntecedentValue){
     this.antecedent$.next(antecedent);
+    this.titleModal$.next('Detail Antecedent')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

@@ -34,7 +34,7 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
   medicament$ = new BehaviorSubject<Produit>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
-
+  title$= new BehaviorSubject<string>('');
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -109,6 +109,7 @@ export class ListProduitsComponent implements OnInit, OnDestroy {
 
   detailMedicament(templateView: TemplateRef<any>, produit: Produit) {
     this.medicament$.next(produit);
+    this.title$.next('Detail Medicament');
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

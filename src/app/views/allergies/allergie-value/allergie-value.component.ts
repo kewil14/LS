@@ -33,6 +33,7 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   allergie$ = new BehaviorSubject<AllergieValue>({});
   loadingActivate$ = new BehaviorSubject<boolean>(false);
   loadingDelete$ =new BehaviorSubject<boolean>(false);
+  titleModal$ = new BehaviorSubject<string>('');
   
   constructor(
     private route: ActivatedRoute,
@@ -107,6 +108,7 @@ export class AllergieValueComponent implements OnInit, OnDestroy {
   }
   detailAllergie(templateView: TemplateRef<any>, allergie: AllergieValue){
     this.allergie$.next(allergie);
+    this.titleModal$.next('Detail Allergie');
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

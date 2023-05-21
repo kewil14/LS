@@ -1,6 +1,18 @@
+@keyframes fade {
+    From {
+      Opacity : 1;
+    }
+    To {
+      Opacity : 0;
+    }
+}
 div{
     Animation-name : fade ;
     Animation-delay : 2s ;
     Animation-duration : 3s ;
     Animation-iteration-count : infinite ;
+}
+.style{
+ font-weight : bold;
+ font-size: 20px;
 }

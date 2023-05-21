@@ -111,7 +111,7 @@ export class FormesComponent implements OnInit, OnDestroy {
 
   detailForme(templateView: TemplateRef<any>, forme: Forme){
     this.forme$.next(forme);
-    this.titleModal$.next('Defail Forme')
+    this.titleModal$.next('Detail Forme')
     this.modalService.open(templateView, { size: 'md', centered: true });
   }
 

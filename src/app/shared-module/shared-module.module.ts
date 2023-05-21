@@ -40,6 +40,9 @@ import { DisplayDetailLaboratoireComponent } from './components/laboratoires/car
 import { DisplayDetailRadioComponent } from './components/radios/card/display-detail-radio/display-detail-radio.component';
 import { DisplayDetailTraitmentComponent } from './components/traitments/card/display-detail-traitment/display-detail-traitment.component';
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
+import { FormCreateInstitutionComponent } from './components/institution/forms/form-create-institution/form-create-institution.component';
+import { SelectInstitutionComponent } from './components/institution/modal/select-institution/select-institution.component';
+
 
 
 @NgModule({
@@ -48,7 +51,7 @@ import { HeaderModalComponent } from './components/header-modal/header-modal.com
     AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent, SelectInstitutionComponent
     
   ],
   exports: [
@@ -56,7 +59,7 @@ import { HeaderModalComponent } from './components/header-modal/header-modal.com
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
-    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent,SelectInstitutionComponent
     
   
   ],
@@ -68,7 +71,7 @@ import { HeaderModalComponent } from './components/header-modal/header-modal.com
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    TranslateModule
+    TranslateModule,
   ]
 })
 export class SharedModuleModule {

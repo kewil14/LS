@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { TitleStrategy } from '@angular/router';
 import { PageTitleStrategy } from './core/shared/strategies/page-title.strategy';
 import { CoreModule } from './core/core.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     LayoutsModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgSelectModule
   ],
   providers: [
     {provide: TitleStrategy, useClass: PageTitleStrategy}

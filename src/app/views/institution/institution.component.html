@@ -48,6 +48,16 @@
           </div>
         </div>
         <!-- end card -->
+
+        <!-- btn de creation -->
+          <div class="card-body mb-2 md-2">
+            <div class="col-auto">
+              <button type="button" class="btn btn-soft-success shadow-none" (click)="onCreateInstitution(create)">
+                <i class="ri-add-circle-line align-middle me-1"></i> create</button>
+            </div>
+          </div>
+          
+        
   
        
         <div class="card">
@@ -151,4 +161,14 @@
     </div>
     <!-- end row -->
   </div>
+
+  <ng-template #create let-modal>
+    <div class="modal-header">
+        <health-header-modal></health-header-modal>
+        <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-hidden="true"></button>
+    </div>
+    <div class="modal-body text-center">
+       <health-form-create-institution></health-form-create-institution>
+    </div>
+  </ng-template>
   

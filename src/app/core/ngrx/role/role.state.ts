@@ -5,6 +5,5 @@ export interface RoleState{
     dataState: DataStateEnum,
     role: Role,
     roles: Role[],
-    authorities: Role[]
     messages: string[],
 }

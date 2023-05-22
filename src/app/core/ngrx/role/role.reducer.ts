@@ -11,7 +11,6 @@ const initState: RoleState = {
     dataState: DataStateEnum.INITIAL,
     role: {},
     roles: [],
-    authorities: [],
     messages: [],
 }
 

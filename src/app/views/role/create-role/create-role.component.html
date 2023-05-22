@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-5">
+      <div class="card">
+          <div class="card-header">Role</div>
+          <div class="card-body">
+              <health-add-role
+                  [loading$]="loadingRole$"
+                  [role$]="role$"
+              ></health-add-role>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-7">
+      <div class="card">
+          <div class="card-header align-items-center d-flex">
+              <h4 class="card-title mb-0 flex-grow-1">Authorities</h4>
+              
+          </div>
+          <div class="card-body">
+              <health-current-authorities
+                  [authorities$]="currentAuthorities$"
+              ></health-current-authorities>
+          </div>
+      </div>
+  </div>
+</div>
+

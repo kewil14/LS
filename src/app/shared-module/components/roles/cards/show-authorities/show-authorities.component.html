@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="modal-body text-center">
+      <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table datatable [dtOptions]="dbOptions" *ngIf="((authorities$|async)?.length  || 0) > 0; else noDataRole"  class="table table-hover table-sm">
+                    <thead>
+                        <tr>
+                          <th>{{'LABELS.NAME' | translate | uppercase}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-danger" *ngFor="let role of (authorities$|async)">
+                        <td>{{role.name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ng-template #noDataRole>
+                    <table datatable [dtOptions]="dbOptions" class="table table-hover table-sm">
+                        <thead>
+                          <tr>
+                            <th>{{'LABELS.NAME' | translate | uppercase}}</th>
+                          </tr>
+                        </thead>
+                    </table>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+    </div>
+  </div>
+</div>

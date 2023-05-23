@@ -27,7 +27,7 @@ export class PatientService {
    * @returns Observable<ResponseDto<Array<Patient>>>
    */
   findPatientByHopital(idHopital: any): Observable<ResponseDto<Array<Patient>>> {
-    return this.http.get(API_URLS.HOSPI_PATIENT_RECORD_URL + `/api/patiens/${idHopital}`).pipe(share());
+    return this.http.get(API_URLS.HOSPI_CUSTOMERS_URL + `/api/patiens/${idHopital}`).pipe(share());
   }
 
 }

@@ -65,7 +65,7 @@ export class InstitutionComponent implements OnInit {
       this.router.navigateByUrl('/assurance')
     } else if($event.type == TypeInstitutionEnum.INSTITUTION_HOPI) {
       // rediriger la pages hopi
-      this.router.navigateByUrl('/hopi')
+      this.router.navigateByUrl('/institution/hopi')
     } else if($event.type == TypeInstitutionEnum.INSTITUTION_COMMUNE) {
       // rediriger la pages commune
       this.router.navigateByUrl('/commune')

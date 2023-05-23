@@ -8,14 +8,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DataTablesModule } from 'angular-datatables';
 import { NgbModalModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
-import { CreateRoleComponent } from './create-role/create-role.component';
 
 
 @NgModule({
   declarations: [
     ListRoleComponent,
     RoleComponent,
-    CreateRoleComponent
   ],
   imports: [
     CommonModule,

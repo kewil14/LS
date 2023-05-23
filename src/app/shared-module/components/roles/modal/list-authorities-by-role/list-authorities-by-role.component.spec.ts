@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CreateRoleComponent } from './create-role.component';
+import { ListAuthoritiesByRoleComponent } from './list-authorities-by-role.component';
 
-describe('CreateRoleComponent', () => {
-  let component: CreateRoleComponent;
-  let fixture: ComponentFixture<CreateRoleComponent>;
+describe('ListAuthoritiesByRoleComponent', () => {
+  let component: ListAuthoritiesByRoleComponent;
+  let fixture: ComponentFixture<ListAuthoritiesByRoleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateRoleComponent ]
+      declarations: [ ListAuthoritiesByRoleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateRoleComponent);
+    fixture = TestBed.createComponent(ListAuthoritiesByRoleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

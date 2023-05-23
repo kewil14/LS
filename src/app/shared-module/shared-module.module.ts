@@ -42,11 +42,9 @@ import { DisplayDetailTraitmentComponent } from './components/traitments/card/di
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
 import { FormCreateInstitutionComponent } from './components/institution/forms/form-create-institution/form-create-institution.component';
 import { SelectInstitutionComponent } from './components/institution/modal/select-institution/select-institution.component';
-import { ShowAuthoritiesComponent } from './components/roles/cards/show-authorities/show-authorities.component';
 import { AddRoleComponent } from './components/roles/forms/add-role/add-role.component';
-import { CheckAuthoritiesComponent } from './components/roles/forms/check-authorities/check-authorities.component';
 import { DataTablesModule } from 'angular-datatables';
-import { CurrentAuthoritiesComponent } from './components/roles/cards/current-authorities/current-authorities.component';
+import { ListAuthoritiesByRoleComponent } from './components/roles/modal/list-authorities-by-role/list-authorities-by-role.component';
 
 
 
@@ -57,7 +55,7 @@ import { CurrentAuthoritiesComponent } from './components/roles/cards/current-au
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
     AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent, SelectInstitutionComponent,
-    ShowAuthoritiesComponent, AddRoleComponent, CheckAuthoritiesComponent, CurrentAuthoritiesComponent
+    AddRoleComponent, ListAuthoritiesByRoleComponent
     
   ],
   exports: [
@@ -66,7 +64,7 @@ import { CurrentAuthoritiesComponent } from './components/roles/cards/current-au
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
     DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent, SelectInstitutionComponent,
-    ShowAuthoritiesComponent, AddRoleComponent, ShowAuthoritiesComponent, AddRoleComponent, CheckAuthoritiesComponent, CurrentAuthoritiesComponent
+    AddRoleComponent, ListAuthoritiesByRoleComponent
 
 
     

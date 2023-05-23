@@ -31,6 +31,7 @@ import { ProduitsEffects } from './ngrx/produit/produit.effects';
 import { ProfilesEffects } from './ngrx/profile/profile.effects';
 import { InstitutionsEffects } from './ngrx/institution/institution.effects';
 import { UsersEffects } from './ngrx/user/user.effects';
+import { RolesEffects } from './ngrx/role/role.effects';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -66,7 +67,7 @@ export function createTranslateLoader(http: HttpClient): any {
       TraitmentValuesEffects,
       TypeAllergiesEffects,
       AllergieValuesEffects, UsersEffects,
-      ProduitsEffects, ProfilesEffects, InstitutionsEffects
+      ProduitsEffects, ProfilesEffects, InstitutionsEffects, RolesEffects
     ]),
     StoreDevtoolsModule.instrument(),
   ],

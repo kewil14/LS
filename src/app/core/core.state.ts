@@ -41,6 +41,8 @@ import { ProfileState } from './ngrx/profile/profile.state';
 import { profilesReducer } from './ngrx/profile/profile.reducer';
 import { UserState } from './ngrx/user/user.state';
 import { usersReducer } from './ngrx/user/user.reducer';
+import { RoleState } from './ngrx/role/role.state';
+import { rolesReducer } from './ngrx/role/role.reducer';
 
 export interface AppState {
     authentificationState: AuthentificationState,
@@ -63,7 +65,8 @@ export interface AppState {
     produitState: ProduitState,
     institutionState: InstitutionState,
     profileState: ProfileState,
-    userState: UserState
+    userState: UserState,
+    roleState: RoleState
 }
 
 export const selectUserState = createFeatureSelector<UserState>('userState');
@@ -87,6 +90,8 @@ export const selectTypeAntecedentState = createFeatureSelector<TypeAntecedentSta
 export const selectAntecedentValueState = createFeatureSelector<AntecedentValueState>('antecedentValue');
 export const selectTypeAllergieState = createFeatureSelector<TypeAllergieState>('typeAllergieState');
 export const selectAllergieValueState = createFeatureSelector<AllergieValueState>('allergieValueState');
+export const selectRoleState = createFeatureSelector<RoleState>('roleState');
+
 
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -110,5 +115,6 @@ export const reducers: ActionReducerMap<AppState> = {
     produitState: produitsReducer,
     institutionState: institutionsReducer,
     profileState: profilesReducer,
-    userState: usersReducer
+    userState: usersReducer,
+    roleState: rolesReducer
 }

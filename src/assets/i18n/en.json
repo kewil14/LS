@@ -43,7 +43,8 @@
       "SETTING": "Setting",
       "UTILISATEUR":"User",
       "INSTITUTION":"Institutions",
-      "PARAMETRAGE":"Setting"
+      "PARAMETRAGE":"Setting",
+      "ROLE": "Roles"
     }
   },
   "FORMS": {

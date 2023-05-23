@@ -175,18 +175,24 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 29,
+        label: 'MENUITEMS.SETTING.ROLE',
+        icon: 'bxs-user-detail',
+        link: '/roles'
+    },
+    {
+        id: 30,
         label: 'MENUITEMS.SETTING.UTILISATEUR',
         icon: 'bxs-user-detail',
         link: '/user'
     },
     {
-        id: 30,
+        id: 31,
         label: 'MENUITEMS.SETTING.INSTITUTION',
         icon: 'bx-task',
         link: '/institution'
     },
     {
-        id: 28,
+        id: 32,
         label: 'MENUITEMS.SETTING.PARAMETRAGE',
         icon: 'bx bx-cog',
         link: '/setting'

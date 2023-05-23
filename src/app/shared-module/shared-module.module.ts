@@ -42,6 +42,11 @@ import { DisplayDetailTraitmentComponent } from './components/traitments/card/di
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
 import { FormCreateInstitutionComponent } from './components/institution/forms/form-create-institution/form-create-institution.component';
 import { SelectInstitutionComponent } from './components/institution/modal/select-institution/select-institution.component';
+import { ShowAuthoritiesComponent } from './components/roles/cards/show-authorities/show-authorities.component';
+import { AddRoleComponent } from './components/roles/forms/add-role/add-role.component';
+import { CheckAuthoritiesComponent } from './components/roles/forms/check-authorities/check-authorities.component';
+import { DataTablesModule } from 'angular-datatables';
+import { CurrentAuthoritiesComponent } from './components/roles/cards/current-authorities/current-authorities.component';
 
 
 
@@ -51,7 +56,8 @@ import { SelectInstitutionComponent } from './components/institution/modal/selec
     AddFamilleComponent, AddDciComponent, AddTypeAntecedentComponent,
     AddTypeIntrantComponent, AddIntrantValueComponent, AddTypeTraitementComponent, AddTraitementValueComponent,
     AddAntecedentValueComponent, AddValueComponent,AddTypeComponent,AddLaboratoireValueComponent,
-    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent, SelectInstitutionComponent
+    AddRadioValueComponent, AddTypeRadioComponent, AddTypeLaboratoireComponent, StatComponent, DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent, DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent, HeaderModalComponent, FormCreateInstitutionComponent, SelectInstitutionComponent,
+    ShowAuthoritiesComponent, AddRoleComponent, CheckAuthoritiesComponent, CurrentAuthoritiesComponent
     
   ],
   exports: [
@@ -59,15 +65,19 @@ import { SelectInstitutionComponent } from './components/institution/modal/selec
     AddAntecedentValueComponent, AddTypeAntecedentComponent, AddTraitementValueComponent, AddTypeTraitementComponent,
     AddFamilleComponent, AddIntrantValueComponent, AddRadioValueComponent, AddTypeRadioComponent, StatComponent, AddMedicamentComponent,
     AddTypeIntrantComponent, AddTypeLaboratoireComponent, AddLaboratoireValueComponent, AddValueComponent, AddTypeComponent,
-    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent,SelectInstitutionComponent
+    DisplayDetailMedicamentComponent, DisplayDetailCategoryComponent, DisplayDetailFormeComponent, DisplayDetailFamilleComponent, DisplayDetailDciComponent,DisplayDetailAllergieComponent, DisplayDetailAntecedentComponent, DisplayDetailIntrantComponent, DisplayDetailLaboratoireComponent, DisplayDetailRadioComponent, DisplayDetailTraitmentComponent,HeaderModalComponent,FormCreateInstitutionComponent, SelectInstitutionComponent,
+    ShowAuthoritiesComponent, AddRoleComponent, ShowAuthoritiesComponent, AddRoleComponent, CheckAuthoritiesComponent, CurrentAuthoritiesComponent
+
+
     
-    
+  
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
+    DataTablesModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),

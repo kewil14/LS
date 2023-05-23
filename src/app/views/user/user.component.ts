@@ -34,7 +34,6 @@ export class UserComponent implements OnInit {
 
     this.userState$ = this.storeService.select(selectUserState).pipe();
     this.users$ = of(users)
-    this.color.startsWith
   }
 
   ligneColor(firstLetter?: string){

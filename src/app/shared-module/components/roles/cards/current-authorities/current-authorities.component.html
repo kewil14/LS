@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xl-12">
+    <form  [formGroup]="authorityForm">
+      <div class="mb-3">
+        <label for="idAuthority">{{'FORM.AUTHORITY' | translate | titlecase }}</label>
+        <ng-select
+          #idAuthority
+          placeholder="{{'messages.authority.select' | translate | titlecase }}"
+          formControlName="name"
+          [ngClass]="{'is-invalid': submitted && authority['name'].errors}"
+          >
+          <ng-option *ngFor="let authority of authorities$|async" [value]="authority?.name">{{authority.name}}</ng-option>
+        </ng-select>
+        <div *ngIf="submitted && authority['name']?.errors" class="invalid-feedback">
+          <div *ngIf="authority['name']?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+          <div *ngIf="authority['name']?.errors!['min']"> {{'MESSAGES.ERRORS.MIN' | translate | titlecase }} </div>
+        </div>
+      </div>
+      </form>
+  </div>
+</div>

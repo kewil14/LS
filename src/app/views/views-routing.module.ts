@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { InstitutionComponent } from './institution/institution.component';
 import { LoadUserGuard } from '../core/shared/guards/load-user.guard';
 import { FaqsComponent } from './setting/faqs/faqs.component';
+import { RoleComponent } from './role/role.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
@@ -25,6 +26,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule), canActivate: [LoadUserGuard] },
   { path: 'institution', component: InstitutionComponent, loadChildren: () => import('./institution/institution.module').then(m => m.InstitutionModule) },
   { path: 'setting', component: FaqsComponent, loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule) },
+  { path: 'roles', component: RoleComponent, loadChildren: () => import('./role/role.module').then(m => m.RoleModule) },
+
 ];
 
 @NgModule({

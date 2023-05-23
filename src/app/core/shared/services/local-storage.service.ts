@@ -79,7 +79,7 @@ export class LocalStorageService {
       pageLength: 10,
       lengthMenu : [10, 25, 50],
       processing: true,
-      responsive: true,
+      responsive: true
     }
   }
 }

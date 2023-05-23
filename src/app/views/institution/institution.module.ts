@@ -7,11 +7,13 @@ import { DataTablesModule } from 'angular-datatables';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { HopiComponent } from './type/hopi/hopi.component';
 
 
 @NgModule({
   declarations: [
     InstitutionComponent,
+    HopiComponent,
   ],
   imports: [
     CommonModule,

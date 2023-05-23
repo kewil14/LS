@@ -19,7 +19,7 @@ export class SelectInstitutionComponent  implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  get selectInstitution() { return this.selectInstitutionForm.controls; }
+  get selectInstitution() { return this.selectInstitutionForm.controls }
 
   ngOnInit(): void {
     this.selectInstitutionForm = this.fb.group({

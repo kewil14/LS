@@ -1,4 +1,15 @@
+<router-outlet></router-outlet>
+
+ 
+
 <div class="container-fluid">
+  <!-- btn de creation -->
+ <div class="card-body mb-2 md-2">
+  <div class="col-auto">
+    <button type="button" class="btn btn-soft-success shadow-none" (click)="onCreateInstitution(create)">
+      <i class="ri-add-circle-line align-middle me-1"></i> create</button>
+  </div>
+</div>
     <div class="row">
       <div class="col-xl-5">
         <div class="card overflow-hidden">
@@ -49,13 +60,7 @@
         </div>
         <!-- end card -->
 
-        <!-- btn de creation -->
-          <div class="card-body mb-2 md-2">
-            <div class="col-auto">
-              <button type="button" class="btn btn-soft-success shadow-none" (click)="onCreateInstitution(create)">
-                <i class="ri-add-circle-line align-middle me-1"></i> create</button>
-            </div>
-          </div>
+       
           
         
   
@@ -173,4 +178,6 @@
        ></health-select-institution>
     </div>
   </ng-template>
+
+
   

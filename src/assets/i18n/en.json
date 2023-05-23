@@ -75,7 +75,8 @@
     "HEADER":{
       "EDIT": "Edition Form"
     },
-    "ACTION":"actions"
+    "ACTION":"actions",
+    "SELECT-TYPE":"select the type"
   },
   "ACTIONS": {
     "UPDATE": "update", 
@@ -91,7 +92,8 @@
     "CHECK": "check",
     "RESET": "reset",
     "SAVE": "save",
-    "ACTION": "action"
+    "ACTION": "action",
+    "SELECT": "select"
   },
   "MESSAGES": {
     "ERRORS": {
@@ -119,5 +121,11 @@
     "LOGIN": "login",
     "REQUIRED": "required",
     "UNREQUIRED": "unrequired"
+  },
+  "INSTITUTION":{
+    "ASSURANCE": "assessment",
+    "COMMUNE": "",
+    "HOPI": "",
+    "PHARMA": ""
   }
 }

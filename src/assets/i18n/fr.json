@@ -76,7 +76,8 @@
     "HEADER":{
       "EDIT": "Formulaire de modification"
     },
-    "ACTION":"actions"
+    "ACTION":"actions",
+    "SELECT-TYPE":"selectionner le type"
   },
   "ACTIONS": {
     "UPDATE": "mise à jour",
@@ -89,10 +90,10 @@
     "ENABLE": "activer",
     "ADD": "ajouter",
     "CANCEL": "Annuler",
-    "CHECK": "vérifier",
     "RESET": "réinitialiser",
     "SAVE": "enregistrer",
-    "ACTION": "action"
+    "ACTION": "action",
+    "SELECT": "selectionner"
   },
   "MESSAGES": {
     "ERRORS": {
@@ -118,5 +119,11 @@
     "LOGIN": "connexion",
     "REQUIRED": "requis",
     "UNREQUIRED": "non requis"
+  },
+  "INSTITUTION":{
+    "ASSURANCE": "assurance",
+    "COMMUNE": "commune",
+    "HOPI": "hopital",
+    "PHARMA": "pharmacie"
   }
 }

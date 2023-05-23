@@ -49,5 +49,8 @@ export class UserComponent implements OnInit {
     return this.color
   }
   
+  onCreateUser(){
+
+  }
 
 }

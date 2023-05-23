@@ -1,147 +1,258 @@
-<!-- <form (ngSubmit)="constructInstitution()" [formGroup]="institutionForm">
+<form (ngSubmit)="constructInstitution()" [formGroup]="institutionForm">
   <div class="row">
       <div formGroupName="institution">
           <div class="row">
               <div class="col-lg-6">
                   <div class="mb-3">
                       <label for="name" class="form-label">{{'FORMS.NAME'|translate | titlecase}}</label>
-                      <input type="text" class="form-control" id="firstname"
+                      <input type="text" class="form-control" id="name"
                           formControlName="name"
-                          [ngClass]="{'is-invalid': isInstitutionFormSubmitted && user['customer'].get('firstname')?.errors}" placeholder="{{'FORMS.FIRSTNAME'|translate | titlecase}}">
-                      <div *ngIf="isUserFormSubmitted && user['customer'].get('firstname')?.errors" class="invalid-feedback">
-                          <div *ngIf="user['customer'].get('firstname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                          <div *ngIf="user['customer'].get('firstname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                          <div *ngIf="user['customer'].get('firstname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                          [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['name'].get('name')?.errors}" placeholder="">
+                      <div *ngIf="isInstitutionFormSubmitted && institution['name'].get('name')?.errors" class="invalid-feedback">
+                          <div *ngIf="institution['name'].get('name')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                          <div *ngIf="institution['name'].get('name')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                          <div *ngIf="institution['name'].get('name')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
                       </div>
                   </div>
               </div>
               <div class="col-lg-6">
-                  <div class="mb-3">
-                      <label for="lastname" class="form-label">{{'FORMS.LASTNAME'|translate | titlecase}}</label>
-                      <input type="text" class="form-control" id="lastname" formControlName="lastname"
-                          [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('lastname')?.errors}" placeholder="{{'FORMS.LASTNAME'|translate | titlecase}}">
-                      <div *ngIf="isUserFormSubmitted && user['customer'].get('lastname')?.errors" class="invalid-feedback">
-                          <div *ngIf="user['customer'].get('lastname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                          <div *ngIf="user['customer'].get('lastname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                          <div *ngIf="user['customer'].get('lastname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                      </div>
-                  </div>
-              </div>
+                <div class="mb-3">
+                    <label for="code" class="form-label">{{'FORMS.CODE'|translate | titlecase}}</label>
+                    <input type="text" class="form-control" id="code"
+                        formControlName="code"
+                        [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['code'].get('code')?.errors}" placeholder="">
+                    <div *ngIf="isInstitutionFormSubmitted && institution['code'].get('code')?.errors" class="invalid-feedback">
+                        <div *ngIf="institution['code'].get('code')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                        <div *ngIf="institution['code'].get('code')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                        <div *ngIf="institution['code'].get('code')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+                    </div>
+                </div>
+            </div>
+              
           </div>
-          
-          <div class="col-lg-12">
-              <div class="mb-3">
-                  <label for="sexe" class="form-label">{{'FORMS.SEXE'|translate |titlecase}}</label>
-                  <ng-select
-                      [items]="listSexes"
-                      formControlName="sexe"
-                      [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('sexe')?.errors}"
-                      placeholder="{{'FORMS.SEXE'|translate | titlecase}}"
-                  ></ng-select>
-                  <div *ngIf="isUserFormSubmitted && user['customer'].get('sexe')?.errors" class="invalid-feedback">
-                      <div *ngIf="user['customer'].get('sexe')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                      <div *ngIf="user['customer'].get('sexe')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                      <div *ngIf="user['customer'].get('sexe')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                  </div>
-              </div>
-          </div>
-          <div formGroupName="address">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div class="mb-3">
-                          <label for="phone1" class="form-label">{{'FORMS.PHONE'|translate |titlecase}}</label>
-                          <input type="number" class="form-control" id="phone1"
-                              placeholder="{{'FORMS.PHONE'|translate | titlecase}}"
-                              formControlName="phone1"
-                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('phone1')?.errors}">
-                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('phone1')?.errors" class="invalid-feedback">
-                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('phone1')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="mb-3">
-                          <label for="email" class="form-label">{{'FORMS.EMAIL'|translate|titlecase}}</label>
-                          <input type="email" class="form-control" id="email"
-                              placeholder="{{'FORMS.EMAIL'|translate | titlecase}}"
-                              formControlName="email"
-                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('email')?.errors}" />
-                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('email')?.errors" class="invalid-feedback">
-                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('email')?.errors!['email']"> {{'MESSAGES.ERRORS.EMAIL-NOT-VALIDE' | translate | titlecase }} </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-lg-4">
-                      <div class="mb-3">
-                          <label for="city" class="form-label">{{'FORMS.CITY'|translate|titlecase}}</label>
-                          <input type="text" class="form-control" id="city"
-                              placeholder="{{'FORMS.CITY'|translate|titlecase}}"
-                              formControlName="city"
-                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('city')?.errors}"  />
-                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('city')?.errors" class="invalid-feedback">
-                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('city')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4">
-                      <div class="mb-3">
-                          <label for="state" class="form-label">{{'FORMS.STATE'|translate|titlecase}}</label>
-                          <input type="text" class="form-control" id="state"
-                              placeholder="{{'FORMS.STATE'|translate|titlecase}}"
-                              formControlName="state"
-                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('state')?.errors}"  />
-                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('state')?.errors" class="invalid-feedback">
-                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('state')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4">
-                      <div class="mb-3">
-                          <label for="street" class="form-label">{{'FORMS.STREET'|translate|titlecase}}</label>
-                          <input type="text" class="form-control" id="street"
-                              placeholder="{{'FORMS.STREET'|translate|titlecase}}"
-                              formControlName="street"
-                              [ngClass]="{'is-invalid': isUserFormSubmitted && user['customer'].get('address')?.get('street')?.errors}"  />
-                          <div *ngIf="isUserFormSubmitted && user['customer'].get('address')?.get('street')?.errors" class="invalid-feedback">
-                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                              <div *ngIf="user['customer'].get('address')?.get('street')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-lg-12">
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
           <div class="mb-3">
-              <label for="username" class="form-label">{{'FORMS.USERNAME'|translate|titlecase}}</label>
-              <input type="text" class="form-control" id="username"
-                  placeholder="{{'FORMS.USERNAME'|translate|titlecase}}"
-                  formControlName="username"
-                  [ngClass]="{'is-invalid': isUserFormSubmitted && user['username'].errors}"  />
-              <div *ngIf="isUserFormSubmitted && user['username'].errors" class="invalid-feedback">
-                  <div *ngIf="user['username'].errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
-                  <div *ngIf="user['username'].errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
-                  <div *ngIf="user['username'].errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+              <label for="category" class="form-label">{{'FORMS.CATEGORY'|translate | titlecase}}</label>
+              <input type="text" class="form-control" id="category"
+                  formControlName="category"
+                  [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['category'].get('firstname')?.errors}" placeholder="">
+              <div *ngIf="isInstitutionFormSubmitted && institution['category'].get('category')?.errors" class="invalid-feedback">
+                  <div *ngIf="institution['category'].get('category')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                  <div *ngIf="institution['category'].get('category')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                  <div *ngIf="institution['category'].get('category')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
               </div>
           </div>
       </div>
-      <div class="col-lg-12">
-          <div class="hstack gap-2 justify-content-end">
-              <button type="submit" class="btn btn-primary">{{'ACTIONS.ADD' |translate |titlecase}}</button>
-              <button type="button" class="btn btn-soft-success">{{'ACTIONS.CANCEL'|translate |titlecase}}</button>
+      <div class="col-lg-6">
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">{{'FORMS.PHONE'|translate | titlecase}}</label>
+            <input type="number" class="form-control" id="phoneNumber"
+                formControlName="phoneNumber"
+                [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['phoneNumber'].get('phoneNumber')?.errors}" placeholder="">
+            <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('phoneNumber')?.errors" class="invalid-feedback">
+                <div *ngIf="institution['phoneNumber'].get('phoneNumber')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                <div *ngIf="institution['phoneNumber'].get('phoneNumber')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                <div *ngIf="institution['phoneNumber'].get('phoneNumber')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <div class="mb-3">
+            <label for="site" class="form-label">{{'FORMS.WEB_SITE'|translate | titlecase}}</label>
+            <input type="text" class="form-control" id="site"
+                formControlName="site"
+                [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['institution'].get('firstname')?.errors}" placeholder="">
+            <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('site')?.errors" class="invalid-feedback">
+                <div *ngIf="institution['site'].get('site')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                <div *ngIf="institution['site'].get('site')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                <div *ngIf="institution['site'].get('site')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+          <label for="statut" class="form-label">{{'FORMS.STATUT'|translate | titlecase}}</label>
+          <input type="text" class="form-control" id="statut"
+              formControlName="statut"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['statut'].get('statut')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('firstname')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['statut'].get('statut')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['statut'].get('statut')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['statut'].get('statut')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
           </div>
       </div>
   </div>
-</form> -->
+    
+</div>
+<div class="row">
+  <div class="col-lg-6">
+      <div class="mb-3">
+          <label for="description" class="form-label">{{'FORMS.DESCRIPTION'|translate | titlecase}}</label>
+          <input type="text" class="form-control" id="description"
+              formControlName="description"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['description'].get('description')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('description')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['description'].get('description')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['description'].get('description')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['description'].get('description')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+        <label for="email" class="form-label">{{'FORMS.EMAIL|translate | titlecase}}</label>
+        <input type="email" class="form-control" id="email"
+            formControlName="email"
+            [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['email'].get('email')?.errors}" placeholder="">
+        <div *ngIf="isInstitutionFormSubmitted && institution['email'].get('description')?.errors" class="invalid-feedback">
+            <div *ngIf="institution['email'].get('email')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+            <div *ngIf="institution['email'].get('email')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+            <div *ngIf="institution['email'].get('email')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+</div>
+  
+</div>
+<div class="row">
+  <div class="col-lg-6">
+      <div class="mb-3">
+          <label for="logo" class="form-label">{{'FORMS.LOGO'|translate | titlecase}}</label>
+          <input type="image" class="form-control" id="logo"
+              formControlName="logo"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['institution'].get('logo')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('logo')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['logo'].get('logo')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['logo'].get('logo')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['logo'].get('logo')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+        <label for="boite" class="form-label">{{'FORMS.BOITE_POSTALE'|translate | titlecase}}</label>
+        <input type="text" class="form-control" id="boite"
+            formControlName="boite"
+            [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['boite'].get('boite')?.errors}" placeholder="">
+        <div *ngIf="isInstitutionFormSubmitted && institution['boite'].get('boite')?.errors" class="invalid-feedback">
+            <div *ngIf="institution['boite'].get('boite')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+            <div *ngIf="institution['boite'].get('boite')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+            <div *ngIf="institution['boite'].get('boite')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+</div>
+  
+</div>
+<div class="row">
+  <div class="col-lg-6">
+      <div class="mb-3">
+          <label for="quartier" class="form-label">{{'FORMS.QUARTER_CODE|translate | titlecase}}</label>
+          <input type="text" class="form-control" id="quartier"
+              formControlName="quartier"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['quartier'].get('quartier')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['quartier'].get('quartier')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['quartier'].get('quartier')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['quartier'].get('quartier')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['quartier'].get('quartier')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+        <label for="district" class="form-label">{{'FORMS.DISTRICT_CODE'|translate | titlecase}}</label>
+        <input type="text" class="form-control" id="district"
+            formControlName="district"
+            [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['district'].get('district')?.errors}" placeholder="">
+        <div *ngIf="isInstitutionFormSubmitted && institution['district'].get('district')?.errors" class="invalid-feedback">
+            <div *ngIf="institution['district'].get('district')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+            <div *ngIf="institution['district'].get('district')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+            <div *ngIf="institution['district'].get('district')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+</div>
+  
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="mb-3">
+            <label for="department" class="form-label">{{'FORMS.DEPARTMENT_CODE'|translate | titlecase}}</label>
+            <input type="text" class="form-control" id="department"
+                formControlName="department"
+                [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['department'].get('department')?.errors}" placeholder="">
+            <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('department')?.errors" class="invalid-feedback">
+                <div *ngIf="institution['department'].get('department')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                <div *ngIf="institution['department'].get('department')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                <div *ngIf="institution['department'].get('department')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+          <label for="region" class="form-label">{{'FORMS.REGION_CODE'|translate | titlecase}}</label>
+          <input type="text" class="form-control" id="region"
+              formControlName="region"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['region'].get('region')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['region'].get('firstname')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['region'].get('region')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['region'].get('region')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['region'].get('region')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+          </div>
+      </div>
+  </div>
+    
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="mb-3">
+            <label for="lattitude" class="form-label">{{'FORMS.LATTITUDE'|translate | titlecase}}</label>
+            <input type="text" class="form-control" id="lattitude"
+                formControlName="lattitude"
+                [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['institution'].get('lattitude')?.errors}" placeholder="">
+            <div *ngIf="isInstitutionFormSubmitted && institution['institution'].get('lattitude')?.errors" class="invalid-feedback">
+                <div *ngIf="institution['lattitude'].get('firstname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+                <div *ngIf="institution['lattitude'].get('firstname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+                <div *ngIf="institution['lattitude'].get('firstname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="mb-3">
+          <label for="longitude" class="form-label">{{'FORMS.LONGITUDE'|translate | titlecase}}</label>
+          <input type="text" class="form-control" id="longitude"
+              formControlName="longitude"
+              [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['institution'].get('longitude')?.errors}" placeholder="">
+          <div *ngIf="isInstitutionFormSubmitted && institution['longitude'].get('longitude')?.errors" class="invalid-feedback">
+              <div *ngIf="institution['longitude'].get('firstname')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+              <div *ngIf="institution['longitude'].get('firstname')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+              <div *ngIf="institution['longitude'].get('firstname')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="mb-3">
+        <label for="type" class="form-label">{{'FORMS.TYPE'|translate | titlecase}}</label>
+        <input type="text" class="form-control" id="type"
+            formControlName="type"
+            [ngClass]="{'is-invalid': isInstitutionFormSubmitted && institution['institution'].get('type')?.errors}" placeholder="">
+        <div *ngIf="isInstitutionFormSubmitted && institution['type'].get('type')?.errors" class="invalid-feedback">
+            <div *ngIf="institution['type'].get('type')?.errors!['required']">{{'MESSAGES.ERRORS.REQUIRED' | translate | titlecase }}</div>
+            <div *ngIf="institution['type'].get('type')?.errors!['minlength']"> {{'MESSAGES.ERRORS.SIZE-NIM' | translate | titlecase }} </div>
+            <div *ngIf="institution['type'].get('type')?.errors!['maxlength']"> {{'MESSAGES.ERRORS.SIZE-MAX' | translate | titlecase }} </div>
+        </div>
+    </div>
+</div>
+    
+</div>
+<div class="col-lg-12">
+    <div class="hstack gap-2 justify-content-end">
+        <button type="submit" class="btn btn-primary">{{'ACTIONS.ADD' |translate |titlecase}}</button>
+        <button type="button" class="btn btn-soft-success">{{'ACTIONS.CANCEL'|translate |titlecase}}</button>
+    </div>
+</div>
+
+</form>

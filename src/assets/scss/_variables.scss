@@ -1,5 +1,5 @@
 // Variables
-
+$health:  #0cae2d;
 //
 // custom-variables
 //
@@ -16,7 +16,7 @@ $sidebar-collapsed-width:  70px;
 $sidebar-width-sm:  160px;
 
 // Vertical Sidebar - Dark
-$sidebar-dark-bg: #0A90D2; //2c313a
+$sidebar-dark-bg: $health; //2c313a
 $sidebar-dark-menu-item-color: #000;
 $sidebar-dark-menu-sub-item-color: #000;
 $sidebar-dark-menu-item-icon-color: #000;
@@ -120,7 +120,6 @@ $yellow:  #f1b44c;
 $green:   #34c38f;
 $teal:    #050505;
 $cyan:    #50a5f1;
-$health:  #0A90D2;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map

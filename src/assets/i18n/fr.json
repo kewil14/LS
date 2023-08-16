@@ -78,7 +78,10 @@
       "EDIT": "Formulaire de modification"
     },
     "ACTION":"actions",
-    "SELECT-TYPE":"selectionner le type"
+    "SELECT-TYPE":"selectionner le type",
+    "CATEGORY":"categori",
+    "WEB_SITE":"site web",
+    "STATUT":"statut"
   },
   "ACTIONS": {
     "UPDATE": "mise à jour",

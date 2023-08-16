@@ -77,7 +77,11 @@
       "EDIT": "Edition Form"
     },
     "ACTION":"actions",
-    "SELECT-TYPE":"select the type"
+    "SELECT-TYPE":"select the type",
+    "CATEGORY":"category",
+    "WEB_SITE":"website",
+    "STATUT":"statut"
+
   },
   "ACTIONS": {
     "UPDATE": "update", 

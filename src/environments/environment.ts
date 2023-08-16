@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  baseUrlHealthCustomersApi: 'https://gateway.health-care.cm/customer',
-  BaseUrlHealthHospiCore: 'https://gateway.health-care.cm/health-hospi-core'
 };
 
 

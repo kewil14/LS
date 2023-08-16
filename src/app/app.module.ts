@@ -3,30 +3,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { LayoutsModule } from './layouts/layouts.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModuleModule } from './shared-module/shared-module.module';
+import { LandingComponent } from './landing/landing.component';
 
-import { TitleStrategy } from '@angular/router';
-import { PageTitleStrategy } from './core/shared/strategies/page-title.strategy';
-import { CoreModule } from './core/core.module';
-import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     HttpClientModule,
-    LayoutsModule,
-    CoreModule,
     AppRoutingModule,
-    NgSelectModule
+    SharedModuleModule
   ],
   providers: [
-    {provide: TitleStrategy, useClass: PageTitleStrategy}
   ],
   bootstrap: [AppComponent],
 })

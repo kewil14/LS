@@ -1,5 +1,5 @@
 // Variables
-$health:  #0cae2d;
+$ges:  #ff8800;
 //
 // custom-variables
 //
@@ -16,7 +16,7 @@ $sidebar-collapsed-width:  70px;
 $sidebar-width-sm:  160px;
 
 // Vertical Sidebar - Dark
-$sidebar-dark-bg: $health; //2c313a
+$sidebar-dark-bg: $ges; //2c313a
 $sidebar-dark-menu-item-color: #000;
 $sidebar-dark-menu-sub-item-color: #000;
 $sidebar-dark-menu-item-icon-color: #000;
@@ -138,12 +138,12 @@ $colors: (
     "white":      $white,
     "gray":       $gray-600,
     "gray-dark":  $gray-800,
-    "health":     $health
+    "ges":     $ges
 );
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       $blue;
+$primary:       $ges;
 $secondary:     $gray-600;
 $success:       $green;
 $info:          $cyan;
@@ -151,12 +151,12 @@ $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-200;
 $dark:          $gray-800;
-$health:        $health;
+$ges:        $ges;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-    "primary":    $health,
+    "primary":    $ges,
     "secondary":  $secondary,
     "success":    $success,
     "info":       $info,
@@ -165,7 +165,7 @@ $theme-colors: (
     "pink":       $pink,
     "light":      $light,
     "dark":       $dark,
-    "health":     $health,
+    "ges":     $ges,
 );
 // scss-docs-end theme-colors-map
 
@@ -788,7 +788,7 @@ $table-variants: (
   "danger":     shift-color($danger, $table-bg-scale),
   "light":      $light,
   "dark":       $dark,
-  "health":     $health,
+  "ges":     $ges,
 );
 // scss-docs-end table-loop
 
@@ -1290,7 +1290,7 @@ $pagination-hover-bg:               var(--#{$prefix}gray-200);
 $pagination-hover-border-color:     var(--#{$prefix}gray-400);
 
 $pagination-active-color:           $component-active-color;
-$pagination-active-bg:              $health;
+$pagination-active-bg:              $ges;
 $pagination-active-border-color:    $pagination-active-bg;
 
 $pagination-disabled-color:         var(--#{$prefix}gray-400);

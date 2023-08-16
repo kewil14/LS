@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <ul class="cards">
+        <li class="card" *ngFor="let img of images">
+            <div class="view front-view">
+                <img src="/assets/font.jpg" alt="fond" width="78px" height="78px" class="rounded">
+                <!-- <span class="material-icons"></span> -->
+            </div>
+             <div class="view back-view"  >
+                <img src="/assets/image_game/img-{{img.num}}.png" alt="image {{img.num}}">
+            </div>
+    </li>
+    </ul>
+</div>
+   
